@@ -7,7 +7,6 @@ export default function App() {
 
     const increment = () => {
         setCounter((prev) => prev + 1);
-        setCounter((prev) => prev + 1);
     };
 
     return (
