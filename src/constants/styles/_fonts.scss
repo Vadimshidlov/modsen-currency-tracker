@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/src/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/src/assets/fonts/Inter-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin InterRegularFont {
+    font-family: "Inter";
+    font-weight: 400;
+}
+
+@mixin PoppinsRegularFont {
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+@mixin PoppinsSemiBoldFont {
+    font-weight: 600;
+    font-family: "Poppins";
+}
+
+@mixin PoppinsLight {
+    font-weight: 300;
+    font-family: "Poppins";
+}
+
+$font-size_32: 32px;
+$font-size_20: 20px;
+$font-size_25: 25px;
+$font-size_76: 76px;
+$font-size_90: 90.36px;
+
+/* .poppins-300-font {
+    @include PoppinsLight;
+}
+
+.poppins-400-font {
+    @include PoppinsLight;
+}
+
+.poppins-600-font {
+    @include PoppinsLight;
+}
+
+.inter-400-font {
+    @include PoppinsLight;
+} */

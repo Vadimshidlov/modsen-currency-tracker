@@ -1,0 +1,44 @@
+@use "../../constants/styles/fonts" as fonts;
+@use "../../constants/styles/colors" as colors;
+@import "../../index.scss";
+// @import "../../constants/styles/colors";
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1240px;
+    height: 103px;
+    margin: 0px auto;
+}
+
+.header__navigation {
+    width: 657px;
+
+    .navigation-list {
+        display: flex;
+        justify-content: space-between;
+
+        .navigation-list__item {
+            @include fonts.PoppinsLight;
+            color: colors.$color_white;
+            font-size: fonts.$font-size_20;
+        }
+    }
+}
+
+.theme-button {
+    background: transparent;
+    border: 1px solid colors.$color_white;
+    width: 50px;
+    height: 30px;
+    border-radius: 30%;
+
+    .theme-button__button {
+        background: transparent;
+        border: 1px solid colors.$color_white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+}
