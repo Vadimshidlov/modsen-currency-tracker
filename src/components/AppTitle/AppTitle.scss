@@ -6,30 +6,48 @@
     width: 1420px;
     display: flex;
     margin: 0px auto;
-    background: linear-gradient(252.93deg, rgba(18, 18, 18, 1) 11.77%, rgba(36, 121, 64, 0) 91.12%);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: linear-gradient(225deg, #121212 0%, rgba(36, 121, 64, 0) 100%);
+    padding-left: 57px;
 
     .app-title__about .about {
     }
 
     .about__text {
+        width: 397px;
+        height: 97px;
+        text-align: center;
+        margin-left: 356px;
+        margin-bottom: 58px;
+        line-height: 46.77px;
+
         @include fonts.PoppinsLight;
+        // @include fonts.PoppinsSemiBoldFont;
         font-size: fonts.$font-size_25;
         color: colors.$color_grey;
     }
+
+    .app-title__image {
+        padding-top: 45px;
+    }
 }
 
-.about__title {
-    @include fonts.PoppinsSemiBoldFont;
-    background: colors.$app_title_gradient;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: fonts.$font-size_90;
-}
+.about__titles {
+    .about__title {
+        padding-left: 342px;
+        @include fonts.PoppinsSemiBoldFont;
+        background: colors.$app_title_gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: fonts.$font-size_90;
+    }
 
-.about__sub-title {
-    @include fonts.PoppinsSemiBoldFont;
-    background: linear-gradient(to right, #00ce2c, #aedf23, #a3dc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: fonts.$font-size_76;
+    .about__sub-title {
+        padding-top: 32px;
+        @include fonts.PoppinsSemiBoldFont;
+        background: linear-gradient(to right, #00ce2c, #aedf23, #a3dc00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: fonts.$font-size_76;
+    }
 }

@@ -1,29 +1,29 @@
 @font-face {
     font-family: "Poppins";
     src: url("/src/assets/fonts/Poppins-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 400;
+    // font-style: normal;
 }
 
 @font-face {
     font-family: "Poppins";
     src: url("/src/assets/fonts/Poppins-Light.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 300;
+    // font-style: normal;
 }
 
 @font-face {
     font-family: "Poppins";
     src: url("/src/assets/fonts/Poppins-SemiBold.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 600;
+    // font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
     src: url("/src/assets/fonts/Inter-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 300;
+    // font-style: normal;
 }
 
 @mixin InterRegularFont {
@@ -47,6 +47,7 @@
 }
 
 $font-size_32: 32px;
+$font-size_33: 33px;
 $font-size_20: 20px;
 $font-size_25: 25px;
 $font-size_76: 76px;
