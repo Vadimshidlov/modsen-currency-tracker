@@ -1,7 +1,22 @@
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import webpack from "webpack";
-import { buildWebpack } from "config/build/buildWebpack";
-import { BuildModeType, BuildPaths } from "config/build/types/types";
+
+export interface BuildPaths {
+    entry: string;
+    html: string;
+    output: string;
+    src: string;
+}
+
+export type BuildModeType = "production" | "development";
+
+export interface BuildOptions {
+    port: number;
+    paths: BuildPaths;
+    mode: BuildModeType;
+}
 
 interface EnvVariable {
     mode: BuildModeType;
@@ -16,14 +31,71 @@ export default (env: EnvVariable) => {
         src: path.resolve(__dirname, "src"),
     };
 
-    // const isDev = env.mode === "development";
-    // const isProd = env.mode === "production";
-
-    const config: webpack.Configuration = buildWebpack({
+    const options = {
         port: env.port ?? 3000,
         mode: env.mode ?? "development",
         paths,
-    });
+    };
 
-    return config;
+    const isDev = env.mode === "development";
+    const isProd = env.mode === "production";
+
+    return {
+        mode: env.mode ?? "development",
+        entry: paths.entry,
+        output: {
+            path: paths.output,
+            filename: "[name].[contenthash].js",
+            clean: true,
+        },
+        plugins: [
+            new HtmlWebpackPlugin({ template: options.paths.html }),
+            isDev && new webpack.ProgressPlugin(),
+            isProd &&
+                new MiniCssExtractPlugin({
+                    filename: "css/[name].[contenthash-8].css",
+                    chunkFilename: "css/[name].[contenthash-8].css",
+                }),
+        ],
+        module: {
+            rules: [
+                {
+                    test: /\.(png|jpg|jpeg|gif)$/i,
+                    type: "asset/resource",
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                        isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+                        "css-loader",
+                        "sass-loader",
+                    ],
+                },
+                {
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: [{ loader: "@svgr/webpack", options: { icon: true } }],
+                },
+                {
+                    test: /\.tsx?$/,
+                    use: "ts-loader",
+                    exclude: /node_modules/,
+                },
+            ],
+        },
+        resolve: {
+            extensions: [".tsx", ".ts", ".js"],
+            alias: {
+                "@": options.paths.src,
+            },
+        },
+        devtool: isDev && "inline-source-map",
+        devServer: isDev
+            ? {
+                  port: options.port ?? 3000,
+                  open: true,
+                  historyApiFallback: true,
+              }
+            : undefined,
+    };
 };
