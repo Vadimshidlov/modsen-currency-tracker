@@ -55,5 +55,6 @@ module.exports = {
         "prettier/prettier": ["error", { endOfLine: "auto" }],
         "react/button-has-type": "off",
         "react/jsx-props-no-spreading": "off",
+        "react/react-in-jsx-scope": "off",
     },
 };
