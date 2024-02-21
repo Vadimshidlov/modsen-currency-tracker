@@ -13,9 +13,10 @@ export default function Footer() {
                         <h5 className="info-title__text">Modsen Currency Tracker</h5>
                     </div>
                     <Text className="footer__info-text">
-                        Since then, the company has grown organically to. Starsup is the world's
-                        largest trading platform, with $12 billion worth of currency trading and
-                        500,000 tickets sold daily to tens of thousands of traders worldwide.
+                        Since then, the company has grown organically to. Starsup is the
+                        world&lsquo;s largest trading platform, with $12 billion worth of currency
+                        trading and 500,000 tickets sold daily to tens of thousands of traders
+                        worldwide.
                     </Text>
                 </div>
                 <div className="footer__links links">
