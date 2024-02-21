@@ -1,0 +1,56 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.app-title {
+    width: 1420px;
+    display: flex;
+    margin: 0px auto;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    padding-left: 57px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: linear-gradient(225deg, #121212 0%, rgba(36, 121, 64, 0) 100%);
+
+    .app-title__about .about {
+        box-shadow: 0px 3.16px 3.16px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .about__text {
+        width: 397px;
+        height: 97px;
+        text-align: center;
+        margin-left: 356px;
+        margin-bottom: 58px;
+        line-height: 46.77px;
+
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_25;
+        color: colors.$color_grey;
+    }
+
+    .app-title__image {
+        padding-top: 45px;
+    }
+}
+
+.about__titles {
+    .about__title {
+        padding-left: 342px;
+        @include fonts.PoppinsSemiBoldFont;
+        background: colors.$app_title_gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: fonts.$font-size_90;
+    }
+
+    .about__sub-title {
+        padding-top: 32px;
+        @include fonts.PoppinsSemiBoldFont;
+        background: linear-gradient(to right, #00ce2c, #aedf23, #a3dc00);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: fonts.$font-size_76;
+    }
+}

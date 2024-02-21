@@ -1,0 +1,18 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.last-update {
+    margin: 0 auto;
+    margin-bottom: 56px;
+    display: flex;
+    align-items: center;
+    column-gap: 18px;
+
+    .last-update__text {
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_33;
+        color: colors.$color_grey;
+        line-height: 41.14px;
+    }
+}

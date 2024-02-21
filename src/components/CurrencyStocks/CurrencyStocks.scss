@@ -1,0 +1,32 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.stocks__container {
+    margin: 0 auto;
+    margin-bottom: 86px;
+    max-width: 1224px;
+    .stocks__title {
+        margin-bottom: 24px;
+
+        @include fonts.PoppinsLight;
+        color: colors.$color_white;
+        font-size: fonts.$font-size_32;
+        line-height: 41.14px;
+        // border-bottom: 2px solid colors.$currency_card_border;
+        // border-bottom-width: 520px;
+    }
+
+    .title__border {
+        margin-bottom: 50px;
+        background-color: colors.$currency_card_border;
+        height: 2px;
+        width: 520px;
+    }
+
+    .stocks__items {
+        display: flex;
+        column-gap: 184px;
+        flex-wrap: wrap;
+    }
+}

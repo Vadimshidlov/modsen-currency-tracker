@@ -56,11 +56,15 @@ export default (env: EnvVariable) => {
                     filename: "css/[name].[contenthash-8].css",
                     chunkFilename: "css/[name].[contenthash-8].css",
                 }),
-        ],
+        ].filter(Boolean),
         module: {
             rules: [
                 {
                     test: /\.(png|jpg|jpeg|gif)$/i,
+                    type: "asset/resource",
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/i,
                     type: "asset/resource",
                 },
                 {

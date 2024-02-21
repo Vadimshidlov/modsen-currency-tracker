@@ -1,0 +1,32 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.quotes__container {
+    margin: 0 auto;
+    max-width: 1224px;
+    margin-bottom: 112px;
+
+    .quotes__title {
+        margin-bottom: 24px;
+        @include fonts.PoppinsLight;
+        color: colors.$color_white;
+        font-size: fonts.$font-size_32;
+        line-height: 41.14px;
+    }
+
+    .title__border {
+        margin-bottom: 50px;
+
+        background-color: colors.$currency_card_border;
+        height: 2px;
+        width: 520px;
+    }
+
+    .quotes__items {
+        display: flex;
+        column-gap: 184px;
+        row-gap: 56px;
+        flex-wrap: wrap;
+    }
+}

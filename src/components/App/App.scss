@@ -1,0 +1,15 @@
+@use "../../constants/styles/fonts" as fonts;
+@import "../../constants/styles/colors";
+
+button {
+    background: $black_background;
+    @include fonts.PoppinsRegularFont;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    // width: 100vw;
+    background-color: $black_background;
+}

@@ -1,0 +1,33 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.currency-card__containter {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+    width: 520px;
+    background-color: colors.$currency_card_background;
+    padding: 36px 32px;
+    border-radius: 8px;
+    border: 1px solid colors.$currency_card_border;
+
+    .currency-card__info {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        .currency-card__titile {
+            @include fonts.PoppinsRegularFont;
+            color: colors.$color_grey;
+            font-size: fonts.$font-size_35;
+            line-height: 49.37px;
+        }
+        .currency-card__percent {
+            @include fonts.PoppinsLight;
+            color: colors.$color_grey_medium-opacity;
+            font-size: fonts.$font-size_32;
+            line-height: 41.14px;
+        }
+    }
+}

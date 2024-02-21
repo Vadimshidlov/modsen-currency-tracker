@@ -1,0 +1,48 @@
+@use "../../../constants/styles/fonts" as fonts;
+@use "../../../constants/styles/colors" as colors;
+@import "../../../index.scss";
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border: 2px solid colors.$color_white;
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"] + .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    input[type="checkbox"]:checked + .slider {
+        transform: translateX(2px);
+    }
+
+    .slider:before {
+        content: "";
+        position: absolute;
+        width: 27px;
+        height: 27px;
+        background-color: transparent;
+        border: 2px solid colors.$color_white;
+        border-radius: 50%;
+        left: 0px;
+        bottom: 0px;
+        transition: all 0.5s ease;
+    }
+
+    input[type="checkbox"]:checked + .slider:before {
+        transform: translateX(20px);
+    }
+}
