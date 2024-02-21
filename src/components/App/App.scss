@@ -12,4 +12,8 @@ button {
     // height: 100vh;
     // width: 100vw;
     background-color: $black_background;
+
+    &.light-theme {
+        background-color: $white_background;
+    }
 }
