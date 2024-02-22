@@ -2,8 +2,12 @@ import React from "react";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import "@/components/Header/Header.scss";
 import ToggleTheme from "@/components/Header/ToggleTheme/ToggleTheme";
+// import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 export default function Header() {
+    // const reduxState = useTypedSelectorHook((state) => state.theme);
+    // console.log(reduxState);
+
     return (
         <div className="header__container">
             <div className="header__logo">

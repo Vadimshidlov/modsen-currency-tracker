@@ -1,5 +1,6 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 import path from "path";
 import webpack from "webpack";
 
@@ -51,6 +52,7 @@ export default (env: EnvVariable) => {
         plugins: [
             new HtmlWebpackPlugin({ template: options.paths.html }),
             isDev && new webpack.ProgressPlugin(),
+            isDev && new Dotenv(),
             isProd &&
                 new MiniCssExtractPlugin({
                     filename: "css/[name].[contenthash-8].css",

@@ -11,10 +11,17 @@
     padding: 36px 32px;
     border-radius: 8px;
     border: 1px solid colors.$currency_card_border;
+    transition: all 1s;
+
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
 
     .currency-card__info {
         display: flex;
         flex-direction: column;
+        align-items: start;
         row-gap: 10px;
 
         .currency-card__titile {

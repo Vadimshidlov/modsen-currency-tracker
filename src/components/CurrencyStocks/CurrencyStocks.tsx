@@ -2,6 +2,7 @@ import React from "react";
 import Text from "@/components/Text/Text";
 import CurrencyCard from "@/components/CurrencyCard/CurrencyCard";
 import "@/components/CurrencyStocks/CurrencyStocks.scss";
+import ModalWindow from "@/components/ModalWindow/ModalWindow";
 
 export default function CurrencyStocks() {
     return (
@@ -9,10 +10,11 @@ export default function CurrencyStocks() {
             <Text className="stocks__title title">Stocks</Text>
             <div className="title__border" />
             <div className="stocks__items">
-                {[0, 1].map(() => (
-                    <CurrencyCard />
+                {[1, 2].map(() => (
+                    <CurrencyCard currencyCode="USD" value={0.1555} />
                 ))}
             </div>
+            <ModalWindow isOpen={false} />
         </div>
     );
 }
