@@ -1,12 +1,14 @@
 export interface ICurrency {
     meta: MetaType;
-    data: {
-        [currencyCode: string]: {
-            code: string;
-            value: number;
-        };
-    };
+    data: CurrencyDataType;
 }
+
+export type CurrencyDataType = {
+    [currencyCode: string]: {
+        code: string;
+        value: number;
+    };
+};
 
 export interface IcurrentCurrencyState {
     currency: ICurrency;
@@ -75,7 +77,7 @@ const latestCurrencyReducer = (
             };
 
         case CurrentCurrencyAction.GET_CURR_CURRENCY_SUCCES:
-            return { isLoading: true, error: null, currency: action.payload };
+            return { isLoading: false, error: null, currency: action.payload };
 
         case CurrentCurrencyAction.GET_CURR_CURRENCY_ERROR:
             return { isLoading: true, error: action.payload, currency: intialCurrency };

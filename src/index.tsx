@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import App from "@/components/App/App";
 import { store } from "@/store";
+import "regenerator-runtime/runtime";
 
 const root = document.getElementById("root");
 

@@ -9,8 +9,8 @@ export default function CurrencyStocks() {
             <Text className="stocks__title title">Stocks</Text>
             <div className="title__border" />
             <div className="stocks__items">
-                {[0, 1].map(() => (
-                    <CurrencyCard />
+                {[1, 2].map(() => (
+                    <CurrencyCard currencyCode="USD" />
                 ))}
             </div>
         </div>

@@ -1,20 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { ISetupCache, setupCache } from "axios-cache-adapter";
 
-class AxiosCurrentCurrencyService {
+class AxiosCurrencyService {
     public requestApiInstance: AxiosInstance;
 
-    private CASH: ISetupCache;
-
     constructor() {
-        this.CASH = setupCache({
-            maxAge: 3 * 60 * 1000,
-        });
-
         this.requestApiInstance = axios.create({
-            baseURL: "https://api.currencyapi.com",
-            adapter: this.CASH.adapter,
+            baseURL: "https://api.currencyapi.com/v3/latest",
         });
     }
 
@@ -34,4 +26,4 @@ class AxiosCurrentCurrencyService {
     }
 }
 
-export default new AxiosCurrentCurrencyService();
+export default new AxiosCurrencyService();
