@@ -9,12 +9,25 @@ import CommercialDollarIcon from "@/assets/svg/currency/Rectangle 3.svg";
 import EuroIcon from "@/assets/svg/currency/euro.svg";
 import YenIcon from "@/assets/svg/currency/yen.svg";
 import YuanIcon from "@/assets/svg/currency/yuan.svg";
+import { useActions } from "@/store/hooks/useActions";
 
-export type CurrencyPropsType = { currencyCode: string };
+export type CurrencyPropsType = {
+    currencyCode: string;
+    value: number;
+};
 
-export default function CurrencyCard({ currencyCode }: CurrencyPropsType) {
+export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType) {
     let CurrencyIcon;
-    let currencyTitle;
+    let currencyTitle = "";
+    const currencyValue = +value.toFixed(2);
+
+    const { openModalWindow } = useActions();
+
+    const openModalHandler = () => {
+        if (currencyTitle) {
+            openModalWindow(currencyTitle, value);
+        }
+    };
 
     switch (currencyCode) {
         case "USD":
@@ -62,12 +75,12 @@ export default function CurrencyCard({ currencyCode }: CurrencyPropsType) {
     }
 
     return (
-        <div className="currency-card__containter">
+        <button className="currency-card__containter" onClick={() => openModalHandler()}>
             <CurrencyIcon width={80} height={80} />
             <div className="currency-card__info">
                 <Text className="currency-card__titile">{currencyTitle}</Text>
-                <Text className="currency-card__percent">0.15%</Text>
+                <Text className="currency-card__percent">{`R$ ${currencyValue}`}</Text>
             </div>
-        </div>
+        </button>
     );
 }
