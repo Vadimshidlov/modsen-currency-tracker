@@ -15,7 +15,9 @@
 
   .modal__content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
     position: relative;
     background-color: colors.$modal_background;
     margin: 10% auto;
@@ -28,12 +30,20 @@
       @include fonts.PoppinsLight;
       color: colors.$color_grey_medium-opacity;
       font-size: fonts.$font-size_32;
+      margin-bottom: 30px;
 
       .modal__selected-currency {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
+    }
+
+    .modal__converter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
     }
 
     .modal__close-button {

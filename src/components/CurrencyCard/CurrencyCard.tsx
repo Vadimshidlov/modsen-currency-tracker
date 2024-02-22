@@ -25,7 +25,7 @@ export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType)
 
     const openModalHandler = () => {
         if (currencyTitle) {
-            openModalWindow(currencyTitle, value);
+            openModalWindow(currencyTitle, value, currencyCode);
         }
     };
 

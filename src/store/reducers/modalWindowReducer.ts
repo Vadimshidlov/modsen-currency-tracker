@@ -6,6 +6,7 @@ export const CLOSE_MODAL_WINDOW = "CLOSE_MODAL_WINDOW";
 const initialState: ModalWindowStateType = {
     isOpen: false,
     currentCurrency: "",
+    currentCurrencyCode: "",
     currentCurrencyValue: 0,
 };
 
@@ -20,11 +21,13 @@ const modalWindowReducer = (
                 isOpen: true,
                 currentCurrency: action.payload.currentCurrency,
                 currentCurrencyValue: action.payload.currentCurrencyValue,
+                currentCurrencyCode: action.payload.currencyCode,
             };
         case CLOSE_MODAL_WINDOW:
             return {
                 isOpen: false,
                 currentCurrency: "",
+                currentCurrencyCode: "",
                 currentCurrencyValue: 0,
             };
 

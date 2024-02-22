@@ -3,9 +3,12 @@ import { ModalWindowActionType, OpenWindowActionType } from "@/store/types/types
 import { CLOSE_MODAL_WINDOW, OPEN_MODAL_WINDOW } from "@/store/reducers/modalWindowReducer";
 
 export const openModalWindow =
-    (currentCurrency: string, currentCurrencyValue: number) =>
+    (currentCurrency: string, currentCurrencyValue: number, currencyCode: string) =>
     (dispatch: Dispatch<OpenWindowActionType>) =>
-        dispatch({ type: OPEN_MODAL_WINDOW, payload: { currentCurrency, currentCurrencyValue } });
+        dispatch({
+            type: OPEN_MODAL_WINDOW,
+            payload: { currentCurrency, currentCurrencyValue, currencyCode },
+        });
 
 export const closeModalWindow = () => (dispatch: Dispatch<ModalWindowActionType>) =>
     dispatch({ type: CLOSE_MODAL_WINDOW });

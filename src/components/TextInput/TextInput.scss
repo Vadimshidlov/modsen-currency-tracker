@@ -1,0 +1,24 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.currency__input,
+.currency__input:disabled {
+  /*padding: 13px 10px;
+  width: 100%;
+  border: 1px solid #cbcbcb;
+  border-radius: 6px;
+  outline-color: #007aff;*/
+
+  @include fonts.PoppinsLight;
+  outline: none;
+  font-size: fonts.$font-size_20;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.currency__input:disabled {
+  opacity: 1;
+}

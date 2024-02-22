@@ -1,6 +1,7 @@
 export type ModalWindowStateType = {
     isOpen: boolean;
     currentCurrency: string;
+    currentCurrencyCode: string;
     currentCurrencyValue: number;
 };
 
@@ -11,6 +12,7 @@ export enum ThemeAction {
 
 export type OpenWindowPayloadType = {
     currentCurrency: string;
+    currencyCode: string;
     currentCurrencyValue: number;
 };
 

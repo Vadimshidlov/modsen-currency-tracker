@@ -7,6 +7,8 @@ import Text from "@/components/Text/Text";
 import CloseModalIcon from "@/assets/svg/modalWindow/icons8-close.svg";
 import useEscapeKey from "@/hooks/useCloseModalEscape";
 import useOutsideClick from "@/hooks/useOutsideClick";
+import SelectCurrency from "@/components/SelectCurrency/SelectCurrency";
+import { TextInput } from "@/components/TextInput/TextInput";
 
 export type ModalWindowPropsType = {
     isOpen: boolean;
@@ -30,11 +32,16 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
         <div className="modal__container">
             <div className="modal__content" ref={modalRef}>
                 <div className="modal__title">
-                    <h2 className="modal__selected-currency">
+                    <Text className="modal__selected-currency">
                         {currentCurrency}
                         <Text className="">Value for USD: {currentCurrencyValue}</Text>
-                    </h2>
+                    </Text>
                 </div>
+                <form className="modal__converter">
+                    <SelectCurrency />
+                    <TextInput className="currency__input" />
+                    <TextInput className="currency__input" placeholder={currentCurrency} disabled />
+                </form>
 
                 <CloseModalIcon
                     className="modal__close-button"
