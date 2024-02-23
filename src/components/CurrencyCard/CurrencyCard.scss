@@ -12,6 +12,7 @@
     border-radius: 8px;
     border: 1px solid colors.$currency_card_border;
     transition: all 1s;
+    outline: none;
 
     &:hover {
         opacity: 0.7;

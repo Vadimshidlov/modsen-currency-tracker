@@ -38,4 +38,32 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     // background-color: $black_background;
+
+    &.modal-open{
+        overflow: hidden;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding-left: 52px;
+    padding-right: 52px;
+    max-width: 1440px;
+
+    @media (max-width: 490px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.app-title__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1419px;
+
+    @media (max-width: 490px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }

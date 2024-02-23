@@ -12,6 +12,17 @@
     overflow: hidden;
     transition: all 1s;
 
+    @media (max-width: 712px) {
+        width: 30px;
+        height: 20px;
+    }
+
+    @media (max-width: 520px) {
+        width: 29px;
+        height: 18px;
+        border-radius: 10px;
+    }
+
     &:hover {
         opacity: 0.7;
         cursor: pointer;
@@ -46,9 +57,27 @@
         left: 0px;
         bottom: 0px;
         transition: all 0.5s ease;
+
+        @media (max-width: 712px) {
+            width: 15px;
+            height: 17px;
+        }
+
+        @media (max-width: 520px) {
+            width: 15px;
+            height: 15px;
+        }
     }
 
     input[type="checkbox"]:checked + .slider:before {
         transform: translateX(18px);
+
+        @media (max-width: 712px) {
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 520px) {
+            transform: translateX(8px);
+        }
     }
 }

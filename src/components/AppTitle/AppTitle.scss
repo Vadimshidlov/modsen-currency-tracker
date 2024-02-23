@@ -1,15 +1,13 @@
 @use "@/constants/styles/fonts" as fonts;
 @use "@/constants/styles/colors" as colors;
-@import "@/index.scss";
 
 .app-title {
-    width: 1420px;
+    width: 100%;
     display: flex;
     margin: 0px auto;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     padding-left: 57px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    // background: linear-gradient(225deg, #121212 0%, rgba(36, 121, 64, 0) 100%);
+    padding: 0 16px;
     background: linear-gradient(
         45deg,
         rgba(0, 0, 0, 0) 0%,

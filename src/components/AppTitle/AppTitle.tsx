@@ -5,7 +5,7 @@ import Text from "@/components/Text/Text";
 
 export default function AppTitle() {
     return (
-        <div className="app-title">
+        <div className="app-title app-title__container">
             <div className="app-title__about about">
                 <div className="about__titles">
                     <h2 className="about__sub-title">Modsen Currency</h2>

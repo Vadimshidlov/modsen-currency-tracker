@@ -9,10 +9,8 @@ export default function Header() {
     // console.log(reduxState);
 
     return (
-        <div className="header__container">
-            <div className="header__logo">
-                <HeaderSvg width={40} height={41} />
-            </div>
+        <div className="header__container container">
+            <HeaderSvg className="header__logo" width={40} height={41} />
             <nav className="header__navigation navigation">
                 <ul className="navigation-list">
                     <li className="navigation-list__item">Home</li>

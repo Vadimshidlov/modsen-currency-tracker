@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import "@/components/ModalWindow/ModalWindow.scss";
 import { useActions } from "@/store/hooks/useActions";
@@ -9,18 +9,62 @@ import useEscapeKey from "@/hooks/useCloseModalEscape";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import SelectCurrency from "@/components/SelectCurrency/SelectCurrency";
 import { TextInput } from "@/components/TextInput/TextInput";
+import { getConvertResult } from "@/utils/getConvertResult";
+import ConverterTitle from "@/components/ModalWindow/ConverterTitle/ConverterTitle";
 
 export type ModalWindowPropsType = {
     isOpen: boolean;
 };
 
 function ModalWindow({ isOpen }: ModalWindowPropsType) {
-    const { closeModalWindow } = useActions();
-    const { currentCurrencyValue, currentCurrency } = useTypedSelectorHook(
-        (state) => state.modalWindow,
-    );
+    const { closeModalWindow, selectSecondCurrency } = useActions();
+    const { currency } = useTypedSelectorHook((state) => state.currency);
+    const {
+        currentCurrencyValue,
+        currentCurrencyTitle,
+        currentCurrencyCode,
+        secondCurrencyValue,
+        secondCurrencyCode,
+    } = useTypedSelectorHook((state) => state.modalWindow);
+
+    const [currencyInputValue, setCurrencyInputValue] = useState<string>("0");
+    const [resulInputValue, setResultInputValue] = useState<string>("0");
 
     const modalRef = useRef<HTMLDivElement>(null);
+
+    const currencyInputHandler = useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            const value = event.target.value.replace(/\D/g, "");
+            setCurrencyInputValue(value);
+            setResultInputValue(getConvertResult(currentCurrencyValue, secondCurrencyValue, value));
+        },
+        [currentCurrencyValue, secondCurrencyValue],
+    );
+
+    const secondCurrencyHandler = useCallback(
+        (event: React.ChangeEvent<HTMLSelectElement>) => {
+            const { value: selectCurrencyCode, name: selectedSecondCurrency } = event.target;
+            const { value: secondStateCurrencyValue } = currency.data[selectCurrencyCode];
+
+            selectSecondCurrency(
+                selectedSecondCurrency,
+                secondStateCurrencyValue,
+                selectCurrencyCode,
+            );
+
+            setCurrencyInputValue("0");
+            setResultInputValue("0");
+        },
+        [selectSecondCurrency, currency.data],
+    );
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.classList.remove("modal-open");
+        }
+    }, [isOpen]);
 
     useEscapeKey(closeModalWindow);
 
@@ -31,16 +75,35 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
     return createPortal(
         <div className="modal__container">
             <div className="modal__content" ref={modalRef}>
-                <div className="modal__title">
-                    <Text className="modal__selected-currency">
-                        {currentCurrency}
+                {/* <div className="modal__title">
+                    <div className="modal__selected-currency">
+                        <Text className="">{currentCurrencyTitle}</Text>
                         <Text className="">Value for USD: {currentCurrencyValue}</Text>
-                    </Text>
-                </div>
+                    </div>
+                </div> */}
+                <ConverterTitle
+                    currentCurrencyTitle={currentCurrencyTitle}
+                    currentCurrencyValue={currentCurrencyValue}
+                />
                 <form className="modal__converter">
-                    <SelectCurrency />
-                    <TextInput className="currency__input" />
-                    <TextInput className="currency__input" placeholder={currentCurrency} disabled />
+                    <SelectCurrency
+                        secondCurrencyCode={secondCurrencyCode}
+                        setSecondCurrency={secondCurrencyHandler}
+                        currentCurrencyCode={currentCurrencyCode}
+                        data={currency.data}
+                    />
+                    <TextInput
+                        className="currency__input"
+                        value={currencyInputValue}
+                        onChange={currencyInputHandler}
+                    />
+                    <Text className="currency__result-title">{secondCurrencyCode}:</Text>
+                    <TextInput
+                        className="currency__input"
+                        placeholder={currentCurrencyTitle}
+                        disabled
+                        value={resulInputValue}
+                    />
                 </form>
 
                 <CloseModalIcon

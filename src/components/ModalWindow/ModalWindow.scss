@@ -21,7 +21,7 @@
     position: relative;
     background-color: colors.$modal_background;
     margin: 10% auto;
-    height: 600px;
+    height: 45%;
     width: 50%;
     padding: 10px;
     border-radius: 10px;
@@ -44,6 +44,13 @@
       flex-direction: column;
       align-items: center;
       row-gap: 10px;
+
+      .currency__result-title {
+        @include fonts.PoppinsLight;
+        color: colors.$color_grey_medium-opacity;
+        font-size: fonts.$font-size_24;
+        align-self: end;
+      }
     }
 
     .modal__close-button {

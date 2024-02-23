@@ -34,7 +34,7 @@ export const getCurrencyTitleWithCode = (currencyCode: string) => {
             break;
 
         default:
-            currencyTitle = "Commercial Dollar";
+            currencyTitle = "";
     }
 
     return currencyTitle;
