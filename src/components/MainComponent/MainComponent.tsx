@@ -13,10 +13,10 @@ export default function MainComponent() {
     }, [getCurrency]);
 
     return (
-        <div className="main-block">
+        <main className="main-block main-block__container">
             <LastUpdate />
             <CurrencyStocks />
             <CurrencyQoutes />
-        </div>
+        </main>
     );
 }

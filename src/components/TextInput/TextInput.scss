@@ -4,12 +4,6 @@
 
 .currency__input,
 .currency__input:disabled {
-  /*padding: 13px 10px;
-  width: 100%;
-  border: 1px solid #cbcbcb;
-  border-radius: 6px;
-  outline-color: #007aff;*/
-
   @include fonts.PoppinsLight;
   outline: none;
   font-size: fonts.$font-size_20;
@@ -17,6 +11,14 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   cursor: pointer;
+
+  @media (max-width: 930px) {
+    font-size: fonts.$font-size_18;
+  }
+
+  @media (max-width: 768px) {
+    font-size: fonts.$font-size_15;
+  }
 }
 
 .currency__input:disabled {

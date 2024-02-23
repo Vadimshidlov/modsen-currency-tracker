@@ -1,6 +1,5 @@
 @use "../../constants/styles/fonts" as fonts;
 @use "../../constants/styles/colors" as colors;
-//@import "../../index.scss";
 
 .header__container {
   display: flex;
@@ -51,7 +50,7 @@
         font-size: fonts.$font-size_15;
       }
 
-      @media (max-width: 860px) {
+      @media (max-width: 430px) {
         font-size: fonts.$font-size_10;
       }
     }

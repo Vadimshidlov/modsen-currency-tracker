@@ -79,8 +79,8 @@ export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType)
     }
 
     return (
-        <button className="currency-card__containter" onClick={() => openModalHandler()}>
-            <CurrencyIcon width={80} height={80} />
+        <button className="currency-card__container" onClick={() => openModalHandler()}>
+            <CurrencyIcon className="currency-card__icon" />
             <div className="currency-card__info">
                 <Text className="currency-card__titile">{currencyTitle}</Text>
                 <Text className="currency-card__percent">{`R$ ${currencyValue}`}</Text>

@@ -16,6 +16,14 @@ select{
   cursor: pointer;
   width: 100%;
 
+  @media (max-width: 930px) {
+    font-size: fonts.$font-size_18;
+  }
+
+  @media (max-width: 768px) {
+    font-size: fonts.$font-size_15;
+  }
+
   .select__item{
     &:hover{
       cursor: pointer;

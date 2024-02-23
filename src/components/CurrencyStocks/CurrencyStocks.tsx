@@ -1,8 +1,9 @@
 import React from "react";
 import Text from "@/components/Text/Text";
-import CurrencyCard from "@/components/CurrencyCard/CurrencyCard";
 import "@/components/CurrencyStocks/CurrencyStocks.scss";
 import ModalWindow from "@/components/ModalWindow/ModalWindow";
+import { mockStockData } from "@/store/currency-data/mockStockData";
+import StockCard from "@/components/StockCard/StockCard";
 
 export default function CurrencyStocks() {
     return (
@@ -10,8 +11,8 @@ export default function CurrencyStocks() {
             <Text className="stocks__title title">Stocks</Text>
             <div className="title__border" />
             <div className="stocks__items">
-                {[1, 2].map(() => (
-                    <CurrencyCard currencyCode="USD" value={0.1555} />
+                {mockStockData.map((stockItem) => (
+                    <StockCard stockCode={stockItem.stockCode} value={stockItem.stockValue} />
                 ))}
             </div>
             <ModalWindow isOpen={false} />

@@ -14,7 +14,9 @@ export default function ConverterTitle({
         <div className="modal__title">
             <div className="modal__selected-currency">
                 <Text className="">{currentCurrencyTitle}</Text>
-                <Text className="">Value for USD: {currentCurrencyValue}</Text>
+                {/* <Text className="">Value for USD: {currentCurrencyValue}</Text> */}
+                <Text className="">Value for USD:</Text>
+                <Text className="">{currentCurrencyValue}</Text>
             </div>
         </div>
     );
