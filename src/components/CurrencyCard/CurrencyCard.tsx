@@ -10,6 +10,7 @@ import EuroIcon from "@/assets/svg/currency/euro.svg";
 import YenIcon from "@/assets/svg/currency/yen.svg";
 import YuanIcon from "@/assets/svg/currency/yuan.svg";
 import { useActions } from "@/store/hooks/useActions";
+import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 export type CurrencyPropsType = {
     currencyCode: string;
@@ -20,12 +21,15 @@ export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType)
     let CurrencyIcon;
     let currencyTitle = "";
     const currencyValue = +value.toFixed(2);
+    // const currencyValue = value;
+
+    const { currency } = useTypedSelectorHook((state) => state.currency);
 
     const { openModalWindow } = useActions();
 
     const openModalHandler = () => {
         if (currencyTitle) {
-            openModalWindow(currencyTitle, value);
+            openModalWindow(currency, currencyTitle, value, currencyCode);
         }
     };
 
@@ -71,12 +75,12 @@ export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType)
 
         default:
             CurrencyIcon = CommercialDollarIcon;
-            currencyTitle = "Commercial Dollar";
+            currencyTitle = "";
     }
 
     return (
-        <button className="currency-card__containter" onClick={() => openModalHandler()}>
-            <CurrencyIcon width={80} height={80} />
+        <button className="currency-card__container" onClick={() => openModalHandler()}>
+            <CurrencyIcon className="currency-card__icon" />
             <div className="currency-card__info">
                 <Text className="currency-card__titile">{currencyTitle}</Text>
                 <Text className="currency-card__percent">{`R$ ${currencyValue}`}</Text>

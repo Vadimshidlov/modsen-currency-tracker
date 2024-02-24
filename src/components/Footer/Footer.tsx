@@ -5,7 +5,7 @@ import "@/components/Footer/Footer.scss";
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <div className="footer footer__container">
             <div className="footer__main-block">
                 <div className="footer__info">
                     <div className="footer__info-title info-title">

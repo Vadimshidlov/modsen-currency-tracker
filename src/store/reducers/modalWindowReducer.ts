@@ -1,12 +1,19 @@
 import { ModalWindowActionType, ModalWindowStateType } from "@/store/types/types";
+import { getSecondCurrency } from "@/utils/getSecondCurrency";
+// import { getSecondCurrency } from "@/utils/getSecondCurrency";
 
 export const OPEN_MODAL_WINDOW = "OPEN_MODAL_WINDOW";
 export const CLOSE_MODAL_WINDOW = "CLOSE_MODAL_WINDOW";
+export const SELECT_SECOND_CURRENCY = "SELECT_SECOND_CURRENCY";
 
 const initialState: ModalWindowStateType = {
     isOpen: false,
-    currentCurrency: "",
+    currentCurrencyTitle: "",
+    currentCurrencyCode: "",
     currentCurrencyValue: 0,
+    secondCurrencyTitle: "",
+    secondCurrencyCode: "",
+    secondCurrencyValue: 0,
 };
 
 const modalWindowReducer = (
@@ -15,17 +22,43 @@ const modalWindowReducer = (
     action: ModalWindowActionType,
 ): ModalWindowStateType => {
     switch (action.type) {
-        case OPEN_MODAL_WINDOW:
+        case OPEN_MODAL_WINDOW: {
+            const { secondCurrencyCode, secondCurrencyValue, secondCurrencyTitle } =
+                getSecondCurrency(action.payload.currencyData, action.payload.currencyCode);
+
+            // console.log(secondCurrencyTitle, `secondCurrencyTitle`);
+            // console.log(secondCurrencyCode, `secondCurrencyCode`);
+            // console.log(secondCurrencyValue, `secondCurrencyValue`);
+
             return {
                 isOpen: true,
-                currentCurrency: action.payload.currentCurrency,
+                currentCurrencyTitle: action.payload.currentCurrencyTitle,
                 currentCurrencyValue: action.payload.currentCurrencyValue,
+                currentCurrencyCode: action.payload.currencyCode,
+                secondCurrencyTitle,
+                secondCurrencyCode,
+                secondCurrencyValue,
             };
+        }
+
+        case SELECT_SECOND_CURRENCY:
+            return {
+                ...state,
+                secondCurrencyTitle: action.payload.secondCurrencyTitle,
+                secondCurrencyCode: action.payload.secondCurrencyCode,
+                secondCurrencyValue: action.payload.secondCurrencyValue,
+            };
+
         case CLOSE_MODAL_WINDOW:
             return {
+                // ...state,
                 isOpen: false,
-                currentCurrency: "",
+                currentCurrencyTitle: "",
+                currentCurrencyCode: "",
                 currentCurrencyValue: 0,
+                secondCurrencyTitle: "",
+                secondCurrencyCode: "",
+                secondCurrencyValue: 0,
             };
 
         default:

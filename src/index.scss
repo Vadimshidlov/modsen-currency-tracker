@@ -38,4 +38,63 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     // background-color: $black_background;
+
+    &.modal-open{
+        overflow: hidden;
+    }
 }
+
+.container {
+    margin: 0 auto;
+    padding-left: 52px;
+    padding-right: 52px;
+    max-width: 1440px;
+
+    @media (max-width: 490px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.app-title__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1440px;
+    width: 100%;
+
+
+    @media (max-width: 490px) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.main-block__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1224px;
+    width: 100%;
+
+
+    @media (max-width: 490px) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+.footer__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1224px;
+    width: 100%;
+
+
+    @media (max-width: 490px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+

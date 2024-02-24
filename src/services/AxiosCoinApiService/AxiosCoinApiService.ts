@@ -1,11 +1,11 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-class AxiosCurrencyService {
+class AxiosCoinApiService {
     public requestApiInstance: AxiosInstance;
 
     constructor() {
         this.requestApiInstance = axios.create({
-            baseURL: "https://api.currencyapi.com/v3/latest",
+            baseURL: "https://rest.coinapi.io/",
         });
     }
 
@@ -25,4 +25,4 @@ class AxiosCurrencyService {
     }
 }
 
-export default new AxiosCurrencyService();
+export default new AxiosCoinApiService();

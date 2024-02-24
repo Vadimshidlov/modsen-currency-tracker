@@ -1,0 +1,27 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+@import "@/index.scss";
+
+.currency__input,
+.currency__input:disabled {
+  @include fonts.PoppinsLight;
+  outline: none;
+  font-size: fonts.$font-size_20;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+
+  @media (max-width: 930px) {
+    font-size: fonts.$font-size_18;
+  }
+
+  @media (max-width: 768px) {
+    font-size: fonts.$font-size_15;
+  }
+}
+
+.currency__input:disabled {
+  opacity: 1;
+  background: colors.$color_white;
+}
