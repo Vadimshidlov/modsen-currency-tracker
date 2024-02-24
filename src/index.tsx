@@ -1,5 +1,6 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import App from "@/components/App/App";
 import { store } from "@/store";
@@ -13,7 +14,7 @@ if (!root) {
 
 const container = createRoot(root);
 
-const router = createBrowserRouter([
+/* const router = createBrowserRouter([
     {
         path: "/",
         element: (
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
                 <App />
             </Provider>
         ),
+        // element: <Navigate to="/home" />,
         children: [
             {
                 path: "/about",
@@ -32,6 +34,13 @@ const router = createBrowserRouter([
             },
         ],
     },
-]);
+]); */
 
-container.render(<RouterProvider router={router} />);
+// container.render(<RouterProvider router={router} />);
+container.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>,
+);
