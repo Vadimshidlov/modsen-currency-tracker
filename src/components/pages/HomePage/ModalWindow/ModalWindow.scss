@@ -1,0 +1,196 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.modal__container {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  transition: all 1s;
+
+  .modal__content {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: colors.$modal_background;
+    margin: 10% auto;
+    height: 53%;
+    width: 30%;
+    border-radius: 10px;
+
+    @media (max-width: 1440px) {
+      width: 50%;
+    }
+
+    @media (max-width: 1220px) {
+      margin: 15% auto;
+      width: 50%;
+    }
+
+    @media (max-width: 930px) {
+      margin: 20% auto;
+      //height: 47%;
+    }
+
+    @media (max-width: 768px) {
+      //height: 36%;
+      height: 47%;
+    }
+
+    @media (max-width: 560px) {
+      margin: 25% auto;
+      width: 70%;
+    }
+
+    @media (max-width: 420px) {
+      height: 40%;
+    }
+
+    .modal__title {
+      @include fonts.PoppinsLight;
+      color: colors.$color_grey_medium-opacity;
+      font-size: fonts.$font-size_32;
+      margin-bottom: 30px;
+
+      @media (max-width: 930px) {
+        font-size: fonts.$font-size_25;
+      }
+
+      @media (max-width: 768px) {
+        font-size: fonts.$font-size_20;
+      }
+
+      .modal__selected-currency {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include fonts.PoppinsLight;
+        color: colors.$color_grey_medium-opacity;
+        font-size: fonts.$font-size_24;
+
+        .selected-currency__title {
+          @include fonts.PoppinsLight;
+          color: colors.$color_grey_medium-opacity;
+          font-size: fonts.$font-size_28;
+          display: flex;
+          align-items: center;
+          column-gap: 10px;
+
+          @media (max-width: 650px) {
+            font-size: fonts.$font-size_24;
+          }
+
+          @media (max-width: 420px) {
+            font-size: fonts.$font-size_20;
+          }
+        }
+
+        .selected-currency__value {
+          @include fonts.PoppinsLight;
+          color: colors.$color_grey_medium-opacity;
+          font-size: fonts.$font-size_24;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          column-gap: 10px;
+
+          @media (max-width: 650px) {
+            font-size: fonts.$font-size_20;
+          }
+
+          @media (max-width: 420px) {
+            font-size: fonts.$font-size_15;
+          }
+        }
+      }
+    }
+
+    .modal__converter {
+      padding: 15px 15px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+      border: 3px solid colors.$color_grey_medium-opacity;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+      .currency__result {
+        display: flex;
+        align-items: center;
+        align-self: end;
+        column-gap: 10px;
+        @include fonts.PoppinsLight;
+        color: colors.$color_grey_medium-opacity;
+        font-size: fonts.$font-size_24;
+
+        @media (max-width: 768px) {
+          column-gap: 5px;
+        }
+
+        .currency__result-title {
+          @include fonts.PoppinsLight;
+          color: colors.$color_grey_medium-opacity;
+          font-size: fonts.$font-size_24;
+          align-self: end;
+
+          @media (max-width: 930px) {
+            font-size: fonts.$font-size_18;
+          }
+
+          @media (max-width: 768px) {
+            font-size: fonts.$font-size_15;
+          }
+        }
+
+        .currency__result-icon {
+          width: 32px;
+          height: 32px;
+
+          @media (max-width: 930px) {
+            width: 28px;
+            height: 28px;
+          }
+
+          @media (max-width: 768px) {
+            width: 20px;
+            height: 20px;
+          }
+
+          @media (max-width: 768px) {
+            width: 15px;
+            height: 15px;
+          }
+
+          /*@media (max-width: 930px) {
+            width: 15px;
+            height: 15px;
+          }*/
+        }
+      }
+    }
+
+    .modal__close-button {
+      background-color: colors.$modal_background;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      transition: all 1s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.3);
+      }
+    }
+
+  }
+}
+
+

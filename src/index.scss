@@ -1,4 +1,6 @@
-@import "constants/styles/colors";
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
 
 *,
 *::before,
@@ -96,5 +98,41 @@ body {
         padding-left: 16px;
         padding-right: 16px;
     }
+}
+
+.currency-chart__container {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1205px;
+    width: 100%;
+    margin: 0 auto 604px;
+
+
+    @media (max-width: 490px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+a {
+    transition: all .1s ease-in;
+}
+
+a:hover {
+    opacity: .7;
+    transform: scale(1.1);
+    border-bottom: 1px solid colors.$color_grey;
+}
+
+a:active {
+    opacity: .7;
+    transform: scale(1.1);
+    //color: colors.$app_title_gradient;
+}
+
+a:visited {
+    opacity: .7;
+    transform: scale(1.1);
+    border-bottom: 1px solid colors.$color_grey;
 }
 
