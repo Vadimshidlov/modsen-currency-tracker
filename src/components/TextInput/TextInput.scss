@@ -19,6 +19,18 @@
   @media (max-width: 768px) {
     font-size: fonts.$font-size_15;
   }
+
+  @media (max-width: 450px) {
+    font-size: fonts.$font-size_13;
+  }
+
+  @media (max-width: 420px) {
+    font-size: fonts.$font-size_12;
+  }
+
+  @media (max-width: 320px) {
+    font-size: fonts.$font-size_10;
+  }
 }
 
 .currency__input:disabled {

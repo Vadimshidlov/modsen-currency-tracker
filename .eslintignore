@@ -1,2 +1,5 @@
 .eslintrc.js
 jest.config.js
+src/libs
+global.d.ts
+chart.d.ts

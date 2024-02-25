@@ -11,6 +11,7 @@ import SelectCurrency from "@/components/SelectCurrency/SelectCurrency";
 import { TextInput } from "@/components/TextInput/TextInput";
 import { getConvertResult } from "@/utils/getConvertResult";
 import ConverterTitle from "@/components/ModalWindow/ConverterTitle/ConverterTitle";
+import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
 
 export type ModalWindowPropsType = {
     isOpen: boolean;
@@ -26,6 +27,10 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
         secondCurrencyValue,
         secondCurrencyCode,
     } = useTypedSelectorHook((state) => state.modalWindow);
+
+    // const {  CurrencyIcon } = getCurrencyIcon(currentCurrencyCode);
+    const { CurrencyIcon: SelectedCurrencyIcon } = getCurrencyIcon(currentCurrencyCode);
+    const { CurrencyIcon: ResultCurrencyIcon } = getCurrencyIcon(secondCurrencyCode);
 
     const [currencyInputValue, setCurrencyInputValue] = useState<string>("0");
     const [resulInputValue, setResultInputValue] = useState<string>("0");
@@ -82,7 +87,8 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
                     </div>
                 </div> */}
                 <ConverterTitle
-                    currentCurrencyTitle={currentCurrencyTitle}
+                    currentCurrencyCode={currentCurrencyCode}
+                    // currentCurrencyTitle={currentCurrencyTitle}
                     currentCurrencyValue={currentCurrencyValue}
                 />
                 <form className="modal__converter">
@@ -92,12 +98,20 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
                         currentCurrencyCode={currentCurrencyCode}
                         data={currency.data}
                     />
+                    <div className="currency__result">
+                        <ResultCurrencyIcon className="currency__result-icon" />
+                        <Text className="currency__result-title">{secondCurrencyCode}:</Text>
+                    </div>
+
                     <TextInput
                         className="currency__input"
                         value={currencyInputValue}
                         onChange={currencyInputHandler}
                     />
-                    <Text className="currency__result-title">{secondCurrencyCode}:</Text>
+                    <div className="currency__result">
+                        <SelectedCurrencyIcon className="currency__result-icon" />
+                        <Text className="currency__result-title">{currentCurrencyCode}:</Text>
+                    </div>
                     <TextInput
                         className="currency__input"
                         placeholder={currentCurrencyTitle}
