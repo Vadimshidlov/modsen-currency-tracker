@@ -27,10 +27,6 @@ export const openModalWindow =
 export const selectSecondCurrency =
     (secondCurrencyTitle: string, secondCurrencyValue: number, secondCurrencyCode: string) =>
     (dispatch: Dispatch<SelectSecondCurrencyActionType>) =>
-        /* console.log(secondCurrencyTitle, `secondCurrency`);
-        console.log(secondCurrencyValue, `secondCurrencyValue`);
-        console.log(secondCurrencyCode, `secondCurrencyCode`); */
-
         dispatch({
             type: SELECT_SECOND_CURRENCY,
             payload: { secondCurrencyTitle, secondCurrencyValue, secondCurrencyCode },

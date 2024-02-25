@@ -1,5 +1,6 @@
 @use "../../constants/styles/fonts" as fonts;
 @import "../../constants/styles/colors";
+@import "@/index";
 
 .app {
     display: flex;

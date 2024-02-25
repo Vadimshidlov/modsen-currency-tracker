@@ -1,6 +1,5 @@
 import { ModalWindowActionType, ModalWindowStateType } from "@/store/types/types";
 import { getSecondCurrency } from "@/utils/getSecondCurrency";
-// import { getSecondCurrency } from "@/utils/getSecondCurrency";
 
 export const OPEN_MODAL_WINDOW = "OPEN_MODAL_WINDOW";
 export const CLOSE_MODAL_WINDOW = "CLOSE_MODAL_WINDOW";
@@ -25,10 +24,6 @@ const modalWindowReducer = (
         case OPEN_MODAL_WINDOW: {
             const { secondCurrencyCode, secondCurrencyValue, secondCurrencyTitle } =
                 getSecondCurrency(action.payload.currencyData, action.payload.currencyCode);
-
-            // console.log(secondCurrencyTitle, `secondCurrencyTitle`);
-            // console.log(secondCurrencyCode, `secondCurrencyCode`);
-            // console.log(secondCurrencyValue, `secondCurrencyValue`);
 
             return {
                 isOpen: true,

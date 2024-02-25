@@ -1,0 +1,97 @@
+@use "../../../../constants/styles/fonts" as fonts;
+@use "../../../../constants/styles/colors" as colors;
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 103px;
+  margin: 0px auto;
+
+  .header__logo {
+    @media (max-width: 712px) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 420px) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+
+
+.header__navigation {
+  //width: 657px;
+  min-width: 52%;
+  //display: flex;
+
+  .navigation-list {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 20px;
+
+    /*a {
+      transition: all .1s ease-in;
+    }
+
+    a:hover {
+      opacity: .7;
+      transform: scale(1.1);
+      border-bottom: 1px solid colors.$color_grey;
+    }
+
+    a:active {
+      opacity: .7;
+      transform: scale(1.1);
+      border-bottom: 4px solid colors.$app_title_gradient;
+      color: colors.$app_title_gradient;
+    }
+
+    a:visited {
+      opacity: .7;
+      transform: scale(1.1);
+      border-bottom: 1px solid colors.$color_grey;
+    }*/
+
+    @media (max-width: 768px) {
+      justify-content: normal;
+      column-gap: 20px;
+    }
+
+    .navigation-list__item {
+      @include fonts.PoppinsLight;
+      color: colors.$color_white;
+      font-size: fonts.$font-size_20;
+      white-space: nowrap;
+
+
+      @media (max-width: 860px) {
+        font-size: fonts.$font-size_15;
+      }
+
+      @media (max-width: 430px) {
+        font-size: fonts.$font-size_10;
+      }
+    }
+  }
+}
+
+.theme-button {
+  background: transparent;
+  border: 1px solid colors.$color_white;
+  width: 50px;
+  height: 30px;
+  border-radius: 30%;
+
+  .theme-button__button {
+    background: transparent;
+    border: 1px solid colors.$color_white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+}
