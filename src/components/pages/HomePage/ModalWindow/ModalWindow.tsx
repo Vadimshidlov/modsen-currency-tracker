@@ -77,6 +77,8 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
 
     if (!isOpen) return null;
 
+    // console.log(currentCurrencyCode, `currentCurrencyCode from Home`);
+
     return createPortal(
         <div className="modal__container">
             <div className="modal__content" ref={modalRef}>
