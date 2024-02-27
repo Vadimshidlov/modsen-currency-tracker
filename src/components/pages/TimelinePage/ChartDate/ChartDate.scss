@@ -1,0 +1,36 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.currency-chart__date-from-container {
+  display: flex;
+  column-gap: 20px;
+
+  .currency-chart__date-from {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    //input[type="date"]
+
+    .currency-chart__date-title{
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_25;
+      color: colors.$color_white;
+    }
+
+    .currency-chart__date {
+      //background-color: colors.$black_background;
+      background-color: colors.$black_background;
+      //background-color: #0080ff;
+      padding: 15px;
+      //transform: translate(-50%, -50%);
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_20;
+      color: colors.$color_white;
+      border: 1px solid colors.$color_white;
+      //border: none;
+      outline: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

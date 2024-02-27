@@ -6,14 +6,6 @@ import App from "@/components/App/App";
 import { store } from "@/store";
 import "regenerator-runtime/runtime";
 
-const root = document.getElementById("root");
-
-if (!root) {
-    throw new Error("root not found");
-}
-
-const container = createRoot(root);
-
 /* const router = createBrowserRouter([
     {
         path: "/",
@@ -35,6 +27,18 @@ const container = createRoot(root);
         ],
     },
 ]); */
+
+/* import { getCurrency } from "@/store/action-creators/getCurrency";
+
+store.dispatch(getCurrency); */
+
+const root = document.getElementById("root");
+
+if (!root) {
+    throw new Error("root not found");
+}
+
+const container = createRoot(root);
 
 // container.render(<RouterProvider router={router} />);
 container.render(

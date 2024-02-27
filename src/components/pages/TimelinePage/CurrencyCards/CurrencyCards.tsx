@@ -1,66 +1,31 @@
-import React, { Component, Dispatch } from "react";
-import { connect } from "react-redux";
-import {
-    CurrentCurrencyActionType,
-    IcurrentCurrencyState,
-} from "@/store/reducers/latestCurrencyReducer";
-import { getCurrency } from "@/store/action-creators/getCurrency";
-import { RootStateType } from "@/store/reducers";
+import React, { Component } from "react";
 import "@/components/pages/TimelinePage/CurrencyCards/CurrencySelect.scss";
 import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
 import SelectIcon from "@/assets/svg/select-vector.svg";
-// import { getRandomOhlcv } from "@/utils/getRandomOhlcv";
-import ChartDate from "@/components/pages/TimelinePage/ChartDate/ChartDate";
+import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
+import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
 import CurrencyCard from "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard";
-import { getSecondCurrency } from "@/utils/getSecondCurrency";
-// import CurrencyCard from "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard";
 
 export type CurrencyCardsPropsType = {
-    getCurrency(): (dispatch: Dispatch<CurrentCurrencyActionType>) => Promise<void>;
-    currency: IcurrentCurrencyState;
+    currencyData: ICurrency;
+    selectedCurrencyCode: string;
+    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export type CurrencyCardsStateType = {
-    currencyCode: string;
-};
+export type CurrencyCardsStateType = object;
 
-class CurrencyCards extends Component<CurrencyCardsPropsType, CurrencyCardsStateType> {
-    constructor(props: CurrencyCardsPropsType) {
-        super(props);
-
-        this.state = {
-            currencyCode: "USD",
-        };
-        this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
-    }
-
-    componentDidMount() {
-        const { getCurrency: getCurrencyData } = this.props;
-
-        getCurrencyData();
-
-        // console.log(getRandomOhlcv(1));
-    }
-
-    componentDidUpdate() {
-        const { getCurrency: getCurrencyData } = this.props;
-
-        getCurrencyData();
-    }
-
-    handleChangeCurrency(event: React.ChangeEvent<HTMLSelectElement>) {
-        const { value } = event.target;
-
-        this.setState({
-            currencyCode: value,
-        });
-    }
-
+export default class CurrencyCards extends Component<
+    CurrencyCardsPropsType,
+    CurrencyCardsStateType
+> {
     render() {
-        const { currency } = this.props;
-        const { currencyCode } = this.state;
-        const { data } = currency.currency;
-        const { secondCurrencyValue } = getSecondCurrency(currency.currency, currencyCode);
+        const { onChange } = this.props;
+        const { currencyData, selectedCurrencyCode } = this.props;
+        // const { data } = currencyData;
+        const currencyValue = getCurrencyValueWithCode(currencyData, selectedCurrencyCode);
+
+        // console.log(selectedCurrencyCode, `currencyData CurrencyCards`);
+        // console.log(currencyData, `currencyData CurrencyCards`);
 
         return (
             <div className="currency-chart__form">
@@ -68,11 +33,10 @@ class CurrencyCards extends Component<CurrencyCardsPropsType, CurrencyCardsState
                     <select
                         className="currency-chart__select"
                         name="currency-chart-select"
-                        id=""
-                        value={currencyCode}
-                        onChange={this.handleChangeCurrency}
+                        value={selectedCurrencyCode}
+                        onChange={onChange}
                     >
-                        {Object.keys(data).map((element) => (
+                        {Object.keys(currencyData.data).map((element) => (
                             <option
                                 className="currency-chart-select__option"
                                 value={element}
@@ -86,23 +50,13 @@ class CurrencyCards extends Component<CurrencyCardsPropsType, CurrencyCardsState
                         <SelectIcon width={20} height={15} />
                     </div>
                 </div>
-                <div className="currency-chart__date-from-container">
-                    <ChartDate />
-                </div>
                 <div className="currency-chart__selected-card">
-                    <CurrencyCard currencyCode={currencyCode} currencyValue={secondCurrencyValue} />
+                    <CurrencyCard
+                        currencyCode={selectedCurrencyCode}
+                        currencyValue={currencyValue}
+                    />
                 </div>
             </div>
         );
     }
 }
-
-const mapStateToProps = (state: RootStateType) => ({
-    currency: state.currency,
-});
-
-const mapDispatchToProps = () => ({
-    getCurrency,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CurrencyCards);

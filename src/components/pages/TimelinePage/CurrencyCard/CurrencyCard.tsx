@@ -11,6 +11,7 @@ export type CurrencyCardPropsType = {
 export default class CurrencyCard extends Component<CurrencyCardPropsType> {
     render() {
         const { currencyCode, currencyValue } = this.props;
+
         const fixedValue = currencyValue.toFixed(2);
 
         const { CurrencyIcon, currencyTitle } = getCurrencyIcon(currencyCode);

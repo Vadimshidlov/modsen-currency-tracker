@@ -10,7 +10,7 @@ import { filterCurrency } from "@/utils/filterCurrency";
 export function getCurrency() {
     return async (dispatch: Dispatch<CurrentCurrencyActionType>) => {
         try {
-            console.log("getCurrency() from REDUX");
+            // console.log("getCurrency() from REDUX");
 
             dispatch({ type: CurrentCurrencyAction.GET_CURR_CURRENCY });
 

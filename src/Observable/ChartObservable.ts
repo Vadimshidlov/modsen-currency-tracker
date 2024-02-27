@@ -1,4 +1,5 @@
-export type ObserverFunctionType = (value: string) => void;
+// export type ObserverFunctionType = (value: string) => void;
+export type ObserverFunctionType = () => void;
 
 class ChartObservable {
     private observers: ObserverFunctionType[];
@@ -17,11 +18,17 @@ class ChartObservable {
         this.observers = this.observers.filter((observer) => observer !== func);
     }
 
-    notify(value: string) {
+    notify() {
+        this.observers.forEach((observer) => {
+            observer();
+        });
+    }
+
+    /* notify(value: string) {
         this.observers.forEach((observer) => {
             observer(value);
         });
-    }
+    } */
 }
 
 export default new ChartObservable();

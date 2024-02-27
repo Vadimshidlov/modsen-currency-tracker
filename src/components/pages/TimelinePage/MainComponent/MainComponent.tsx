@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 // import { Dispatch } from "redux";
 import LastUpdate from "@/components/pages/TimelinePage/LastUpdate/LastUpdate";
 import "@/components/pages/HomePage/MainComponent/MainComponent.scss";
-import CurrencyChart from "@/components/pages/TimelinePage/Chart/CurrencyChart";
+// import CurrencyChart from "@/components/pages/TimelinePage/Chart/CurrencyChart";
 // import { CurrentCurrencyActionType } from "@/store/reducers/latestCurrencyReducer";
 import { getCurrency } from "@/store/action-creators/getCurrency";
-import CurrencyCards from "@/components/pages/TimelinePage/CurrencyCards/CurrencyCards";
+// import CurrencyCards from "@/components/pages/TimelinePage/CurrencyCards/CurrencyCards";
+import CurrencyChartController from "@/components/pages/TimelinePage/CurrencyChartController/CurrencyChartController";
 
 export type MainComponentPropsType = {
     getCurrency: () => Promise<void>;
@@ -16,7 +17,7 @@ class MainComponent extends Component<MainComponentPropsType> {
     componentDidMount() {
         // const { getCurrency } = this.props;
 
-        console.log("getCurrencyData()");
+        // console.log("getCurrencyData()");
 
         // eslint-disable-next-line react/destructuring-assignment
         this.props.getCurrency();
@@ -25,7 +26,7 @@ class MainComponent extends Component<MainComponentPropsType> {
     componentDidUpdate() {
         // const { getCurrency: getCurrencyData } = this.props;
 
-        console.log("getCurrencyData()");
+        // console.log("getCurrencyData()");
 
         // eslint-disable-next-line react/destructuring-assignment
         this.props.getCurrency();
@@ -37,8 +38,7 @@ class MainComponent extends Component<MainComponentPropsType> {
         return (
             <main className="main-block main-block__container">
                 <LastUpdate />
-                <CurrencyCards />
-                <CurrencyChart />
+                <CurrencyChartController />
             </main>
         );
     }

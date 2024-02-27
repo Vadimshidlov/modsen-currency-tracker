@@ -8,6 +8,8 @@ const generateRandomPrice = (min = 100, max = 500): number =>
 const generateRandomMultiplier = (): number => parseFloat((Math.random() * 0.2 + 0.9).toFixed(2));
 
 export const getRandomOhlcv = (currency: number, startDate: Date = new Date(), days = 31) => {
+    console.log(currency, startDate, `getRandomOhlcv`);
+
     const randomChartData: ChartData = {
         datasets: [
             {

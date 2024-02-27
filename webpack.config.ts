@@ -70,6 +70,10 @@ export default (env: EnvVariable) => {
                     type: "asset/resource",
                 },
                 {
+                    test: /\.css$/,
+                    use: ["style-loader", "css-loader"],
+                },
+                {
                     test: /\.s[ac]ss$/i,
                     use: [
                         isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -77,6 +81,7 @@ export default (env: EnvVariable) => {
                         "sass-loader",
                     ],
                 },
+
                 {
                     test: /\.svg$/i,
                     issuer: /\.[jt]sx?$/,
