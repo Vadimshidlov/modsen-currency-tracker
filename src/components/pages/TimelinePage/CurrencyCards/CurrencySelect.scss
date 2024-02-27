@@ -18,6 +18,13 @@
     width: 30%;
     height: 50px;
 
+    @media (max-width: 1200px) {
+      width: 260px;
+      //width: 23%;
+    }
+
+
+
     .currency-chart__select {
       /*outline: none;
       color: colors.$color_white;
@@ -43,6 +50,19 @@
       @include fonts.PoppinsLight;
       font-size: fonts.$font-size_30;
 
+      @media (max-width: 1200px) {
+        font-size: fonts.$font-size_25;
+      }
+
+      @media (max-width: 1200px) {
+        font-size: fonts.$font-size_20;
+      }
+
+      @media (max-width: 500px) {
+        font-size: fonts.$font-size_15;
+        //width: 23%;
+      }
+
 
       //.currency-chart-select__option {
       //  //background: transparent;
@@ -53,15 +73,30 @@
       //}
     }
 
-    .currency-chart__icon {
-      width: 50px;
-      height: 100%;
-      position: absolute;
-      right: 0;
+    .currency-chart__icon-container {
       display: flex;
       align-items: center;
-      justify-content: center;
+      width:20px;
+      height: 100%;
+
+      .currency-chart__icon {
+        width: 20px;
+        height: 15px;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 1200px) {
+          width: 15px;
+          height: 15px;
+          font-size: fonts.$font-size_20;
+        }
+      }
     }
+
+
   }
 }
 

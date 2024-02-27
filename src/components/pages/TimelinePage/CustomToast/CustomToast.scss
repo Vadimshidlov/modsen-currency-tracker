@@ -4,7 +4,7 @@
 .toast {
   position: fixed;
   top: 10%;
-  right: 5%;
+  right: -6%;
   transform: translateX(-50%);
   color: #fff;
   padding: 10px 20px;
@@ -14,6 +14,7 @@
   width: 250px;
   //height: 100px;
   background: #00BC4F;
+  overflow: hidden;
 
   .toast-content {
     @include fonts.PoppinsLight;
@@ -23,37 +24,37 @@
 
   &.show {
     opacity: 1;
-    animation: fadeIn 0.5s ease-in-out forwards;
+    //animation: fadeIn 0.5s ease-in-out forwards;
   }
 
   &.hide {
     //display: none;
-    animation: fadeOut 0.5s ease-in-out forwards;
+    //animation: fadeOut 0.5s ease-in-out forwards;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-.toast.hide {
-  overflow: hidden;
-}
+//@keyframes fadeIn {
+//  from {
+//    opacity: 0;
+//    transform: translateY(20px);
+//  }
+//  to {
+//    opacity: 1;
+//    transform: translateY(0);
+//  }
+//}
+//
+//@keyframes fadeOut {
+//  from {
+//    opacity: 1;
+//    transform: translateY(0);
+//  }
+//  to {
+//    opacity: 0;
+//    transform: translateY(20px);
+//  }
+//}
+//
+//.toast.hide {
+//  overflow: hidden;
+//}

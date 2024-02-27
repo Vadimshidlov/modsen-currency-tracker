@@ -108,13 +108,15 @@ body {
   width: 100%;
   margin: 0 auto 604px;
 
+  @media (max-width: 1200px) {
+    margin: 0 auto 150px;
+  }
+
 
   @media (max-width: 490px) {
     padding-left: 16px;
     padding-right: 16px;
   }
-
-
 }
 
 a {

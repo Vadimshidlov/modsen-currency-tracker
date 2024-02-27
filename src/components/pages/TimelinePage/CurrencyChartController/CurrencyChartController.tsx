@@ -7,11 +7,9 @@ import { getCurrentDate } from "@/utils/getCurrentDate";
 import { RootStateType } from "@/store/reducers";
 import { IcurrentCurrencyState } from "@/store/reducers/latestCurrencyReducer";
 import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
-import { addDateMessage } from "@/utils/notifyMessage";
 import CustomToast from "@/components/pages/TimelinePage/CustomToast/CustomToast";
 
 export type CurrencyChartControllerPropsType = {
-    // getCurrency(): (dispatch: Dispatch<CurrentCurrencyActionType>) => Promise<void>;
     currency: IcurrentCurrencyState;
 };
 
@@ -39,42 +37,23 @@ class CurrencyChartController extends Component<
         this.handleCurrencyChange = this.handleCurrencyChange.bind(this);
     }
 
-    componentDidMount() {
-        const { currency } = this.props;
-        const { currency: currencyData } = currency;
-        // const { getCurrency: getCurrencyData } = this.props;
+    static getDerivedStateFromProps(
+        nextProps: CurrencyChartControllerPropsType,
+        prevState: CurrencyChartControllerStateType,
+    ) {
+        if (prevState.currentCurrency.value === 0) {
+            const { currency } = nextProps;
+            const { currency: currencyData } = currency;
 
-        this.setState({
-            currentCurrency: {
-                code: "USD",
-                value: getCurrencyValueWithCode(currencyData, "USD"),
-            },
-        });
-
-        addDateMessage();
+            return {
+                currentCurrency: {
+                    code: "USD",
+                    value: getCurrencyValueWithCode(currencyData, "USD"),
+                },
+            };
+        }
+        return null;
     }
-
-    // componentDidUpdate(
-    //     prevProps: CurrencyChartControllerPropsType,
-    //     prevState: CurrencyChartControllerStateType,
-    // ) {
-    //     if (prevState.currentCurrency.value === 0) {
-    //         const { currency } = this.props;
-    //         const { currency: currencyData } = currency;
-    //
-    //         this.setState({
-    //             currentCurrency: {
-    //                 code: "USD",
-    //                 value: getCurrencyValueWithCode(currencyData, "USD"),
-    //             },
-    //         });
-    //     }
-    // }
-
-    /* componentDidUpdate() {
-        // const { getCurrency: getCurrencyData } = this.props;
-        // getCurrencyData();
-    } */
 
     handleDateChange(e: ChangeEvent<HTMLInputElement>) {
         const { value } = e.target;
@@ -91,9 +70,6 @@ class CurrencyChartController extends Component<
         const { currency: currencyData } = currency;
         const nextValue = getCurrencyValueWithCode(currencyData, currencyCode);
 
-        // console.log(currencyCode, "currencyCode handleCurrencyChange");
-        // console.log(nextValue, "currencyCode handleCurrencyChange");
-
         this.setState({
             currentCurrency: {
                 code: currencyCode,
@@ -107,26 +83,21 @@ class CurrencyChartController extends Component<
         const { code, value } = currentCurrency;
         const { currency } = this.props;
 
-        console.log(currentDate, currentCurrency, `currentDate, currentCurrency`);
+        console.log(currentDate, `currentDate`);
 
         return (
-            <>
+            <div className="currency-chart__form">
+                <CustomToast message="Success building!" duration={2000} isStart={false} />
                 <CurrencyCards
                     currencyData={currency.currency}
                     selectedCurrencyCode={code}
                     onChange={this.handleCurrencyChange}
                 />
-                <div className="currency-chart__date-from-container">
-                    <ChartDate dateValue={currentDate} onChange={this.handleDateChange} />
-                </div>
-                {currentDate && currentDate ? (
+                <ChartDate dateValue={currentDate} onChange={this.handleDateChange} />
+                {currentDate ? (
                     <CurrencyChart chartDate={currentDate} chartCurrencyValue={value} />
                 ) : null}
-                <CustomToast
-                    message="Hello! youn need to choose date and currency for chart building"
-                    duration={4000}
-                />
-            </>
+            </div>
         );
     }
 }
@@ -135,9 +106,4 @@ const mapStateToProps = (state: RootStateType) => ({
     currency: state.currency,
 });
 
-/* const mapDispatchToProps = () => ({
-    getCurrency,
-}); */
-
 export default connect(mapStateToProps, {})(CurrencyChartController);
-// export default connect(mapStateToProps, mapDispatchToProps)(CurrencyChartController);

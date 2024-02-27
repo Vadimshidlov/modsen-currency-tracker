@@ -3,7 +3,7 @@ import "@/components/pages/TimelinePage/CurrencyCards/CurrencySelect.scss";
 import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
 import SelectIcon from "@/assets/svg/select-vector.svg";
 import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
-import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
+// import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
 import CurrencyCard from "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard";
 
 export type CurrencyCardsPropsType = {
@@ -21,14 +21,10 @@ export default class CurrencyCards extends Component<
     render() {
         const { onChange } = this.props;
         const { currencyData, selectedCurrencyCode } = this.props;
-        // const { data } = currencyData;
-        const currencyValue = getCurrencyValueWithCode(currencyData, selectedCurrencyCode);
-
-        // console.log(selectedCurrencyCode, `currencyData CurrencyCards`);
-        // console.log(currencyData, `currencyData CurrencyCards`);
+        // const currencyValue = getCurrencyValueWithCode(currencyData, selectedCurrencyCode);
 
         return (
-            <div className="currency-chart__form">
+            <>
                 <div className="currency-chart__select-container">
                     <select
                         className="currency-chart__select"
@@ -46,17 +42,12 @@ export default class CurrencyCards extends Component<
                             </option>
                         ))}
                     </select>
-                    <div className="currency-chart__icon">
-                        <SelectIcon width={20} height={15} />
+                    <div className="currency-chart__icon-container">
+                        <SelectIcon className="currency-chart__icon" />
                     </div>
                 </div>
-                <div className="currency-chart__selected-card">
-                    <CurrencyCard
-                        currencyCode={selectedCurrencyCode}
-                        currencyValue={currencyValue}
-                    />
-                </div>
-            </div>
+                <CurrencyCard currencyCode={selectedCurrencyCode} />
+            </>
         );
     }
 }

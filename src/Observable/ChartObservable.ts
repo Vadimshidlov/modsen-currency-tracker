@@ -18,10 +18,11 @@ class ChartObservable {
         this.observers = this.observers.filter((observer) => observer !== func);
     }
 
-    notify() {
-        this.observers.forEach((observer) => {
-            observer();
-        });
+    notify(isBuilding: string) {
+        if (isBuilding === "Building")
+            this.observers.forEach((observer) => {
+                observer();
+            });
     }
 
     /* notify(value: string) {

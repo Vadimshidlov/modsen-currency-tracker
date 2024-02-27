@@ -1,0 +1,109 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+
+.chart-card__container {
+  align-self: start;
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+  width: 520px;
+  //background-color: colors.$currency_card_background;
+  padding: 36px 32px;
+  border-radius: 8px;
+  background: transparent;
+  //border: 1px solid colors.$currency_card_border;
+  transition: all 1s;
+  outline: none;
+
+  @media (max-width: 1120px) {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  @media (max-width: 450px) {
+    column-gap: 12px;
+    padding: 8px 12px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .chart-card__icon {
+    width: 80px;
+    height: 80px;
+
+    @media (max-width: 1120px) {
+      width: 60px;
+      height: 60px;
+    }
+
+    @media (max-width: 800px) {
+      width: 45px;
+      height: 45px;
+    }
+
+    @media (max-width: 500px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .chart-card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    //row-gap: 10px;
+
+    .chart-card__titile {
+      @include fonts.PoppinsRegularFont;
+      color: colors.$color_grey;
+      font-size: fonts.$font-size_35;
+      line-height: 49.37px;
+
+      @media (max-width: 1120px) {
+        font-size: fonts.$font-size_25;
+        line-height: 35px;
+      }
+
+      @media (max-width: 900px) {
+        font-size: fonts.$font-size_20;
+        line-height: 30px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: fonts.$font-size_13;
+        line-height: 18px;
+      }
+    }
+
+    .chart-card__percent {
+      @include fonts.PoppinsLight;
+      color: colors.$color_grey_medium-opacity;
+      font-size: fonts.$font-size_16;
+      line-height: 41.14px;
+
+      @media (max-width: 1120px) {
+        font-size: fonts.$font-size_25;
+        line-height: 35px;
+      }
+
+      @media (max-width: 900px) {
+        font-size: fonts.$font-size_20;
+        line-height: 30px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: fonts.$font-size_12;
+        line-height: 15px;
+      }
+
+      /* @media (max-width: 420px) {
+         font-size: fonts.$font-size_12;
+         line-height: 15px;
+       }*/
+    }
+  }
+}

@@ -50,7 +50,6 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
             prevProps.chartDate !== chartDate
         ) {
             if (this.chartRef.current) {
-                // this.buildCurrencyChartHandler();
                 this.updateCurrencyChartHandler();
             }
         }
@@ -59,22 +58,12 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
     buildCurrencyChartHandler() {
         const { chartDate, chartCurrencyValue } = this.props;
 
-        console.log(chartDate, chartCurrencyValue, `buildCurrencyChartHandler`);
-
-        /* this.setState({
-            isChartBuilding: true,
-        }); */
-
         const chartOptions = getDataForChart(chartCurrencyValue, new Date(chartDate));
 
         this.chart = new Chart(this.chartRef.current, chartOptions);
         this.chart.render();
 
-        /* this.setState({
-            isChartBuilding: false,
-        }); */
-
-        ChartObservable.notify();
+        ChartObservable.notify("Building");
     }
 
     updateCurrencyChartHandler() {
@@ -82,27 +71,14 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
 
         console.log(chartDate, chartCurrencyValue, `buildCurrencyChartHandler`);
 
-        // if (chartCurrencyValue) {
-        /* this.setState({
-            isChartBuilding: true,
-        }); */
-
         if (this.chart) {
-            /* this.setState({
-                isChartBuilding: true,
-            }); */
-
             const chartOptions = getDataForChart(chartCurrencyValue, new Date(chartDate));
 
             this.chart.data.datasets = chartOptions.data.datasets;
             this.chart.options.animations = chartOptions.options.animations;
             this.chart.update();
 
-            /* this.setState({
-                isChartBuilding: false,
-            });
-*/
-            ChartObservable.notify();
+            ChartObservable.notify("Building");
         }
     }
 

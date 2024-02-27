@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "@/components/pages/TimelinePage/CustomToast/CustomToast.scss";
+import { createPortal } from "react-dom";
 import Text from "@/components/pages/TimelinePage/Text/Text";
 import ChartObservable from "@/Observable/ChartObservable";
 
 export type CustomToastPropsType = {
     message: string;
     duration: number;
+    isStart: boolean;
 };
+
 export type CustomToastStateType = {
     visible: boolean;
 };
@@ -15,29 +18,35 @@ class CustomToast extends Component<CustomToastPropsType, CustomToastStateType> 
     constructor(props: CustomToastPropsType) {
         super(props);
         this.state = {
-            visible: true,
+            visible: false,
         };
 
         this.handleOffVisibility = this.handleOffVisibility.bind(this);
         this.handleOnVisibility = this.handleOnVisibility.bind(this);
-
-        ChartObservable.subscribe(this.handleOnVisibility);
     }
 
     componentDidMount() {
-        const { duration } = this.props;
+        console.log(this.props);
 
-        setTimeout(() => {
-            this.handleOffVisibility();
-        }, duration);
+        const { isStart } = this.props;
+
+        if (!isStart) {
+            ChartObservable.subscribe(this.handleOnVisibility);
+        } else {
+            const { duration } = this.props;
+
+            setTimeout(() => {
+                this.handleOffVisibility();
+            }, duration);
+        }
     }
 
-    componentDidUpdate() {
-        const { duration } = this.props;
+    componentWillUnmount() {
+        const { isStart } = this.props;
 
-        setTimeout(() => {
-            this.handleOffVisibility();
-        }, duration);
+        if (!isStart) {
+            ChartObservable.unSubscribe(this.handleOnVisibility);
+        }
     }
 
     handleOffVisibility() {
@@ -46,15 +55,23 @@ class CustomToast extends Component<CustomToastPropsType, CustomToastStateType> 
 
     handleOnVisibility() {
         this.setState({ visible: true });
+
+        const { duration } = this.props;
+
+        setTimeout(() => {
+            this.handleOffVisibility();
+        }, duration);
     }
 
     render() {
         const { message } = this.props;
         const { visible } = this.state;
-        return (
+
+        return createPortal(
             <div className={`toast ${visible ? "show" : "hide"}`}>
                 <Text className="toast-content">{message}</Text>
-            </div>
+            </div>,
+            document.getElementById("portal"),
         );
     }
 }
