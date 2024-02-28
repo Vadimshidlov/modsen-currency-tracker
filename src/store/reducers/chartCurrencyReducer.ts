@@ -43,7 +43,7 @@ export type MetaType = {
 const initialState: IcurrentCurrencyState = {
     currency: {
         meta: {
-            last_updated_at: "1",
+            last_updated_at: "",
         },
         data: {},
     },

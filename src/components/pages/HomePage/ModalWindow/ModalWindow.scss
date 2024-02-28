@@ -19,8 +19,8 @@
     align-items: center;
     position: relative;
     background-color: colors.$modal_background;
-    margin: 10% auto;
-    height: 53%;
+    margin: 10vh auto;
+    height: 70vh;
     width: 30%;
     border-radius: 10px;
 
@@ -29,18 +29,19 @@
     }
 
     @media (max-width: 1220px) {
-      margin: 15% auto;
+      margin: 8vh auto;
       width: 50%;
+      height: 75vh;
     }
 
     @media (max-width: 930px) {
-      margin: 20% auto;
+      margin: 8vh auto;
       //height: 47%;
     }
 
     @media (max-width: 768px) {
       //height: 36%;
-      height: 47%;
+      height: 75vh;
     }
 
     @media (max-width: 560px) {
@@ -49,7 +50,7 @@
     }
 
     @media (max-width: 420px) {
-      height: 40%;
+      height: 55vh;
     }
 
     .modal__title {

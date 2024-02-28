@@ -1,0 +1,108 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.currency-chart__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 20px;
+
+
+
+  .currency-chart__select-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+    width: 30%;
+    height: 50px;
+
+    @media (max-width: 1200px) {
+      width: 260px;
+      //width: 23%;
+    }
+
+
+
+    .currency-chart__select {
+      /*outline: none;
+      color: colors.$color_white;
+      font-size: fonts.$font-size_30;
+      width: 340px;
+      padding: 5px;
+      //font-size: 16px;
+      line-height: 1;
+      border: 0;
+      border-radius: 5px;
+      height: 34px;
+      background: url('@/assets/svg/select-vector.svg') no-repeat right transparent;
+      -webkit-appearance: none;
+      background-position-x: 244px;*/
+      width: 100%;
+      border: none;
+      outline: none;
+      appearance: none;
+      padding: 0 30px 0 15px;
+      color: colors.$color_white;
+      background-color: colors.$black_background;
+      //background-color: #2873ff;
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_30;
+
+      @media (max-width: 1200px) {
+        font-size: fonts.$font-size_25;
+      }
+
+      @media (max-width: 1200px) {
+        font-size: fonts.$font-size_20;
+      }
+
+      @media (max-width: 500px) {
+        font-size: fonts.$font-size_15;
+        //width: 23%;
+      }
+
+
+      //.currency-chart-select__option {
+      //  //background: transparent;
+      //  margin: 40px;
+      //  background: rgba(0, 0, 0, 0.3);
+      //  color: #fff;
+      //  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+      //}
+    }
+
+    .currency-chart__icon-container {
+      display: flex;
+      align-items: center;
+      width:20px;
+      height: 100%;
+
+      .currency-chart__icon {
+        width: 20px;
+        height: 15px;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media (max-width: 1200px) {
+          width: 15px;
+          height: 15px;
+          font-size: fonts.$font-size_20;
+        }
+      }
+    }
+
+
+  }
+}
+
+::-webkit-calendar-picker-indicator{
+  background-color: colors.$color_white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}

@@ -2,15 +2,17 @@
 @use "@/constants/styles/colors" as colors;
 
 
-.currency-card__container {
+.chart-card__container {
+  align-self: start;
   display: flex;
   column-gap: 30px;
   align-items: center;
   width: 520px;
-  background-color: colors.$currency_card_background;
+  //background-color: colors.$currency_card_background;
   padding: 36px 32px;
   border-radius: 8px;
-  border: 1px solid colors.$currency_card_border;
+  background: transparent;
+  //border: 1px solid colors.$currency_card_border;
   transition: all 1s;
   outline: none;
 
@@ -29,7 +31,7 @@
     cursor: pointer;
   }
 
-  .currency-card__icon {
+  .chart-card__icon {
     width: 80px;
     height: 80px;
 
@@ -49,13 +51,13 @@
     }
   }
 
-  .currency-card__info {
+  .chart-card__info {
     display: flex;
     flex-direction: column;
     align-items: start;
     //row-gap: 10px;
 
-    .currency-card__titile {
+    .chart-card__titile {
       @include fonts.PoppinsRegularFont;
       color: colors.$color_grey;
       font-size: fonts.$font-size_35;
@@ -77,10 +79,10 @@
       }
     }
 
-    .currency-card__percent {
+    .chart-card__percent {
       @include fonts.PoppinsLight;
       color: colors.$color_grey_medium-opacity;
-      font-size: fonts.$font-size_32;
+      font-size: fonts.$font-size_16;
       line-height: 41.14px;
 
       @media (max-width: 1120px) {
