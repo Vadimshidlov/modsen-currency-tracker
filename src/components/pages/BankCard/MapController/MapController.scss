@@ -1,0 +1,120 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.map__container {
+  height: 460px;
+  width: 100%;
+  margin-bottom: 700px;
+
+  .marker {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .mapboxgl-popup {
+    max-width: 200px;
+  }
+
+  .mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+
+.currency-form__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //margin-bottom: 80px;
+
+  @include fonts.PoppinsLight;
+  font-size: fonts.$font-size_38;
+  color: colors.$color_white;
+
+  .currency-input__title {
+    margin-bottom: 24px;
+
+  }
+
+  .currency-input__container {
+    position: relative;
+
+    .currency-input__input {
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_28;
+      color: colors.$color_white;
+      padding: 20px;
+      width: 450px;
+      height: 66px;
+      background: colors.$color_grey__input-background;
+      outline: none;
+      border-radius: 8px;
+
+      &::placeholder {
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_18;
+        color: colors.$color_grey__input-placeholder;
+      }
+    }
+
+    .currency-input__result {
+      display: flex;
+      flex-direction: column;
+      top: 115%;
+      background: colors.$color_grey__input-background;
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      border-radius: 8px;
+
+      .currency-input__result-item {
+        padding-top: 20px;
+        background: transparent;
+        text-align: start;
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_28;
+        color: colors.$color_white;
+        border-bottom: 1px solid;
+        cursor: pointer;
+        transition: all 1s ease-in;
+
+        &:hover {
+          opacity: .5;
+        }
+
+      }
+    }
+
+
+  }
+
+
+  .currency-input__icon {
+    position: absolute;
+    top: 33%;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    //color: #9E9E9E;
+    background: transparent;
+  }
+
+  .currency-form__selected-currency {
+    align-self: end;
+    display: flex;
+    align-items: end;
+    padding-right: 20px;
+    height: 80px;
+
+    .selected-currency-title {
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_20;
+      color: colors.$color_white;
+    }
+  }
+}
