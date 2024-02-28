@@ -18,7 +18,10 @@ class Header extends Component {
                         <NavLink className="header__logo" to="/timeline">
                             <li className="navigation-list__item">Timeline</li>
                         </NavLink>
-                        <li className="navigation-list__item">Bank card</li>
+                        <NavLink className="header__logo" to="/bank-card">
+                            <li className="navigation-list__item">Bank Card</li>
+                        </NavLink>
+                        {/* <li className="navigation-list__item">Bank card</li> */}
                         <li className="navigation-list__item">Contato</li>
                     </ul>
                 </nav>

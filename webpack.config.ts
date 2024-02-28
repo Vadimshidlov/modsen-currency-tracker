@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
 import path from "path";
 import webpack from "webpack";
+import dotenv from "dotenv";
 
 export interface BuildPaths {
     entry: string;
@@ -40,6 +41,16 @@ export default (env: EnvVariable) => {
 
     const isDev = env.mode === "development";
     const isProd = env.mode === "production";
+    const projectEnv: dotenv.DotenvParseOutput = dotenv.config().parsed;
+
+    console.log(projectEnv);
+
+    const envKeys = Object.keys(projectEnv).reduce<dotenv.DotenvParseOutput>((prev, next) => {
+        const boublePrev = prev;
+        boublePrev[`process.env.${next}`] = JSON.stringify(projectEnv[next]);
+
+        return prev;
+    }, {});
 
     return {
         mode: env.mode ?? "development",
@@ -52,6 +63,7 @@ export default (env: EnvVariable) => {
         plugins: [
             new HtmlWebpackPlugin({ template: options.paths.html }),
             isDev && new webpack.ProgressPlugin(),
+            new webpack.DefinePlugin(envKeys),
             isDev && new Dotenv(),
             isProd &&
                 new MiniCssExtractPlugin({
@@ -99,6 +111,7 @@ export default (env: EnvVariable) => {
             alias: {
                 "@": options.paths.src,
             },
+            fallback: { "process/browser": require.resolve("process/browser") },
         },
         devtool: isDev && "inline-source-map",
         devServer: isDev
