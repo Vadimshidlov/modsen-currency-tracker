@@ -4,13 +4,9 @@ import "@/components/pages/HomePage/CurrencyCard/CurrencyCard.scss";
 import { useActions } from "@/store/hooks/useActions";
 import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
+import { CurrencyCardPropsType } from "@/types/HomePageTypes/types";
 
-export type CurrencyPropsType = {
-    currencyCode: string;
-    value: number;
-};
-
-export default function CurrencyCard({ currencyCode, value }: CurrencyPropsType) {
+export default function CurrencyCard({ currencyCode, value }: CurrencyCardPropsType) {
     const { CurrencyIcon, currencyTitle } = getCurrencyIcon(currencyCode);
     const currencyValue = +value.toFixed(2);
 

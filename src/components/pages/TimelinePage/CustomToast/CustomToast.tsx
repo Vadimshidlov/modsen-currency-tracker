@@ -3,16 +3,7 @@ import "@/components/pages/TimelinePage/CustomToast/CustomToast.scss";
 import { createPortal } from "react-dom";
 import Text from "@/components/pages/TimelinePage/Text/Text";
 import ChartObservable from "@/Observable/ChartObservable";
-
-export type CustomToastPropsType = {
-    message: string;
-    duration: number;
-    isStart: boolean;
-};
-
-export type CustomToastStateType = {
-    visible: boolean;
-};
+import { CustomToastPropsType, CustomToastStateType } from "@/types/TimeLinePageTypes/types";
 
 class CustomToast extends Component<CustomToastPropsType, CustomToastStateType> {
     constructor(props: CustomToastPropsType) {

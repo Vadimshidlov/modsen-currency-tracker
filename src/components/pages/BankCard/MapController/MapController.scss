@@ -18,8 +18,18 @@
   }
 
   .mapboxgl-popup-content {
+    display: flex;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    @include fonts.PoppinsSemiBoldFont;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+
+      font-size: fonts.$font-size_15;
+      color: colors.$black_background;
+    }
+
   }
 }
 
@@ -73,8 +83,9 @@
       border-radius: 8px;
 
       .currency-input__result-item {
-        padding-top: 20px;
-        background: transparent;
+        padding: 20px 5px 10px 10px;
+        //background: transparent;
+        background: colors.$color_grey__input-background;
         text-align: start;
         @include fonts.PoppinsLight;
         font-size: fonts.$font-size_28;
@@ -84,7 +95,8 @@
         transition: all 1s ease-in;
 
         &:hover {
-          opacity: .5;
+          //opacity: .5;
+          background: colors.$color_grey__input-hover;
         }
 
       }

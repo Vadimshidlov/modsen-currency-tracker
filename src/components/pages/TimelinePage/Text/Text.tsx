@@ -1,11 +1,5 @@
-import React, { Component, ReactNode } from "react";
-
-// interface IText extends React.ComponentPropsWithRef<"p"> {}
-
-export type TextPropsType = {
-    className: string;
-    children: ReactNode;
-} & React.ComponentPropsWithRef<"p">;
+import React, { Component } from "react";
+import { TextPropsType } from "@/types/TimeLinePageTypes/types";
 
 export default class Text extends Component<TextPropsType> {
     render() {

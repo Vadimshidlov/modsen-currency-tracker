@@ -1,5 +1,6 @@
 import AxiosCurrencyService from "@/services/AxiosCurrencyService/AxiosCurrencyService";
 import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
+import { getLastUpdateTime } from "@/utils/getLastUpdateTime";
 
 class CurrentCurrencyService {
     private readonly CURRENCY_API_KEY =
@@ -14,6 +15,17 @@ class CurrentCurrencyService {
 
             return JSON.parse(data);
         }
+
+        /* const lastUpdateDate = new Date();
+        const hours = lastUpdateDate.getHours();
+        const minutes = lastUpdateDate.getMinutes();
+        const month = lastUpdateDate.toLocaleString("en-US", { month: "long" });
+        const day = lastUpdateDate.getDay();
+        const ampm = hours >= 12 ? "pm" : "am";
+
+        const lastUpdateDateResult = `${day} ${month} at ${hours}:${minutes}${ampm}`; */
+
+        localStorage.setItem("lastUpdateDateResult", getLastUpdateTime());
 
         const response = await this.AXIOS_SERVICE.get<ICurrency>(
             {

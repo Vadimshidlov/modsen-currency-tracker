@@ -3,16 +3,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { RootStateType } from "@/store/reducers";
 import { switchDarkTheme, switchLightTheme } from "@/store/action-creators/toggleTheme";
-
-export type ToggleThemePropsType = {
-    theme: string;
-    switchLightTheme: () => void;
-    switchDarkTheme: () => void;
-};
-
-export type ToggleThemeStateType = {
-    isChecked: boolean;
-};
+import { ToggleThemePropsType, ToggleThemeStateType } from "@/types/TimeLinePageTypes/types";
 
 class ToggleTheme extends Component<ToggleThemePropsType, ToggleThemeStateType> {
     constructor(props: ToggleThemePropsType) {

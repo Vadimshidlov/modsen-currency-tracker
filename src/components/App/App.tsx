@@ -7,13 +7,6 @@ export default function App() {
 
     return (
         <div className={`app ${theme === "Dark" ? "" : "light-theme"}`}>
-            {/* <Header />
-            <AppTitle />
-            <MainComponent />
-            <Footer /> */}
-            {/* <Outlet /> */}
-            {/* <HomePage />
-            <TimelinePage /> */}
             <AppRoutes />
         </div>
     );

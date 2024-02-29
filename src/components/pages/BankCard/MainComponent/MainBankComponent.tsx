@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import LastUpdate from "@/components/pages/TimelinePage/LastUpdate/LastUpdate";
 import "@/components/pages/HomePage/MainComponent/MainComponent.scss";
 import { getCurrency } from "@/store/action-creators/getCurrency";
+import { getMapData } from "@/store/action-creators/getMapData";
+
 import MapController from "@/components/pages/BankCard/MapController/MapController";
+import { MainBankComponentPropsType } from "@/types/BankCardPageTypes/types";
 
-export type MainComponentPropsType = {
-    getCurrency: () => Promise<void>;
-};
-
-class MainComponent extends Component<MainComponentPropsType> {
+class MainBankComponent extends Component<MainBankComponentPropsType> {
     componentDidMount() {
-        const { getCurrency: getCurrencyData } = this.props;
+        const { getCurrency: getCurrencyData, getMapData: getAllMapData } = this.props;
 
         getCurrencyData();
+        getAllMapData();
     }
 
     componentDidUpdate() {
@@ -32,4 +32,4 @@ class MainComponent extends Component<MainComponentPropsType> {
     }
 }
 
-export default connect(null, { getCurrency })(MainComponent);
+export default connect(null, { getCurrency, getMapData })(MainBankComponent);

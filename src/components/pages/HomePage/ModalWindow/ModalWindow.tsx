@@ -12,10 +12,7 @@ import { TextInput } from "@/components/pages/HomePage/TextInput/TextInput";
 import { getConvertResult } from "@/utils/getConvertResult";
 import ConverterTitle from "@/components/pages/HomePage/ModalWindow/ConverterTitle/ConverterTitle";
 import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
-
-export type ModalWindowPropsType = {
-    isOpen: boolean;
-};
+import { ModalWindowPropsType } from "@/types/HomePageTypes/types";
 
 function ModalWindow({ isOpen }: ModalWindowPropsType) {
     const { closeModalWindow, selectSecondCurrency } = useActions();
@@ -28,7 +25,6 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
         secondCurrencyCode,
     } = useTypedSelectorHook((state) => state.modalWindow);
 
-    // const {  CurrencyIcon } = getCurrencyIcon(currentCurrencyCode);
     const { CurrencyIcon: SelectedCurrencyIcon } = getCurrencyIcon(currentCurrencyCode);
     const { CurrencyIcon: ResultCurrencyIcon } = getCurrencyIcon(secondCurrencyCode);
 
@@ -75,22 +71,19 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
 
     useOutsideClick(closeModalWindow, modalRef);
 
-    if (!isOpen) return null;
+    const closeModalHandler = () => {
+        closeModalWindow();
+        setCurrencyInputValue("0");
+        setResultInputValue("0");
+    };
 
-    // console.log(currentCurrencyCode, `currentCurrencyCode from Home`);
+    if (!isOpen) return null;
 
     return createPortal(
         <div className="modal__container">
             <div className="modal__content" ref={modalRef}>
-                {/* <div className="modal__title">
-                    <div className="modal__selected-currency">
-                        <Text className="">{currentCurrencyTitle}</Text>
-                        <Text className="">Value for USD: {currentCurrencyValue}</Text>
-                    </div>
-                </div> */}
                 <ConverterTitle
                     currentCurrencyCode={currentCurrencyCode}
-                    // currentCurrencyTitle={currentCurrencyTitle}
                     currentCurrencyValue={currentCurrencyValue}
                 />
                 <form className="modal__converter">
@@ -126,7 +119,7 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
                     className="modal__close-button"
                     width={25}
                     height={25}
-                    onClick={closeModalWindow}
+                    onClick={closeModalHandler}
                 />
             </div>
         </div>,

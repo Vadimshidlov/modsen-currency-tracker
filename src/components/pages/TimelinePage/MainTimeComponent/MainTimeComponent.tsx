@@ -4,12 +4,9 @@ import LastUpdate from "@/components/pages/TimelinePage/LastUpdate/LastUpdate";
 import "@/components/pages/HomePage/MainComponent/MainComponent.scss";
 import { getCurrency } from "@/store/action-creators/getCurrency";
 import CurrencyChartController from "@/components/pages/TimelinePage/CurrencyChartController/CurrencyChartController";
+import { MainTimeComponentPropsType } from "@/types/TimeLinePageTypes/types";
 
-export type MainComponentPropsType = {
-    getCurrency: () => Promise<void>;
-};
-
-class MainComponent extends Component<MainComponentPropsType> {
+class MainTimeComponent extends Component<MainTimeComponentPropsType> {
     componentDidMount() {
         const { getCurrency: getCurrencyData } = this.props;
 
@@ -32,4 +29,4 @@ class MainComponent extends Component<MainComponentPropsType> {
     }
 }
 
-export default connect(null, { getCurrency })(MainComponent);
+export default connect(null, { getCurrency })(MainTimeComponent);

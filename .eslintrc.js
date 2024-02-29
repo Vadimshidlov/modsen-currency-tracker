@@ -57,5 +57,6 @@ module.exports = {
         "react/jsx-props-no-spreading": "off",
         "react/react-in-jsx-scope": "off",
         "react/prefer-stateless-function": "off",
+        "@typescript-eslint/default-param-last": "off",
     },
 };

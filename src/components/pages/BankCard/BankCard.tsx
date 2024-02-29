@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Header from "@/components/pages/TimelinePage/Header/Header";
 import AppTitle from "@/components/pages/TimelinePage/AppTitle/AppTitle";
-import MainComponent from "@/components/pages/BankCard/MainComponent/MainComponent";
 import Footer from "@/components/pages/TimelinePage/Footer/Footer";
 import "react-toastify/dist/ReactToastify.css";
+import MainBankComponent from "@/components/pages/BankCard/MainComponent/MainBankComponent";
 
 class BankCardPage extends Component {
     render() {
@@ -11,7 +11,7 @@ class BankCardPage extends Component {
             <div>
                 <Header />
                 <AppTitle />
-                <MainComponent />
+                <MainBankComponent />
                 <Footer />
             </div>
         );
