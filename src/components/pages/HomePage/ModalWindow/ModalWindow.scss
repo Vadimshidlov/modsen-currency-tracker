@@ -24,10 +24,6 @@
     width: 30%;
     border-radius: 10px;
 
-    //@media (max-width: 1440px) {
-    //  width: 50%;
-    //}
-
     @media (max-width: 1220px) {
       margin: 8vh auto;
       width: 50%;
@@ -36,7 +32,6 @@
 
     @media (max-width: 930px) {
       margin: 8vh auto;
-      //height: 47%;
     }
 
     @media (max-width: 768px) {
@@ -123,7 +118,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
 
-
       .currency__result {
         display: flex;
         align-items: center;
@@ -170,11 +164,6 @@
             width: 15px;
             height: 15px;
           }
-
-          /*@media (max-width: 930px) {
-            width: 15px;
-            height: 15px;
-          }*/
         }
       }
     }
