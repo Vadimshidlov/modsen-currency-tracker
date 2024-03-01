@@ -36,6 +36,8 @@ class MapController extends Component<MapControllerPropsType, MapControllerState
         const { currency: currencyData } = currency;
         const { data } = currencyData;
 
+        // throw new Error("Ooops! We have an error!");
+
         return (
             <>
                 <div className="currency-form__container">

@@ -1,0 +1,35 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.fallback__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  margin-bottom: 60px;
+
+  .fallback__title{
+    @include fonts.PoppinsLight;
+    font-size: fonts.$font-size_30;
+    color: colors.$color_white;
+  }
+
+  .fallback__info {
+    @include fonts.PoppinsLight;
+    font-size: fonts.$font-size_28;
+    color: colors.$color_white;
+  }
+
+
+  @media (max-width: 768px) {
+    .fallback__title{
+      font-size: fonts.$font-size_18;
+    }
+
+    .fallback__info {
+      @include fonts.PoppinsLight;
+      font-size: fonts.$font-size_18;
+    }
+  }
+}

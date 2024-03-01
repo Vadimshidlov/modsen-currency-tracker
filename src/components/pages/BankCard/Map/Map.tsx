@@ -132,7 +132,6 @@ class Map extends Component<MapPropsType, MapStateType> {
                 <div className="map__container" ref={this.mapRef}>
                     {isLoading ? <Loader /> : null}
                 </div>
-                <button onClick={this.removeMarkers}>REMOVE</button>
             </div>
         );
     }

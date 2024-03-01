@@ -1,0 +1,44 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.currency-chart__container {
+  //position: relative;
+  display: flex;
+  //flex-direction: column-reverse;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 1205px;
+  width: 100%;
+  margin: 0 auto 604px;
+
+  @media (max-width: 1200px) {
+    margin: 0 auto 150px;
+  }
+
+
+  @media (max-width: 490px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .currency-chart__random-button {
+    //position: absolute;
+    //top: -20%;
+    //right: 5%;
+    padding: 15px;
+    background: transparent;
+    color: colors.$color_white;
+    @include fonts.PoppinsLight;
+    font-size: fonts.$font-size_15;
+    border: 1px solid colors.$color_white;
+    transition: all 1s;
+    max-width: 200px;
+    align-self: center;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05)
+    }
+  }
+}

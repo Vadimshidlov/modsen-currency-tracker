@@ -95,8 +95,14 @@
         }
       }
     }
+  }
 
-
+  .currency-chart__date-picker-title {
+    align-self: start;
+    @include fonts.PoppinsLight;
+    color: colors.$color_white;
+    font-size: fonts.$font-size_15;
+    margin-left: 20px;
   }
 }
 

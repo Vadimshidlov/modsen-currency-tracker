@@ -8,9 +8,6 @@ import { ToggleThemePropsType, ToggleThemeStateType } from "@/types/TimeLinePage
 class ToggleTheme extends Component<ToggleThemePropsType, ToggleThemeStateType> {
     constructor(props: ToggleThemePropsType) {
         super(props);
-        this.state = {
-            isChecked: false,
-        };
 
         this.handleToggle = this.handleToggle.bind(this);
     }
@@ -27,16 +24,10 @@ class ToggleTheme extends Component<ToggleThemePropsType, ToggleThemeStateType> 
         } else {
             switchToDarkTheme();
         }
-
-        this.setState((state) => ({
-            isChecked: !state.isChecked,
-        }));
     }
 
     render() {
-        console.log("Render class ToggleTheme extends Component");
-
-        const { isChecked } = this.state;
+        const { theme } = this.props;
 
         return (
             <label htmlFor="toggle-switch" className="toggle-switch">
@@ -44,7 +35,7 @@ class ToggleTheme extends Component<ToggleThemePropsType, ToggleThemeStateType> 
                 <input
                     id="toggle-switch"
                     type="checkbox"
-                    checked={isChecked}
+                    checked={theme === "Light"}
                     onChange={this.handleToggle}
                 />
                 <div className="slider" />

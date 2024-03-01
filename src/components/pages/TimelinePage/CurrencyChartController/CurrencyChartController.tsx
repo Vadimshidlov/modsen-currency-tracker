@@ -11,6 +11,7 @@ import {
     CurrencyChartControllerPropsType,
     CurrencyChartControllerStateType,
 } from "@/types/TimeLinePageTypes/types";
+import Text from "@/components/pages/TimelinePage/Text/Text";
 
 const CHART_BUILDING_MESSAGE = "Success chart building!";
 
@@ -79,6 +80,8 @@ class CurrencyChartController extends Component<
         const { code, value } = currentCurrency;
         const { currency } = this.props;
 
+        // throw new Error("Ooops! We have an error!");
+
         return (
             <div className="currency-chart__form">
                 <CustomToast message={CHART_BUILDING_MESSAGE} duration={2000} isStart={false} />
@@ -87,6 +90,7 @@ class CurrencyChartController extends Component<
                     selectedCurrencyCode={code}
                     onChange={this.handleCurrencyChange}
                 />
+                <Text className="currency-chart__date-picker-title">Choose a start date:</Text>
                 <ChartDate dateValue={currentDate} onChange={this.handleDateChange} />
                 {currentDate ? (
                     <CurrencyChart chartDate={currentDate} chartCurrencyValue={value} />

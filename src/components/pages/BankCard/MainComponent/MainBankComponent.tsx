@@ -7,6 +7,7 @@ import { getMapData } from "@/store/action-creators/getMapData";
 
 import MapController from "@/components/pages/BankCard/MapController/MapController";
 import { MainBankComponentPropsType } from "@/types/BankCardPageTypes/types";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 class MainBankComponent extends Component<MainBankComponentPropsType> {
     componentDidMount() {
@@ -26,7 +27,9 @@ class MainBankComponent extends Component<MainBankComponentPropsType> {
         return (
             <main className="main-block">
                 <LastUpdate />
-                <MapController />
+                <ErrorBoundary>
+                    <MapController />
+                </ErrorBoundary>
             </main>
         );
     }

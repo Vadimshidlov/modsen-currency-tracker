@@ -55,9 +55,7 @@ export type ToggleThemePropsType = {
     switchDarkTheme: () => void;
 };
 
-export type ToggleThemeStateType = {
-    isChecked: boolean;
-};
+export type ToggleThemeStateType = object;
 
 export type MainTimeComponentPropsType = {
     getCurrency: () => Promise<void>;

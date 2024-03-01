@@ -5,6 +5,7 @@ import "@/components/pages/HomePage/MainComponent/MainComponent.scss";
 import { getCurrency } from "@/store/action-creators/getCurrency";
 import CurrencyChartController from "@/components/pages/TimelinePage/CurrencyChartController/CurrencyChartController";
 import { MainTimeComponentPropsType } from "@/types/TimeLinePageTypes/types";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 class MainTimeComponent extends Component<MainTimeComponentPropsType> {
     componentDidMount() {
@@ -23,7 +24,9 @@ class MainTimeComponent extends Component<MainTimeComponentPropsType> {
         return (
             <main className="main-block main-block__container">
                 <LastUpdate />
-                <CurrencyChartController />
+                <ErrorBoundary>
+                    <CurrencyChartController />
+                </ErrorBoundary>
             </main>
         );
     }

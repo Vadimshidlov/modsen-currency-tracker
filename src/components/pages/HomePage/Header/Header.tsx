@@ -3,10 +3,19 @@ import { NavLink } from "react-router-dom";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import "@/components/pages/HomePage/Header/Header.scss";
 import ToggleTheme from "@/components/pages/HomePage/Header/ToggleTheme/ToggleTheme";
+import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 export default function Header() {
+    const { theme } = useTypedSelectorHook((state) => state.theme);
+
     return (
-        <div className="header__container container">
+        <div
+            className={
+                theme === "Light"
+                    ? "header__container light container"
+                    : "header__container container"
+            }
+        >
             <HeaderSvg className="header__logo" width={40} height={41} />
             <nav className="header__navigation navigation">
                 <NavLink

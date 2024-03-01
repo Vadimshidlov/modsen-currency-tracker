@@ -11,6 +11,7 @@ import Loader from "@/components/pages/TimelinePage/Loader/Loader";
 import { getDataForChart } from "@/utils/getDataForChart";
 import ChartObservable from "@/Observable/ChartObservable";
 import { CurrencyChartStateType, CurrencyChartPropsType } from "@/types/TimeLinePageTypes/types";
+import "@/components/pages/TimelinePage/Chart/CurrencyChart.scss";
 
 Chart.register(OhlcElement, OhlcController, CandlestickElement, CandlestickController);
 
@@ -27,6 +28,7 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
         };
 
         this.chartRef = React.createRef<HTMLCanvasElement | null>();
+        this.updateCurrencyChartHandler = this.updateCurrencyChartHandler.bind(this);
     }
 
     componentDidMount() {
@@ -78,12 +80,20 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
     render() {
         const { isChartBuilding } = this.state;
 
+        // throw new Error("Ooops! We have an error!");
+
         return (
             <div className="currency-chart__container">
                 <canvas ref={this.chartRef} id="currency-chart">
                     TimelinePage
                 </canvas>
                 {isChartBuilding && <Loader />}
+                <button
+                    className="currency-chart__random-button"
+                    onClick={this.updateCurrencyChartHandler}
+                >
+                    RANDOMIZE
+                </button>
             </div>
         );
     }

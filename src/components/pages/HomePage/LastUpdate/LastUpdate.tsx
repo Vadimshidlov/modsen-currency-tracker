@@ -1,16 +1,16 @@
 import React from "react";
 import Text from "@/components/pages/HomePage/Text/Text";
 import "@/components/pages/HomePage/LastUpdate/LastUpdate.scss";
+import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 export default function LastUpdate() {
+    const { theme } = useTypedSelectorHook((state) => state.theme);
     const lastUpdateDate = localStorage.getItem("lastUpdateDateResult");
 
     return (
-        <div className="last-update">
-            {/* <UpdateCircle width={33} height={34} /> */}
+        <div className={theme === "Light" ? "last-update light" : "last-update"}>
             <div className="pulsating-circle" />
             <Text className="last-update__text">Last updated {lastUpdateDate}</Text>
-            {/* <Text className="last-update__text">Last updated at 11:59pm</Text> */}
         </div>
     );
 }

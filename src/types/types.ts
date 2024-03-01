@@ -12,3 +12,5 @@ export type MarkersDataType = {
     currency?: string[];
     address?: string;
 };
+
+export type ObserverFunctionType = () => void;
