@@ -8,7 +8,13 @@ import { CurrencyCardPropsType } from "@/types/HomePageTypes/types";
 
 export default function CurrencyCard({ currencyCode, value }: CurrencyCardPropsType) {
     const { CurrencyIcon, currencyTitle } = getCurrencyIcon(currencyCode);
-    const currencyValue = +value.toFixed(2);
+    // const currencyValue = +value.toFixed(2);
+    let currencyValue;
+    if (currencyCode === "BTC") {
+        currencyValue = value;
+    } else {
+        currencyValue = +value.toFixed(2);
+    }
 
     const { currency } = useTypedSelectorHook((state) => state.currency);
 

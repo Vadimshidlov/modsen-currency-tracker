@@ -21,12 +21,13 @@
     background-color: colors.$modal_background;
     margin: 10vh auto;
     //height: 70vh;
-    width: 30%;
+    //width: 30%;
+    max-width: 350px;
     border-radius: 10px;
 
     @media (max-width: 1220px) {
       margin: 8vh auto;
-      width: 50%;
+      //width: 50%;
       //height: 75vh;
     }
 
