@@ -1,6 +1,6 @@
 @use "@/constants/styles/fonts" as fonts;
 @use "@/constants/styles/colors" as colors;
-@import "@/index.scss";
+//@import "@/index.scss";
 
 .stocks__container {
   max-width: 1224px;
@@ -72,6 +72,26 @@
       display: flex;
       flex-direction: column;
       row-gap: 20px;
+    }
+  }
+
+  &.light {
+    .stocks__title {
+      color: colors.$black_background;
+    }
+
+    .currency-card__container {
+      background: colors.$currency-card_background__light;
+    }
+
+    .currency-card__container {
+      .currency-card__titile {
+        color: colors.$black_background;
+      }
+
+      .currency-card__percent {
+        color: colors.$black_background;
+      }
     }
   }
 }

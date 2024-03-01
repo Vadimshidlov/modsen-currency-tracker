@@ -1,15 +1,9 @@
 import React from "react";
 import Text from "@/components/pages/HomePage/Text/Text";
 import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
-
-export type ConverterTitlePropsType = {
-    // currentCurrencyTitle: string;
-    currentCurrencyCode: string;
-    currentCurrencyValue: number;
-};
+import { ConverterTitlePropsType } from "@/types/HomePageTypes/types";
 
 export default function ConverterTitle({
-    // currentCurrencyTitle,
     currentCurrencyValue,
     currentCurrencyCode,
 }: ConverterTitlePropsType) {
@@ -22,10 +16,6 @@ export default function ConverterTitle({
                     <CurrencyIcon />
                     <Text className="">{currencyTitle}</Text>
                 </div>
-
-                {/* <Text className="">{currentCurrencyTitle}</Text> */}
-                {/* <Text className="">Value for USD: {currentCurrencyValue}</Text> */}
-
                 <div className="selected-currency__value">
                     <Text className="">Value for USD:</Text>
                     <Text className="">{currentCurrencyValue}</Text>

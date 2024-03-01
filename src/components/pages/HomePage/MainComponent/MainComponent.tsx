@@ -4,6 +4,7 @@ import "@/components/pages/HomePage/MainComponent/MainComponent.scss";
 import CurrencyStocks from "@/components/pages/HomePage/CurrencyStocks/CurrencyStocks";
 import CurrencyQoutes from "@/components/pages/HomePage/CurrencyQoutes/CurrencyQoutes";
 import { useActions } from "@/store/hooks/useActions";
+import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 
 export default function MainComponent() {
     const { getCurrency } = useActions();
@@ -15,8 +16,10 @@ export default function MainComponent() {
     return (
         <main className="main-block main-block__container">
             <LastUpdate />
-            <CurrencyStocks />
-            <CurrencyQoutes />
+            <ErrorBoundary>
+                <CurrencyStocks />
+                <CurrencyQoutes />
+            </ErrorBoundary>
         </main>
     );
 }

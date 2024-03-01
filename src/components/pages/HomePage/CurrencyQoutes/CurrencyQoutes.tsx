@@ -8,9 +8,12 @@ import ModalWindow from "@/components/pages/HomePage/ModalWindow/ModalWindow";
 export default function CurrencyQoutes() {
     const { currency } = useTypedSelectorHook((state) => state.currency);
     const { isOpen } = useTypedSelectorHook((state) => state.modalWindow);
+    const { theme } = useTypedSelectorHook((state) => state.theme);
+
+    // throw new Error("Oooops! We have an error!");
 
     return (
-        <div className="quotes__container">
+        <div className={theme === "Light" ? "quotes__container light" : "quotes__container"}>
             <Text className="quotes__title title">Quotes</Text>
             <div className="title__border" />
             <div className="quotes__items">

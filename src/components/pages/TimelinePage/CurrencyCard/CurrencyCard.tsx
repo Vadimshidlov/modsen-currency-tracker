@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import Text from "@/components/pages/TimelinePage/Text/Text";
 import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
 import "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard.scss";
-
-export type CurrencyCardPropsType = {
-    currencyCode: string;
-};
+import { CurrencyCardPropsType } from "@/types/TimeLinePageTypes/types";
 
 export default class CurrencyCard extends Component<CurrencyCardPropsType> {
     render() {

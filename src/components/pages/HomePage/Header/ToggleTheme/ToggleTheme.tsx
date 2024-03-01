@@ -1,12 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "@/components/pages/HomePage/Header/ToggleTheme/ToggleTheme.scss";
 import { useActions } from "@/store/hooks/useActions";
 import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 export default function ToggleTheme() {
-    const [isChecked, setIsChecked] = useState(false);
-    const { switchLightTheme, switchDarkTheme } = useActions();
     const { theme } = useTypedSelectorHook((state) => state.theme);
+    const { switchLightTheme, switchDarkTheme } = useActions();
 
     const handleToggle = () => {
         if (theme === "Dark") {
@@ -14,14 +13,17 @@ export default function ToggleTheme() {
         } else {
             switchDarkTheme();
         }
-
-        setIsChecked((prev) => !prev);
     };
 
     return (
         <label htmlFor="toggle-switch" className="toggle-switch">
             {null}
-            <input id="toggle-switch" type="checkbox" checked={isChecked} onChange={handleToggle} />
+            <input
+                id="toggle-switch"
+                type="checkbox"
+                checked={theme === "Light"}
+                onChange={handleToggle}
+            />
             <div className="slider" />
         </label>
     );

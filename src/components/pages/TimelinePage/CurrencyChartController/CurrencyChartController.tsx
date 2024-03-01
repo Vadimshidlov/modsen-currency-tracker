@@ -5,18 +5,15 @@ import CurrencyChart from "@/components/pages/TimelinePage/Chart/CurrencyChart";
 import ChartDate from "@/components/pages/TimelinePage/ChartDate/ChartDate";
 import { getCurrentDate } from "@/utils/getCurrentDate";
 import { RootStateType } from "@/store/reducers";
-import { IcurrentCurrencyState } from "@/store/reducers/latestCurrencyReducer";
 import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
 import CustomToast from "@/components/pages/TimelinePage/CustomToast/CustomToast";
+import {
+    CurrencyChartControllerPropsType,
+    CurrencyChartControllerStateType,
+} from "@/types/TimeLinePageTypes/types";
+import Text from "@/components/pages/TimelinePage/Text/Text";
 
-export type CurrencyChartControllerPropsType = {
-    currency: IcurrentCurrencyState;
-};
-
-export type CurrencyChartControllerStateType = {
-    currentDate: string;
-    currentCurrency: { code: string; value: number };
-};
+const CHART_BUILDING_MESSAGE = "Success chart building!";
 
 class CurrencyChartController extends Component<
     CurrencyChartControllerPropsType,
@@ -83,16 +80,17 @@ class CurrencyChartController extends Component<
         const { code, value } = currentCurrency;
         const { currency } = this.props;
 
-        console.log(currentDate, `currentDate`);
+        // throw new Error("Ooops! We have an error!");
 
         return (
             <div className="currency-chart__form">
-                <CustomToast message="Success building!" duration={2000} isStart={false} />
+                <CustomToast message={CHART_BUILDING_MESSAGE} duration={2000} isStart={false} />
                 <CurrencyCards
                     currencyData={currency.currency}
                     selectedCurrencyCode={code}
                     onChange={this.handleCurrencyChange}
                 />
+                <Text className="currency-chart__date-picker-title">Choose a start date:</Text>
                 <ChartDate dateValue={currentDate} onChange={this.handleDateChange} />
                 {currentDate ? (
                     <CurrencyChart chartDate={currentDate} chartCurrencyValue={value} />

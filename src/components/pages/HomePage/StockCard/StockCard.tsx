@@ -3,13 +3,9 @@ import Text from "@/components/pages/HomePage/Text/Text";
 import "@/components/pages/HomePage/CurrencyCard/CurrencyCard.scss";
 import BovespaIcon from "@/assets/svg/stocks/bovespa-icon.svg";
 import IfixIcon from "@/assets/svg/stocks/ifix-icon.svg";
+import { CurrencyStockPropsType } from "@/types/HomePageTypes/types";
 
-export type CurrencyPropsType = {
-    stockCode: string;
-    value: number;
-};
-
-export default function StockCard({ stockCode, value }: CurrencyPropsType) {
+export default function StockCard({ stockCode, value }: CurrencyStockPropsType) {
     let CurrencyIcon;
     let currencyTitle = "";
     const currencyValue = +value.toFixed(2);

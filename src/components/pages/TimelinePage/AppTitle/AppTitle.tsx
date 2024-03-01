@@ -6,7 +6,7 @@ import Text from "@/components/pages/HomePage/Text/Text";
 export default class AppTitle extends React.Component {
     render() {
         return (
-            <div className="app-title__container">
+            <section className="app-title__container">
                 <div className="app-title">
                     <div className="app-title__about about">
                         <div className="about__titles">
@@ -20,7 +20,7 @@ export default class AppTitle extends React.Component {
                     </div>
                     <HeaderSvg className="app-title__image" />
                 </div>
-            </div>
+            </section>
         );
     }
 }

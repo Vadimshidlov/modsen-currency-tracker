@@ -1,15 +1,7 @@
-import React, { ChangeEvent, Component } from "react";
+import React, { Component } from "react";
 import Text from "@/components/pages/TimelinePage/Text/Text";
 import "@/components/pages/TimelinePage/ChartDate/ChartDate.scss";
-
-export type ChartDateStateType = {
-    currentDate: string;
-};
-
-export type ChartDatePropsType = {
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    dateValue: string;
-};
+import { ChartDatePropsType, ChartDateStateType } from "@/types/TimeLinePageTypes/types";
 
 class ChartDate extends Component<ChartDatePropsType, ChartDateStateType> {
     private readonly dateRef;

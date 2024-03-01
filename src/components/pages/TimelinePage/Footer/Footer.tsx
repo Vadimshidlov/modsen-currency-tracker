@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import Text from "@/components/pages/HomePage/Text/Text";
 import "@/components/pages/HomePage/Footer/Footer.scss";
+import FooterLinks from "@/components/pages/HomePage/Footer/FooterLinks/FooterLinks";
+import {
+    footerLinksCommunity,
+    footerLinksGeneral,
+    footerLinksProduct,
+} from "@/components/pages/HomePage/Footer/Footer";
 
 export default class Footer extends Component {
     render() {
@@ -23,21 +30,38 @@ export default class Footer extends Component {
                         </Text>
                     </div>
                     <div className="footer__links links">
-                        <ul className="links__nav nav">
-                            <li className="nav__item">General</li>
-                            <li className="nav__item">Market</li>
-                            <li className="nav__item">Service</li>
-                        </ul>
-                        <ul className="links__nav nav">
-                            <li className="nav__item">Product</li>
-                            <li className="nav__item">Sparks</li>
-                            <li className="nav__item">Snaps</li>
-                        </ul>
-                        <ul className="links__nav">
-                            <li className="nav__item">Community</li>
-                            <li className="nav__item">Ideas</li>
-                            <li className="nav__item">Streams</li>
-                        </ul>
+                        <nav className="links__nav nav">
+                            <Text className="nav__item">General</Text>
+                            <NavLink to="#" className="nav__item">
+                                Market
+                            </NavLink>
+                            <NavLink to="#" className="nav__item">
+                                Service
+                            </NavLink>
+                        </nav>
+                        <nav className="links__nav nav">
+                            <Text className="nav__item">Product</Text>
+                            <NavLink to="#" className="nav__item">
+                                Sparks
+                            </NavLink>
+                            <NavLink to="#" className="nav__item">
+                                Snaps
+                            </NavLink>
+                        </nav>
+                        <nav className="links__nav nav">
+                            <Text className="nav__item">Community</Text>
+                            <NavLink to="#" className="nav__item">
+                                Ideas
+                            </NavLink>
+                            <NavLink to="#" className="nav__item">
+                                Streams
+                            </NavLink>
+                        </nav>
+                    </div>
+                    <div className="footer-links__burgers-container">
+                        <FooterLinks {...footerLinksGeneral} />
+                        <FooterLinks {...footerLinksProduct} />
+                        <FooterLinks {...footerLinksCommunity} />
                     </div>
                 </div>
 

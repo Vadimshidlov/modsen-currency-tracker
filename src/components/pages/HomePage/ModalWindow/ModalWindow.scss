@@ -20,28 +20,24 @@
     position: relative;
     background-color: colors.$modal_background;
     margin: 10vh auto;
-    height: 70vh;
-    width: 30%;
+    //height: 70vh;
+    //width: 30%;
+    max-width: 350px;
     border-radius: 10px;
-
-    @media (max-width: 1440px) {
-      width: 50%;
-    }
 
     @media (max-width: 1220px) {
       margin: 8vh auto;
-      width: 50%;
-      height: 75vh;
+      //width: 50%;
+      //height: 75vh;
     }
 
     @media (max-width: 930px) {
       margin: 8vh auto;
-      //height: 47%;
     }
 
     @media (max-width: 768px) {
       //height: 36%;
-      height: 75vh;
+      //height: 75vh;
     }
 
     @media (max-width: 560px) {
@@ -50,7 +46,7 @@
     }
 
     @media (max-width: 420px) {
-      height: 55vh;
+      //height: 55vh;
     }
 
     .modal__title {
@@ -121,7 +117,7 @@
       border: 3px solid colors.$color_grey_medium-opacity;
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+      margin-bottom: 20px;
 
       .currency__result {
         display: flex;
@@ -169,11 +165,6 @@
             width: 15px;
             height: 15px;
           }
-
-          /*@media (max-width: 930px) {
-            width: 15px;
-            height: 15px;
-          }*/
         }
       }
     }
