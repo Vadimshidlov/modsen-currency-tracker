@@ -9,8 +9,6 @@ class ChartObservable {
 
     subscribe(func: ObserverFunctionType) {
         this.observers.push(func);
-
-        // console.log(this.observers[0], `this.observers`);
     }
 
     unSubscribe(func: ObserverFunctionType) {

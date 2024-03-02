@@ -8,16 +8,12 @@ export const buildCurrencyChart = (
     ref: React.RefObject<HTMLCanvasElement>,
     currencyValue: number,
     chartDate: string,
-) => {
-    // console.log(ref, "ref");
-    console.log(currencyValue, chartDate, "buildCurrencyChart");
-
-    return new Promise<void>((resolve, reject) => {
+) =>
+    new Promise<void>((resolve, reject) => {
         try {
             const data = {
                 datasets: [
                     {
-                        // data: [...getRandomOhlcv(1000).datasets[0].data],
                         data: [
                             ...getRandomOhlcv(currencyValue, new Date(chartDate)).datasets[0].data,
                         ],
@@ -30,18 +26,10 @@ export const buildCurrencyChart = (
             };
 
             const ctx = ref.current?.getContext("2d");
-            // const ctx = ref.current?.getContext("2d");
-            // ctx.clearRect(0, 0, ref.current?.width, ref.current?.height);
 
             if (ctx) {
                 setTimeout(() => {
-                    /* if (ref.current.v) {
-                        ref.current.chart.destroy();
-                    } */
-
-                    // const chart = new Chart(ctx, {
                     if (chart) {
-                        // chart.destroy();
                         chart.update();
                     }
 
@@ -114,17 +102,8 @@ export const buildCurrencyChart = (
                             },
                         },
                     });
-                    // chart.render();
-                    // resolve(chart.update());
-                    // resolve(chart.render());
 
-                    // chart.render();
-                    // chart.render();
-                    console.log(chart);
-
-                    // chart.destroy();
                     chart.render();
-                    // successChartBuildMessage();
                     resolve();
                 }, 1000);
             } else {
@@ -134,4 +113,3 @@ export const buildCurrencyChart = (
             reject(error);
         }
     });
-};

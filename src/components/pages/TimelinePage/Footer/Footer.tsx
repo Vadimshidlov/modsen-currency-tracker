@@ -12,8 +12,6 @@ import {
 
 export default class Footer extends Component {
     render() {
-        console.log("Render class Footer extends Component");
-
         return (
             <div className="footer footer__container">
                 <div className="footer__main-block">

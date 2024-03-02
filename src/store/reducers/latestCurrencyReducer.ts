@@ -57,7 +57,6 @@ export type CurrentCurrencyActionType =
     | IgetCurrCurrencyError;
 
 const latestCurrencyReducer = (
-    // eslint-disable-next-line @typescript-eslint/default-param-last
     state: IcurrentCurrencyState = initialState,
     action: CurrentCurrencyActionType,
 ): IcurrentCurrencyState => {

@@ -43,8 +43,6 @@ export default (env: EnvVariable) => {
     const isProd = env.mode === "production";
     const projectEnv: dotenv.DotenvParseOutput = dotenv.config().parsed;
 
-    console.log(projectEnv);
-
     const envKeys = Object.keys(projectEnv).reduce<dotenv.DotenvParseOutput>((prev, next) => {
         const boublePrev = prev;
         boublePrev[`process.env.${next}`] = JSON.stringify(projectEnv[next]);

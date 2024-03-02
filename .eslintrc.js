@@ -58,5 +58,6 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "react/prefer-stateless-function": "off",
         "@typescript-eslint/default-param-last": "off",
+        "@typescript-eslint/naming-convention": "off",
     },
 };

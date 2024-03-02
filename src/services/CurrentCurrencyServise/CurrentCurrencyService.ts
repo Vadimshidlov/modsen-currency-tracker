@@ -3,9 +3,7 @@ import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
 import { getLastUpdateTime } from "@/utils/getLastUpdateTime";
 
 class CurrentCurrencyService {
-    private readonly CURRENCY_API_KEY =
-        // process.env.REACT_APP_CURRENCY_API_KEY ?? ""
-        "cur_live_HZpwlzZ47XqVqbO0DbXu2eQFN8EMscELeA8glgQa";
+    private readonly CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;
 
     private AXIOS_SERVICE = AxiosCurrencyService;
 
@@ -15,15 +13,6 @@ class CurrentCurrencyService {
 
             return JSON.parse(data);
         }
-
-        /* const lastUpdateDate = new Date();
-        const hours = lastUpdateDate.getHours();
-        const minutes = lastUpdateDate.getMinutes();
-        const month = lastUpdateDate.toLocaleString("en-US", { month: "long" });
-        const day = lastUpdateDate.getDay();
-        const ampm = hours >= 12 ? "pm" : "am";
-
-        const lastUpdateDateResult = `${day} ${month} at ${hours}:${minutes}${ampm}`; */
 
         localStorage.setItem("lastUpdateDateResult", getLastUpdateTime());
 

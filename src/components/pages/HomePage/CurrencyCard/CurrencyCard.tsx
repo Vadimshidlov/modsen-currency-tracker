@@ -8,8 +8,8 @@ import { CurrencyCardPropsType } from "@/types/HomePageTypes/types";
 
 export default function CurrencyCard({ currencyCode, value }: CurrencyCardPropsType) {
     const { CurrencyIcon, currencyTitle } = getCurrencyIcon(currencyCode);
-    // const currencyValue = +value.toFixed(2);
     let currencyValue;
+
     if (currencyCode === "BTC") {
         currencyValue = value;
     } else {
@@ -27,7 +27,6 @@ export default function CurrencyCard({ currencyCode, value }: CurrencyCardPropsT
     };
 
     return (
-        // <button className="currency-card__container" onClick={() => openModalHandler()}>
         <button className="currency-card__container" onClick={openModalHandler}>
             <CurrencyIcon className="currency-card__icon" />
             <div className="currency-card__info">

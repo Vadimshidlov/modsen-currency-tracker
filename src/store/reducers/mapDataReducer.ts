@@ -1,19 +1,7 @@
 import { mockMapData } from "@/store/currency-data/mockMapData";
-import { MarkersDataType } from "@/types/types";
-
-export type MapDataStateType = {
-    mapData: MarkersDataType[];
-};
-
-export type GetMapDataType = "GET_MAP_DATA";
-
-export type GetMapDataActionType = {
-    type: GetMapDataType;
-};
+import { GetMapDataType, MapDataActionType, MapDataStateType } from "@/store/types/types";
 
 export const GET_MAP_DATA: GetMapDataType = "GET_MAP_DATA";
-
-export type MapDataActionType = GetMapDataActionType;
 
 const initialState: MapDataStateType = {
     mapData: mockMapData,

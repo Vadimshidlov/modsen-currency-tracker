@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import "@/components/pages/HomePage/Header/Header.scss";
 import ToggleTheme from "@/components/pages/TimelinePage/Header/ToggleTheme/ToggleTheme";
-// import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
 
 class Header extends Component {
     render() {

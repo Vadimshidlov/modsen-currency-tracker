@@ -3,13 +3,6 @@ import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
 import "@/components/pages/HomePage/SelectCurrency/SelectCurrency.scss";
 import { SelectCurrencyPropsType } from "@/types/HomePageTypes/types";
 
-// export interface ISelectCurrencyProps extends React.ComponentPropsWithRef<"select"> {
-//     data: CurrencyDataType;
-//     currentCurrencyCode: string;
-//     secondCurrencyCode: string;
-//     setSecondCurrency: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-// }
-
 export default function SelectCurrency({
     setSecondCurrency,
     data,

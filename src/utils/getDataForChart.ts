@@ -36,7 +36,6 @@ export const getDataForChart = (currency: number, startDate: Date = new Date()) 
                     delayed: true,
                 }),
             },
-            // responsive: true,
             tooltips: {
                 mode: "index",
             },
@@ -89,8 +88,6 @@ export const getDataForChart = (currency: number, startDate: Date = new Date()) 
                     },
                     barPercentage: 0.2,
                     barThickness: 1,
-                    /* barPercentage: 0.5,
-                    barThickness: 1, */
                     grid: {
                         display: true,
                         drawOnChartArea: true,
