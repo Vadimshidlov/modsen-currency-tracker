@@ -64,8 +64,6 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
     updateCurrencyChartHandler() {
         const { chartDate, chartCurrencyValue } = this.props;
 
-        console.log(chartDate, chartCurrencyValue, `buildCurrencyChartHandler`);
-
         if (this.chart) {
             const chartOptions = getDataForChart(chartCurrencyValue, new Date(chartDate));
 
@@ -79,8 +77,6 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
 
     render() {
         const { isChartBuilding } = this.state;
-
-        // throw new Error("Ooops! We have an error!");
 
         return (
             <div className="currency-chart__container">

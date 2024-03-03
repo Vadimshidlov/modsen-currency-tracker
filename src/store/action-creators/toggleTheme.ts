@@ -1,8 +1,9 @@
 import { Dispatch } from "redux";
-import { ThemeAction, ThemeActionType } from "@/store/reducers/themeReducer";
+import { SWITCH_DARK, SWITCH_LIGHT } from "@/store/reducers/themeReducer";
+import { ThemeActionType } from "@/store/types/types";
 
 export const switchLightTheme = () => (dispatch: Dispatch<ThemeActionType>) =>
-    dispatch({ type: ThemeAction.SWITCH_LIGHT });
+    dispatch({ type: SWITCH_LIGHT });
 
 export const switchDarkTheme = () => (dispatch: Dispatch<ThemeActionType>) =>
-    dispatch({ type: ThemeAction.SWITCH_DARK });
+    dispatch({ type: SWITCH_DARK });

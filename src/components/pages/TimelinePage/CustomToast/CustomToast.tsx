@@ -17,8 +17,6 @@ class CustomToast extends Component<CustomToastPropsType, CustomToastStateType> 
     }
 
     componentDidMount() {
-        console.log(this.props);
-
         const { isStart } = this.props;
 
         if (!isStart) {

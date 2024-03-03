@@ -8,8 +8,6 @@ const generateRandomPrice = (min = 100, max = 500): number =>
 const generateRandomMultiplier = (): number => parseFloat((Math.random() * 0.2 + 0.9).toFixed(2));
 
 export const getRandomOhlcv = (currency: number, startDate: Date = new Date(), days = 31) => {
-    console.log(currency, startDate, `getRandomOhlcv`);
-
     const randomChartData: ChartData = {
         datasets: [
             {
@@ -29,10 +27,10 @@ export const getRandomOhlcv = (currency: number, startDate: Date = new Date(), d
 
         const luxonDate = luxon.DateTime.fromRFC2822(date.toUTCString());
 
-        const priceMultiplier = generateRandomMultiplier(); // Генерация случайного множителя для цены
+        const priceMultiplier = generateRandomMultiplier();
         const open = +(currency * priceMultiplier).toFixed(2);
-        const high = +generateRandomPrice(open * 1.1, open * 1.3).toFixed(2); // Высокая цена может быть немного выше открытия
-        const low = +generateRandomPrice(open * 0.7, open * 0.9).toFixed(2); // Низкая цена может быть немного ниже открытия
+        const high = +generateRandomPrice(open * 1.1, open * 1.3).toFixed(2);
+        const low = +generateRandomPrice(open * 0.7, open * 0.9).toFixed(2);
         const close = +generateRandomPrice(low, high).toFixed(2);
 
         randomChartData.datasets[0].data.push({
@@ -42,11 +40,7 @@ export const getRandomOhlcv = (currency: number, startDate: Date = new Date(), d
             l: low,
             c: close,
         });
-
-        // console.log(date);
     }
-
-    // console.log(randomChartData);
 
     return randomChartData;
 };

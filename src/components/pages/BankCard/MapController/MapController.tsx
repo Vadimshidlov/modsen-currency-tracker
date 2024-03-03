@@ -5,8 +5,14 @@ import { connect } from "react-redux";
 import Text from "@/components/pages/TimelinePage/Text/Text";
 import SearchSvg from "@/assets/svg/bank-card/search-svgrepo-com.svg";
 import { RootStateType } from "@/store/reducers";
+import {
+    successAuthUserLocation,
+    errorAuthUserLocation,
+} from "@/store/action-creators/authUserLocation";
 import Map from "@/components/pages/BankCard/Map/Map";
 import { MapControllerPropsType, MapControllerStateType } from "@/types/BankCardPageTypes/types";
+import SearchCurrency from "@/components/pages/BankCard/SerachCurrency/SerachCurrency";
+import { handleUserAuthLocation } from "@/utils/map/handleUserAuthLocation";
 
 class MapController extends Component<MapControllerPropsType, MapControllerStateType> {
     constructor(props: MapControllerPropsType) {
@@ -17,12 +23,28 @@ class MapController extends Component<MapControllerPropsType, MapControllerState
             selectedCurrency: "",
         };
 
-        this.handleCurrencyChange = this.handleCurrencyChange.bind(this);
+        this.handleSearchCurrencyChange = this.handleSearchCurrencyChange.bind(this);
+        this.handleSelectCurrency = this.handleSelectCurrency.bind(this);
+        this.handleResetSelectedCurrency = this.handleResetSelectedCurrency.bind(this);
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.handleUserAuthLocation();
+    }
 
-    handleCurrencyChange(e: ChangeEvent<HTMLInputElement>) {
+    handleUserAuthLocation() {
+        const {
+            successAuthUserLocation: onSuccessAuthUserLocation,
+            errorAuthUserLocation: onErrorAuthUserLocation,
+        } = this.props;
+
+        handleUserAuthLocation({
+            onSuccess: onSuccessAuthUserLocation,
+            onError: onErrorAuthUserLocation,
+        });
+    }
+
+    handleSearchCurrencyChange(e: ChangeEvent<HTMLInputElement>) {
         const { value } = e.target;
 
         this.setState({
@@ -30,70 +52,68 @@ class MapController extends Component<MapControllerPropsType, MapControllerState
         });
     }
 
+    handleSelectCurrency(value: string) {
+        this.setState({
+            searchCurrency: "",
+            selectedCurrency: value,
+        });
+    }
+
+    handleResetSelectedCurrency() {
+        this.setState({
+            selectedCurrency: "",
+        });
+    }
+
     render() {
         const { searchCurrency, selectedCurrency } = this.state;
-        const { currency, mapData } = this.props;
-        const { currency: currencyData } = currency;
-        const { data } = currencyData;
-
-        // throw new Error("Ooops! We have an error!");
+        const { mapData, userLocationData } = this.props;
+        const { userLgt, userLtt } = userLocationData;
 
         return (
             <>
                 <div className="currency-form__container">
                     <Text className="currency-input__title">Search currency in the bank</Text>
                     <div className="currency-input__container">
-                        <input
-                            id="currency-input"
-                            type="text"
-                            className="currency-input__input"
-                            placeholder="Сurrency search..."
-                            value={searchCurrency}
-                            onChange={this.handleCurrencyChange}
-                            autoComplete="off"
+                        <SearchCurrency
+                            onSearchCurrencyValue={this.handleSearchCurrencyChange}
+                            handleSelectCurrency={this.handleSelectCurrency}
+                            searchCurrencyValue={searchCurrency}
                         />
-                        <div className="currency-input__result">
-                            {searchCurrency &&
-                                Object.keys(data)
-                                    .filter((key) =>
-                                        key.toLowerCase().includes(searchCurrency.toLowerCase()),
-                                    )
-                                    .map((currencyKey) => (
-                                        <button
-                                            className="currency-input__result-item"
-                                            onClick={() => {
-                                                this.setState({
-                                                    searchCurrency: "",
-                                                    selectedCurrency: currencyKey,
-                                                });
-
-                                                console.log(currencyKey);
-                                            }}
-                                            key={currencyKey}
-                                        >
-                                            {currencyKey}
-                                        </button>
-                                    ))}
-                        </div>
                         <SearchSvg className="currency-input__icon" />
                     </div>
                     <div className="currency-form__selected-currency selected-currency">
                         {selectedCurrency && (
-                            <Text className="selected-currency-title">
-                                Selected currency: {selectedCurrency}
-                            </Text>
+                            <div className="selected-currency__container">
+                                <Text className="selected-currency-title">
+                                    Selected currency: {selectedCurrency}
+                                </Text>
+                                <button
+                                    className="selected-currency__reset-button"
+                                    onClick={this.handleResetSelectedCurrency}
+                                >
+                                    Reset
+                                </button>
+                            </div>
                         )}
                     </div>
                 </div>
-                <Map selectedCurrency={selectedCurrency} markersData={mapData} />
+                <Map
+                    selectedCurrency={selectedCurrency}
+                    markersData={mapData}
+                    userLgt={userLgt}
+                    userLtt={userLtt}
+                />
             </>
         );
     }
 }
 
 const mapStateToProps = (state: RootStateType) => ({
-    currency: state.currency,
     mapData: state.mapData.mapData,
+    userLocationData: state.userLocation,
 });
 
-export default connect(mapStateToProps, {})(MapController);
+export default connect(mapStateToProps, { successAuthUserLocation, errorAuthUserLocation })(
+    MapController,
+);

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "@/components/pages/TimelinePage/CurrencyCards/CurrencySelect.scss";
 import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
 import SelectIcon from "@/assets/svg/select-vector.svg";
-// import { getCurrencyValueWithCode } from "@/utils/getCurrencyValueWithCode";
 import CurrencyCard from "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard";
 import { CurrencyCardsPropsType, CurrencyCardsStateType } from "@/types/TimeLinePageTypes/types";
 
@@ -13,7 +12,6 @@ export default class CurrencyCards extends Component<
     render() {
         const { onChange } = this.props;
         const { currencyData, selectedCurrencyCode } = this.props;
-        // const currencyValue = getCurrencyValueWithCode(currencyData, selectedCurrencyCode);
 
         return (
             <>

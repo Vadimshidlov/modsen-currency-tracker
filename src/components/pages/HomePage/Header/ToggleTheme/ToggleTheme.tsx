@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "@/components/pages/HomePage/Header/ToggleTheme/ToggleTheme.scss";
 import { useActions } from "@/store/hooks/useActions";
 import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";

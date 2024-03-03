@@ -1,35 +1,20 @@
-export interface IThemeState {
-    theme: "Dark" | "Light";
-}
+import { ThemeActionType, ThemeStateType } from "@/store/types/types";
 
-export enum ThemeAction {
-    SWITCH_DARK = "SWITCH_DARK",
-    SWITCH_LIGHT = "SWITCH_LIGHT",
-}
+export const SWITCH_DARK = "SWITCH_DARK";
+export const SWITCH_LIGHT = "SWITCH_LIGHT";
 
-interface IDarkThemeAction {
-    type: ThemeAction.SWITCH_DARK;
-}
-
-interface ILightThemeAction {
-    type: ThemeAction.SWITCH_LIGHT;
-}
-
-export type ThemeActionType = ILightThemeAction | IDarkThemeAction;
-
-const initialState: IThemeState = {
+const initialState: ThemeStateType = {
     theme: "Dark",
 };
 
 const themeReducer = (
-    // eslint-disable-next-line @typescript-eslint/default-param-last
-    state: IThemeState = initialState,
+    state: ThemeStateType = initialState,
     action: ThemeActionType,
-): IThemeState => {
+): ThemeStateType => {
     switch (action.type) {
-        case ThemeAction.SWITCH_DARK:
+        case SWITCH_DARK:
             return { theme: "Dark" };
-        case ThemeAction.SWITCH_LIGHT:
+        case SWITCH_LIGHT:
             return { theme: "Light" };
 
         default:

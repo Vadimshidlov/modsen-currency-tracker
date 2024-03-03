@@ -10,8 +10,6 @@ export default function CurrencyQoutes() {
     const { isOpen } = useTypedSelectorHook((state) => state.modalWindow);
     const { theme } = useTypedSelectorHook((state) => state.theme);
 
-    // throw new Error("Oooops! We have an error!");
-
     return (
         <div className={theme === "Light" ? "quotes__container light" : "quotes__container"}>
             <Text className="quotes__title title">Quotes</Text>

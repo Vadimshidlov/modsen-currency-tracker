@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "@/components/pages/HomePage/HomePage";
 import TimelinePage from "@/components/pages/TimelinePage/TimelinePage";
-import BankCardPage from "@/components/pages/BankCard/BankCard";
+import BankCardPage from "@/components/pages/BankCard/BankCardPage";
 
 export default function AppRoutes() {
     return (

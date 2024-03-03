@@ -1,4 +1,3 @@
-// export const getCurrentDate = (date: string = String(Date.now())): string => {
 export const getCurrentDate = (date: Date = new Date(Date.now())): string => {
     const nowDate = new Date(date);
 

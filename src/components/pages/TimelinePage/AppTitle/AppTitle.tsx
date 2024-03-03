@@ -1,5 +1,4 @@
 import React from "react";
-// import "@/components/pages/HomePage/AppTitle/AppTitle.scss";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import Text from "@/components/pages/HomePage/Text/Text";
 

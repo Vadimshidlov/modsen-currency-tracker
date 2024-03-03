@@ -80,8 +80,6 @@ class CurrencyChartController extends Component<
         const { code, value } = currentCurrency;
         const { currency } = this.props;
 
-        // throw new Error("Ooops! We have an error!");
-
         return (
             <div className="currency-chart__form">
                 <CustomToast message={CHART_BUILDING_MESSAGE} duration={2000} isStart={false} />

@@ -16,7 +16,6 @@ const initialState: ModalWindowStateType = {
 };
 
 const modalWindowReducer = (
-    // eslint-disable-next-line @typescript-eslint/default-param-last
     state: ModalWindowStateType = initialState,
     action: ModalWindowActionType,
 ): ModalWindowStateType => {
@@ -46,7 +45,6 @@ const modalWindowReducer = (
 
         case CLOSE_MODAL_WINDOW:
             return {
-                // ...state,
                 isOpen: false,
                 currentCurrencyTitle: "",
                 currentCurrencyCode: "",

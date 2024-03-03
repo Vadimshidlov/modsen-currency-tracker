@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import mapboxgl from "mapbox-gl";
 import { MapPropsType, MapStateType } from "@/types/BankCardPageTypes/types";
 import Loader from "@/components/pages/TimelinePage/Loader/Loader";
+import BankApiService, { BanksDataType } from "@/services/BankApiService/BankApiService";
+import { addMapMarker } from "@/utils/map/addMapMarker";
+import { isInRadius } from "@/utils/map/isInRadius";
+import { throttle } from "@/utils/map/throttleMapEvents";
+
+const THROTTLE_DELAY = 2000;
+const MAPBOXGL_STYLES_LINK = "mapbox://styles/mapbox/streets-v12";
+let initialUserLng: number = 30.1956;
+let initialUserLat: number = 55.1926;
 
 class Map extends Component<MapPropsType, MapStateType> {
     private mapRef: React.RefObject<HTMLDivElement>;
@@ -9,6 +18,14 @@ class Map extends Component<MapPropsType, MapStateType> {
     private map: mapboxgl.Map | null;
 
     private markers: mapboxgl.Marker[];
+
+    private secondMarkers: BanksDataType[];
+
+    private BankApiService: BankApiService = new BankApiService();
+
+    private INITIAL_MAP_ZOOM: number = 12.5;
+
+    private MARKERS_MAP_RADIUS: number = 0.09;
 
     constructor(props: MapPropsType) {
         super(props);
@@ -18,18 +35,44 @@ class Map extends Component<MapPropsType, MapStateType> {
 
         this.state = {
             isLoading: false,
-            lng: 30.1956,
-            lat: 55.1926,
-            zoom: 12.5,
+            lng: initialUserLng,
+            lat: initialUserLat,
+            zoom: this.INITIAL_MAP_ZOOM,
+            isUserLocationAuth: false,
         };
 
         this.markers = [];
+        this.secondMarkers = [];
         this.removeMarkers = this.removeMarkers.bind(this);
+        this.updateCurrentMarkers = this.updateCurrentMarkers.bind(this);
+        this.handleGoHome = this.handleGoHome.bind(this);
+    }
+
+    static getDerivedStateFromProps(nextProps: MapPropsType, prevState: MapStateType) {
+        if (!prevState.isUserLocationAuth && nextProps.userLgt !== 0 && nextProps.userLtt !== 0) {
+            const { userLgt, userLtt } = nextProps;
+
+            initialUserLng = userLgt;
+            initialUserLat = userLtt;
+
+            return {
+                lng: userLgt,
+                lat: userLtt,
+                isUserLocationAuth: true,
+            };
+        }
+
+        return null;
     }
 
     componentDidMount() {
         mapboxgl.accessToken = process.env.REACT_APP_MAP_KEY;
-        this.buildMap();
+
+        this.BankApiService.getAllBanks().then((res) => {
+            this.secondMarkers = res;
+
+            this.buildMap();
+        });
     }
 
     componentDidUpdate(prevProps: MapPropsType) {
@@ -47,8 +90,13 @@ class Map extends Component<MapPropsType, MapStateType> {
         }
     }
 
+    handleGoHome() {
+        this.map.flyTo({ center: [initialUserLng, initialUserLat], zoom: this.INITIAL_MAP_ZOOM });
+    }
+
     buildMap() {
         const { lng, lat, zoom } = this.state;
+        const throttleUpdate = throttle(this.updateCurrentMarkers, THROTTLE_DELAY);
 
         this.setState({
             isLoading: true,
@@ -56,8 +104,7 @@ class Map extends Component<MapPropsType, MapStateType> {
 
         this.map = new mapboxgl.Map({
             container: this.mapRef.current,
-            // container: this.mapRef.current,
-            style: "mapbox://styles/mapbox/streets-v12",
+            style: MAPBOXGL_STYLES_LINK,
             center: [lng, lat],
             zoom,
         });
@@ -70,6 +117,8 @@ class Map extends Component<MapPropsType, MapStateType> {
                 lat: +this.map.getCenter().lat.toFixed(4),
                 zoom: +this.map.getZoom().toFixed(2),
             });
+
+            throttleUpdate();
         });
 
         this.map.on("load", () => {
@@ -83,41 +132,54 @@ class Map extends Component<MapPropsType, MapStateType> {
         const { markersData } = this.props;
 
         markersData.forEach((markerItem) => {
-            const popup = new mapboxgl.Popup({
-                offset: 35,
-            }).setHTML(
-                `<h2>${markerItem.name}</h2><p>Address: ${markerItem.address}</p><p>Currency: ${markerItem.currency.join(", ")}.</p> `,
-            );
-
-            const marker = new mapboxgl.Marker()
-                .setLngLat([+markerItem.lngLat[0].toFixed(4), +markerItem.lngLat[1].toFixed(4)])
-                .setPopup(popup)
-                .addTo(this.map);
-
-            this.markers.push(marker);
+            addMapMarker(markerItem, this.markers, this.map);
         });
+
+        if (this.secondMarkers.length !== 0) {
+            const { lng, lat } = this.state;
+
+            this.secondMarkers.forEach((markerItemTwo) => {
+                const { gps_y, gps_x } = markerItemTwo;
+
+                if (isInRadius(+gps_y, +gps_x, lng, lat, this.MARKERS_MAP_RADIUS)) {
+                    addMapMarker(markerItemTwo, this.markers, this.map);
+                }
+            });
+        }
     }
 
     updateCurrentMarkers() {
+        this.removeMarkers();
+
         const { selectedCurrency, markersData } = this.props;
+        const { lng, lat } = this.state;
 
         markersData.forEach((markerItem) => {
-            if (markersData.length !== 0 && markerItem.currency?.includes(selectedCurrency)) {
-                const popup = new mapboxgl.Popup({
-                    offset: 35,
-                }).setHTML(
-                    `<h2>${markerItem.name}</h2><p>Address: ${markerItem.address}</p><p>Currency: ${markerItem.currency.join(", ")}.</p> `,
-                );
-
-                const marker = new mapboxgl.Marker()
-                    // .setLngLat([+markerItem.lngLat[0].toFixed(4), +markerItem.lngLat[1].toFixed(4)])
-                    .setLngLat([markerItem.lngLat[0], markerItem.lngLat[1]])
-                    .setPopup(popup)
-                    .addTo(this.map);
-
-                this.markers.push(marker);
+            if (
+                (markerItem.currency?.includes(selectedCurrency) || selectedCurrency === "") &&
+                isInRadius(+markerItem.gps_y, +markerItem.gps_x, lng, lat, this.MARKERS_MAP_RADIUS)
+            ) {
+                addMapMarker(markerItem, this.markers, this.map);
             }
         });
+
+        if (this.secondMarkers.length !== 0) {
+            this.secondMarkers.forEach((markerItemTwo) => {
+                if (
+                    (markerItemTwo.currency?.includes(selectedCurrency) ||
+                        selectedCurrency === "") &&
+                    isInRadius(
+                        +markerItemTwo.gps_y,
+                        +markerItemTwo.gps_x,
+                        lng,
+                        lat,
+                        this.MARKERS_MAP_RADIUS,
+                    )
+                ) {
+                    addMapMarker(markerItemTwo, this.markers, this.map);
+                }
+            });
+        }
     }
 
     removeMarkers() {
@@ -128,8 +190,11 @@ class Map extends Component<MapPropsType, MapStateType> {
         const { isLoading } = this.state;
 
         return (
-            <div>
-                <div className="map__container" ref={this.mapRef}>
+            <div className="map__container">
+                <button className="map__button" onClick={this.handleGoHome}>
+                    Go home
+                </button>
+                <div className="map" ref={this.mapRef}>
                     {isLoading ? <Loader /> : null}
                 </div>
             </div>
