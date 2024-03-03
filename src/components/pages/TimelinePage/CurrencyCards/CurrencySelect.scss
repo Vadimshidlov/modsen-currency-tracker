@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    row-gap: 20px;
 
     .currency-chart__select-container {
         position: relative;
@@ -18,23 +17,9 @@
 
         @media (max-width: 1200px) {
             width: 260px;
-            //width: 23%;
         }
 
         .currency-chart__select {
-            /*outline: none;
-      color: colors.$color_white;
-      font-size: fonts.$font-size_30;
-      width: 340px;
-      padding: 5px;
-      //font-size: 16px;
-      line-height: 1;
-      border: 0;
-      border-radius: 5px;
-      height: 34px;
-      background: url('@/assets/svg/select-vector.svg') no-repeat right transparent;
-      -webkit-appearance: none;
-      background-position-x: 244px;*/
             width: 100%;
             border: none;
             outline: none;
@@ -88,6 +73,25 @@
         color: colors.$color_white;
         font-size: fonts.$font-size_15;
         margin-left: 20px;
+        margin-bottom: 10px;
+
+        @media (max-width: 500px) {
+            margin-bottom: 0px;
+            font-size: fonts.$font-size_12;
+        }
+
+        &.light {
+            color: colors.$black_background;
+        }
+    }
+
+    &.light {
+        .currency-chart__select-container {
+            .currency-chart__select {
+                color: colors.$black_background;
+                background-color: transparent;
+            }
+        }
     }
 }
 

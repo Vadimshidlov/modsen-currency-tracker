@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import mapboxgl from "mapbox-gl";
 import { MapPropsType, MapStateType } from "@/types/BankCardPageTypes/types";
 import Loader from "@/components/pages/TimelinePage/Loader/Loader";
-import BankApiService, { BanksDataType } from "@/services/BankApiService/BankApiService";
+import BankApiService from "@/services/BankApiService/BankApiService";
 import { addMapMarker } from "@/utils/map/addMapMarker";
 import { isInRadius } from "@/utils/map/isInRadius";
 import { throttle } from "@/utils/map/throttleMapEvents";
+import { BanksDataType } from "@/types/types";
 
 const THROTTLE_DELAY = 2000;
 const MAPBOXGL_STYLES_LINK = "mapbox://styles/mapbox/streets-v12";
@@ -68,11 +69,17 @@ class Map extends Component<MapPropsType, MapStateType> {
     componentDidMount() {
         mapboxgl.accessToken = process.env.REACT_APP_MAP_KEY;
 
-        this.BankApiService.getAllBanks().then((res) => {
-            this.secondMarkers = res;
+        this.BankApiService.getAllBanks()
+            .then((res) => {
+                this.secondMarkers = res;
 
-            this.buildMap();
-        });
+                this.buildMap();
+            })
+            .catch(() => {
+                this.secondMarkers = [];
+
+                this.buildMap();
+            });
     }
 
     componentDidUpdate(prevProps: MapPropsType) {
@@ -92,9 +99,12 @@ class Map extends Component<MapPropsType, MapStateType> {
 
     handleGoHome() {
         this.map.flyTo({ center: [initialUserLng, initialUserLat], zoom: this.INITIAL_MAP_ZOOM });
+        this.updateCurrentMarkers();
     }
 
     buildMap() {
+        if (!this.mapRef.current) return;
+
         const { lng, lat, zoom } = this.state;
         const throttleUpdate = throttle(this.updateCurrentMarkers, THROTTLE_DELAY);
 

@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from "react";
-import { UseCloseModalType } from "@/types/types";
+// import { UseCloseModalType } from "@/types/types";
 
 const MOUSE_UP = "mouseup";
 
 export default function useOutsideClick(
-    handleClose: UseCloseModalType,
+    handleClose: () => void,
     ref: React.MutableRefObject<HTMLDivElement | null>,
 ) {
     const handleClick = useCallback(

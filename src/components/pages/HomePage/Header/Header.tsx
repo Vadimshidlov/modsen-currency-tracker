@@ -43,7 +43,7 @@ export default function Header() {
                     Bank Card
                 </NavLink>
                 <NavLink
-                    to="/bank-card"
+                    to="/contacts"
                     className={({ isActive }) =>
                         isActive ? "navigation-list__item__active" : "navigation-list__item"
                     }

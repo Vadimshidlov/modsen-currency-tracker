@@ -46,28 +46,28 @@ export default function Footer() {
                 <div className="footer__links links">
                     <nav className="links__nav nav">
                         <Text className="nav__item">General</Text>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/market" className="nav__item">
                             Market
                         </NavLink>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/service" className="nav__item">
                             Service
                         </NavLink>
                     </nav>
                     <nav className="links__nav nav">
                         <Text className="nav__item">Product</Text>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/sparks" className="nav__item">
                             Sparks
                         </NavLink>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/snaps" className="nav__item">
                             Snaps
                         </NavLink>
                     </nav>
                     <nav className="links__nav nav">
                         <Text className="nav__item">Community</Text>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/ideas" className="nav__item">
                             Ideas
                         </NavLink>
-                        <NavLink to="#" className="nav__item">
+                        <NavLink to="/streams" className="nav__item">
                             Streams
                         </NavLink>
                     </nav>

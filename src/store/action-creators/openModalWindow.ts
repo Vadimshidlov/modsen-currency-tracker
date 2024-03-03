@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
 import {
+    CurrencyType,
     ModalWindowActionType,
     OpenWindowActionType,
     SelectSecondCurrencyActionType,
@@ -9,11 +10,10 @@ import {
     OPEN_MODAL_WINDOW,
     SELECT_SECOND_CURRENCY,
 } from "@/store/reducers/modalWindowReducer";
-import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
 
 export const openModalWindow =
     (
-        currencyData: ICurrency,
+        currencyData: CurrencyType,
         currentCurrencyTitle: string,
         currentCurrencyValue: number,
         currencyCode: string,

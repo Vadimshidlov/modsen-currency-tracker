@@ -1,5 +1,4 @@
-import { BanksDataType } from "@/services/BankApiService/BankApiService";
-import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
+import { BanksDataType } from "@/types/types";
 
 export type ModalWindowStateType = {
     isOpen: boolean;
@@ -17,7 +16,7 @@ export enum ThemeAction {
 }
 
 export type OpenWindowPayloadType = {
-    currencyData: ICurrency;
+    currencyData: CurrencyType;
     currentCurrencyTitle: string;
     currencyCode: string;
     currentCurrencyValue: number;
@@ -49,8 +48,10 @@ export type ModalWindowActionType =
     | SelectSecondCurrencyActionType;
 
 export type ThemeStateType = {
-    theme: "Dark" | "Light";
+    theme: string | "Dark" | "Light";
 };
+
+export type PreviousThemeType = null | string;
 
 export type DarkThemeActionType = {
     type: "SWITCH_DARK";
@@ -93,3 +94,45 @@ export type LocationStateType = {
 };
 
 export type LocationAuthActionType = SuccessLocationAuthType | UnSuccessLocationAuthType;
+
+export type CurrencyType = {
+    meta: MetaType;
+    data: CurrencyDataType;
+};
+
+export type CurrencyDataType = {
+    [currencyCode: string]: {
+        code: string;
+        value: number;
+    };
+};
+
+export type CurrentCurrencyStateType = {
+    currency: CurrencyType;
+    isLoading: boolean;
+    error: null | string;
+};
+
+export enum CurrentCurrencyAction {
+    GET_CURR_CURRENCY = "GET_CURR_CURRENCY",
+    GET_CURR_CURRENCY_SUCCES = "GET_CURR_CURRENCY_SUCCES",
+    GET_CURR_CURRENCY_ERROR = "GET_CURR_CURRENCY_ERROR",
+}
+
+export type GetCurrCurrencyType = {
+    type: CurrentCurrencyAction.GET_CURR_CURRENCY;
+};
+
+export type GetCurrCurrencySuccesType = {
+    type: CurrentCurrencyAction.GET_CURR_CURRENCY_SUCCES;
+    payload?: CurrencyType;
+};
+
+export type GetCurrCurrencyErrorType = {
+    type: CurrentCurrencyAction.GET_CURR_CURRENCY_ERROR;
+    payload?: string;
+};
+
+export type MetaType = {
+    last_updated_at: string;
+};

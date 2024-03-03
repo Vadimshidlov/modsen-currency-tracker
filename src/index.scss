@@ -99,22 +99,6 @@ a {
     transition: all 0.1s ease-in;
 }
 
-a:hover {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-a:active {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-a:visited {
-    opacity: 0.7;
-    transform: scale(1.1);
-    border-bottom: 1px solid colors.$color_grey;
-}
-
 .custom-toast-container {
     background-color: #333;
 }

@@ -5,7 +5,7 @@ class TextInput extends Component<TextInputType> {
     render() {
         const { className, ...rest } = this.props;
 
-        return <input className={className} {...rest} />;
+        return <input className={className} {...rest} type="text" />;
     }
 }
 

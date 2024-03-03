@@ -3,11 +3,20 @@ import { NavLink } from "react-router-dom";
 import HeaderSvg from "@/assets/svg/header-svg.svg";
 import "@/components/pages/HomePage/Header/Header.scss";
 import ToggleTheme from "@/components/pages/TimelinePage/Header/ToggleTheme/ToggleTheme";
+import { HeaderPropsType } from "@/types/TimeLinePageTypes/types";
 
-class Header extends Component {
+export default class Header extends Component<HeaderPropsType> {
     render() {
+        const { theme } = this.props;
+
         return (
-            <header className="header__container container">
+            <header
+                className={
+                    theme === "Light"
+                        ? "header__container container light"
+                        : "header__container container"
+                }
+            >
                 <HeaderSvg className="header__logo" width={40} height={41} />
                 <nav className="header__navigation navigation">
                     <NavLink
@@ -48,5 +57,3 @@ class Header extends Component {
         );
     }
 }
-
-export default Header;

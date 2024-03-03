@@ -1,4 +1,4 @@
-import { getRandomOhlcv } from "@/utils/getRandomOhlcv";
+import { getRandomOhlcv } from "@/utils/chart/getRandomOhlcv";
 
 export const getDataForChart = (currency: number, startDate: Date = new Date()) => {
     const data = {

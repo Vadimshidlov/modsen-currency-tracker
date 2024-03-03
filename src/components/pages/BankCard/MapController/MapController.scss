@@ -29,6 +29,21 @@
             cursor: pointer;
         }
 
+        .mapboxgl-marker svg {
+            width: 25px;
+            height: 32px;
+
+            @media (max-width: 768px) {
+                width: 23px;
+                height: 30px;
+            }
+
+            @media (max-width: 450px) {
+                width: 20px;
+                height: 27px;
+            }
+        }
+
         .mapboxgl-popup {
             max-width: 200px;
         }
@@ -121,7 +136,7 @@
 
             @media (max-width: 500px) {
                 width: 250px;
-                height: 50px;
+                height: 40px;
                 font-size: fonts.$font-size_15;
 
                 &::placeholder {
@@ -142,7 +157,6 @@
 
             .currency-input__result-item {
                 padding: 20px 5px 10px 10px;
-                //background: transparent;
                 background: colors.$color_grey__input-background;
                 text-align: start;
                 @include fonts.PoppinsLight;
@@ -153,16 +167,17 @@
                 transition: all 1s ease-in;
 
                 &:hover {
-                    //opacity: .5;
                     background: colors.$color_grey__input-hover;
                 }
 
                 @media (max-width: 700px) {
+                    padding: 15px 5px 10px 10px;
                     width: 300px;
                     font-size: fonts.$font-size_20;
                 }
 
                 @media (max-width: 500px) {
+                    padding: 10px 5px 10px 10px;
                     width: 250px;
                     font-size: fonts.$font-size_15;
                 }
@@ -176,7 +191,6 @@
         right: 5%;
         width: 20px;
         height: 20px;
-        //color: #9E9E9E;
         background: transparent;
 
         @media (max-width: 700px) {
@@ -197,15 +211,38 @@
         padding-right: 20px;
         height: 80px;
 
+        @media (max-width: 500px) {
+            padding: 0 10px 0 10px;
+            width: 100%;
+        }
+
         .selected-currency__container {
             display: flex;
             align-items: center;
             column-gap: 20px;
 
+            @media (max-width: 500px) {
+                column-gap: 0px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
             .selected-currency-title {
                 @include fonts.PoppinsLight;
                 font-size: fonts.$font-size_20;
                 color: colors.$color_white;
+
+                @media (max-width: 768px) {
+                    font-size: fonts.$font-size_18;
+                }
+
+                @media (max-width: 500px) {
+                    font-size: fonts.$font-size_16;
+                }
+
+                @media (max-width: 400px) {
+                    font-size: fonts.$font-size_13;
+                }
             }
 
             .selected-currency__reset-button {
@@ -222,6 +259,36 @@
                 &:hover {
                     cursor: pointer;
                     transform: scale(1.05);
+                }
+
+                @media (max-width: 768px) {
+                    font-size: fonts.$font-size_12;
+                }
+            }
+        }
+    }
+
+    &.light {
+        .currency-input__title {
+            color: colors.$black_background;
+        }
+
+        .currency-input__container {
+            .currency-input__input {
+                color: colors.$black_background;
+                background: colors.$currency-input__light-background;
+
+                &::placeholder {
+                    color: colors.$black_background;
+                }
+            }
+
+            .currency-input__result {
+                background: colors.$currency-input__light-background;
+
+                .currency-input__result-item {
+                    color: colors.$black_background;
+                    background: colors.$currency-input__light-background;
                 }
             }
         }

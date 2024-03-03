@@ -9,9 +9,9 @@ import useEscapeKey from "@/hooks/useCloseModalEscape";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import SelectCurrency from "@/components/pages/HomePage/SelectCurrency/SelectCurrency";
 import { TextInput } from "@/components/pages/HomePage/TextInput/TextInput";
-import { getConvertResult } from "@/utils/getConvertResult";
+import { getConvertResult } from "@/utils/currency/getConvertResult";
 import ConverterTitle from "@/components/pages/HomePage/ModalWindow/ConverterTitle/ConverterTitle";
-import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
+import { getCurrencyIcon } from "@/utils/currency/getCurrencyIcon";
 import { ModalWindowPropsType } from "@/types/HomePageTypes/types";
 
 function ModalWindow({ isOpen }: ModalWindowPropsType) {
@@ -59,6 +59,12 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
         [selectSecondCurrency, currency.data],
     );
 
+    const closeModalHandler = () => {
+        closeModalWindow();
+        setCurrencyInputValue("0");
+        setResultInputValue("0");
+    };
+
     useEffect(() => {
         if (isOpen) {
             document.body.classList.add("modal-open");
@@ -67,15 +73,8 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
         }
     }, [isOpen]);
 
-    useEscapeKey(closeModalWindow);
-
-    useOutsideClick(closeModalWindow, modalRef);
-
-    const closeModalHandler = () => {
-        closeModalWindow();
-        setCurrencyInputValue("0");
-        setResultInputValue("0");
-    };
+    useEscapeKey(closeModalHandler);
+    useOutsideClick(closeModalHandler, modalRef);
 
     if (!isOpen) return null;
 

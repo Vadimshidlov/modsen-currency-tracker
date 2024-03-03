@@ -1,4 +1,4 @@
-import { BanksDataType } from "@/services/BankApiService/BankApiService";
+import { BanksDataType } from "@/types/types";
 
 export const mockMapData: BanksDataType[] = [
     {
@@ -11,7 +11,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Voinov-Internationalists Street",
         house: "23-75",
-        currency: "CAD",
+        currency: "CAD ARS CNY",
     },
     {
         name: "VTBBank",
@@ -23,7 +23,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Moskovsky avenue",
         house: "16",
-        currency: "BTC CAD YEN JPY AUD",
+        currency: "CAD YEN JPY",
     },
     {
         name: "BankDabrabyt",
@@ -38,7 +38,7 @@ export const mockMapData: BanksDataType[] = [
         currency: "BTC CAD YEN JPY AUD",
     },
     {
-        name: "BankDabrabyt",
+        name: "SberBank",
         city_type: "",
         city: "Vitebsk",
         gps_x: "55.190655",
@@ -47,7 +47,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Lenina street",
         house: "26/2",
-        currency: "CAD AUD",
+        currency: "CAD AUD ARS",
     },
     {
         name: "MTBank",
@@ -59,7 +59,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Lenina street",
         house: "17",
-        currency: "CAD",
+        currency: "CNY EUR JPY ARS",
     },
     {
         name: "BankDabrabyt",
@@ -83,7 +83,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Kirova Street",
         house: "7-76",
-        currency: "CAD EUR",
+        currency: "EUR ARS",
     },
     {
         name: "Belgazprombank",
@@ -95,7 +95,7 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Stroiteley Avenue 1g",
         house: "1g",
-        currency: "CNY EUR",
+        currency: "CNY JPY EUR",
     },
     {
         name: "Priorbank",
@@ -107,6 +107,6 @@ export const mockMapData: BanksDataType[] = [
         address_type: "",
         address: "Stroiteley Avenue",
         house: "11а",
-        currency: "BTC YEN JPY EUR",
+        currency: "BTC YEN JPY AUD",
     },
 ];

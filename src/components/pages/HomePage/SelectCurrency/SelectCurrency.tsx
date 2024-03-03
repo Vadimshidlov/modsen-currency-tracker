@@ -1,5 +1,5 @@
 import React from "react";
-import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
+import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyWithCode";
 import "@/components/pages/HomePage/SelectCurrency/SelectCurrency.scss";
 import { SelectCurrencyPropsType } from "@/types/HomePageTypes/types";
 
