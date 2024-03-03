@@ -1,10 +1,12 @@
-import { ThemeActionType, ThemeStateType } from "@/store/types/types";
+import { PreviousThemeType, ThemeActionType, ThemeStateType } from "@/store/types/types";
 
 export const SWITCH_DARK = "SWITCH_DARK";
 export const SWITCH_LIGHT = "SWITCH_LIGHT";
 
+const previousTheme: PreviousThemeType = localStorage.getItem("userTheme");
+
 const initialState: ThemeStateType = {
-    theme: "Dark",
+    theme: previousTheme || "Dark",
 };
 
 const themeReducer = (

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, ReactNode } from "react";
-import { ICurrency, IcurrentCurrencyState } from "@/store/reducers/latestCurrencyReducer";
+import { CurrencyType, CurrentCurrencyStateType } from "@/store/types/types";
 
 export type CurrencyChartPropsType = {
     chartDate: string;
@@ -16,14 +16,17 @@ export type ChartDateStateType = {
 export type ChartDatePropsType = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     dateValue: string;
+    theme: string;
 };
 
 export type CurrencyCardPropsType = {
     currencyCode: string;
+    theme: string;
 };
 
 export type CurrencyCardsPropsType = {
-    currencyData: ICurrency;
+    theme: string;
+    currencyData: CurrencyType;
     selectedCurrencyCode: string;
     onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
@@ -31,7 +34,8 @@ export type CurrencyCardsPropsType = {
 export type CurrencyCardsStateType = object;
 
 export type CurrencyChartControllerPropsType = {
-    currency: IcurrentCurrencyState;
+    theme: string;
+    currency: CurrentCurrencyStateType;
 };
 
 export type CurrencyChartControllerStateType = {
@@ -65,3 +69,32 @@ export type TextPropsType = {
     className: string;
     children: ReactNode;
 } & React.ComponentPropsWithRef<"p">;
+
+export type DateInputType = {
+    className: string;
+} & React.ComponentPropsWithRef<"input">;
+
+export type TimelinePagePropsType = {
+    theme: string;
+};
+
+export type FooterPropsType = {
+    theme: string;
+};
+
+export type FooterLinkPropsType = {
+    title: string;
+    links: string[];
+};
+
+export type FooterLinkStateType = {
+    isOpen: boolean;
+};
+
+export type HeaderPropsType = {
+    theme: string;
+};
+
+export type LastUpdatePropsType = {
+    theme: string;
+};

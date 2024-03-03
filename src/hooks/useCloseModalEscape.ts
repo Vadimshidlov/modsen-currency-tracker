@@ -1,10 +1,9 @@
 import { useCallback, useEffect } from "react";
-import { UseCloseModalType } from "@/types/types";
 
 const KEY_NAME_ESC = "Escape";
 const KEY_EVENT_TYPE = "keyup";
 
-export default function useEscapeKey(handleClose: UseCloseModalType) {
+export default function useEscapeKey(handleClose: () => void) {
     const handleEscKey = useCallback(
         (event: KeyboardEvent) => {
             if (event.key === KEY_NAME_ESC) {

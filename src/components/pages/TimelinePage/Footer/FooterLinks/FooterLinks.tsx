@@ -2,15 +2,8 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Text from "@/components/pages/HomePage/Text/Text";
 import FooterSvgIcon from "@/assets/svg/footer/Vector.svg";
-
-export type FooterLinkPropsType = {
-    title: string;
-    links: string[];
-};
-
-export type FooterLinkStateType = {
-    isOpen: boolean;
-};
+import { FooterLinkPropsType } from "@/types/HomePageTypes/types";
+import { FooterLinkStateType } from "@/types/TimeLinePageTypes/types";
 
 export default class FooterLinks extends Component<FooterLinkPropsType, FooterLinkStateType> {
     constructor(props: FooterLinkPropsType) {

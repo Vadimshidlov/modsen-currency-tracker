@@ -9,11 +9,20 @@ import {
     footerLinksGeneral,
     footerLinksProduct,
 } from "@/components/pages/HomePage/Footer/Footer";
+import { FooterPropsType } from "@/types/TimeLinePageTypes/types";
 
-export default class Footer extends Component {
+export default class Footer extends Component<FooterPropsType> {
     render() {
+        const { theme } = this.props;
+
         return (
-            <div className="footer footer__container">
+            <div
+                className={
+                    theme === "Light"
+                        ? "footer footer__container light"
+                        : "footer footer__container"
+                }
+            >
                 <div className="footer__main-block">
                     <div className="footer__info">
                         <div className="footer__info-title info-title">

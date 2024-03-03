@@ -1,7 +1,7 @@
-import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
-import { getCurrencyTitleWithCode } from "@/utils/getCurrencyWithCode";
+import { CurrencyType } from "@/store/types/types";
+import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyWithCode";
 
-export const getSecondCurrency = (currencyData: ICurrency, currentCurrency: string) => {
+export const getSecondCurrency = (currencyData: CurrencyType, currentCurrency: string) => {
     const secondCurrency = {
         secondCurrencyCode: "",
         secondCurrencyValue: 0,

@@ -1,6 +1,6 @@
 import Chart from "chart.js/auto";
 import React from "react";
-import { getRandomOhlcv } from "@/utils/getRandomOhlcv";
+import { getRandomOhlcv } from "@/utils/chart/getRandomOhlcv";
 
 let chart: Chart;
 

@@ -1,13 +1,13 @@
 import AxiosCurrencyService from "@/services/AxiosCurrencyService/AxiosCurrencyService";
-import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
-import { getLastUpdateTime } from "@/utils/getLastUpdateTime";
+import { CurrencyType } from "@/store/types/types";
+import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
 
 class CurrentCurrencyService {
     private readonly CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;
 
     private AXIOS_SERVICE = AxiosCurrencyService;
 
-    public async getCurrentCurrency(): Promise<ICurrency> {
+    public async getCurrentCurrency(): Promise<CurrencyType> {
         if (this.checkCache()) {
             const data = localStorage.getItem("cachedCurrency");
 
@@ -16,7 +16,7 @@ class CurrentCurrencyService {
 
         localStorage.setItem("lastUpdateDateResult", getLastUpdateTime());
 
-        const response = await this.AXIOS_SERVICE.get<ICurrency>(
+        const response = await this.AXIOS_SERVICE.get<CurrencyType>(
             {
                 headers: {
                     apikey: this.CURRENCY_API_KEY,

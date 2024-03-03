@@ -1,46 +1,12 @@
-export interface ICurrency {
-    meta: MetaType;
-    data: CurrencyDataType;
-}
+import {
+    CurrentCurrencyAction,
+    CurrentCurrencyStateType,
+    GetCurrCurrencyErrorType,
+    GetCurrCurrencySuccesType,
+    GetCurrCurrencyType,
+} from "@/store/types/types";
 
-export type CurrencyDataType = {
-    [currencyCode: string]: {
-        code: string;
-        value: number;
-    };
-};
-
-export interface IcurrentCurrencyState {
-    currency: ICurrency;
-    isLoading: boolean;
-    error: null | string;
-}
-
-export enum CurrentCurrencyAction {
-    GET_CURR_CURRENCY = "GET_CURR_CURRENCY",
-    GET_CURR_CURRENCY_SUCCES = "GET_CURR_CURRENCY_SUCCES",
-    GET_CURR_CURRENCY_ERROR = "GET_CURR_CURRENCY_ERROR",
-}
-
-interface IgetCurrCurrency {
-    type: CurrentCurrencyAction.GET_CURR_CURRENCY;
-}
-
-interface IgetCurrCurrencySucces {
-    type: CurrentCurrencyAction.GET_CURR_CURRENCY_SUCCES;
-    payload?: ICurrency;
-}
-
-interface IgetCurrCurrencyError {
-    type: CurrentCurrencyAction.GET_CURR_CURRENCY_ERROR;
-    payload?: string;
-}
-
-export type MetaType = {
-    last_updated_at: string;
-};
-
-const initialState: IcurrentCurrencyState = {
+const initialState: CurrentCurrencyStateType = {
     currency: {
         meta: {
             last_updated_at: "1",
@@ -52,14 +18,14 @@ const initialState: IcurrentCurrencyState = {
 };
 
 export type CurrentCurrencyActionType =
-    | IgetCurrCurrency
-    | IgetCurrCurrencySucces
-    | IgetCurrCurrencyError;
+    | GetCurrCurrencyType
+    | GetCurrCurrencySuccesType
+    | GetCurrCurrencyErrorType;
 
 const latestCurrencyReducer = (
-    state: IcurrentCurrencyState = initialState,
+    state: CurrentCurrencyStateType = initialState,
     action: CurrentCurrencyActionType,
-): IcurrentCurrencyState => {
+): CurrentCurrencyStateType => {
     const intialCurrency = {
         meta: {
             last_updated_at: "",

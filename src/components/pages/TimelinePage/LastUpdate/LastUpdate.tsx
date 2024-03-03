@@ -1,18 +1,26 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Text from "@/components/pages/HomePage/Text/Text";
 import "@/components/pages/HomePage/LastUpdate/LastUpdate.scss";
+import { RootStateType } from "@/store/reducers";
+import { LastUpdatePropsType } from "@/types/TimeLinePageTypes/types";
 
-export default class LastUpdate extends Component {
+class LastUpdate extends Component<LastUpdatePropsType> {
     render() {
+        const { theme } = this.props;
         const lastUpdateDate = localStorage.getItem("lastUpdateDateResult");
 
         return (
-            <div className="last-update">
-                {/* <UpdateCircle width={33} height={34} /> */}
+            <div className={theme === "Light" ? "last-update light" : "last-update"}>
                 <div className="pulsating-circle" />
                 <Text className="last-update__text">Last updated {lastUpdateDate}</Text>
-                {/* <Text className="last-update__text">Last updated at 11:59pm</Text> */}
             </div>
         );
     }
 }
+
+const mapStateToProps = (state: RootStateType) => ({
+    theme: state.theme.theme,
+});
+
+export default connect(mapStateToProps, {})(LastUpdate);

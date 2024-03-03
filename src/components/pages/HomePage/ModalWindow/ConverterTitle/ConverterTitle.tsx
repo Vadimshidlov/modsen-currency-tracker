@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "@/components/pages/HomePage/Text/Text";
-import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
+import { getCurrencyIcon } from "@/utils/currency/getCurrencyIcon";
 import { ConverterTitlePropsType } from "@/types/HomePageTypes/types";
 
 export default function ConverterTitle({

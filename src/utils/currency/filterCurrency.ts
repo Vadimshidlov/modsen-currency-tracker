@@ -1,6 +1,6 @@
-import { CurrencyDataType, ICurrency } from "@/store/reducers/latestCurrencyReducer";
+import { CurrencyDataType, CurrencyType } from "@/store/types/types";
 
-export const filterCurrency = (currency: ICurrency) => {
+export const filterCurrency = (currency: CurrencyType) => {
     const validCurrencyList = ["AUD", "BTC", "JPY", "CNY", "ARS", "EUR", "AUD", "CAD", "USD"];
 
     const filteredData = Object.keys(currency.data)

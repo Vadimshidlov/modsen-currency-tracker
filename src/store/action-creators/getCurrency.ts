@@ -1,11 +1,9 @@
 import { Dispatch } from "redux";
 import AxiosCurrentCurrencyService from "@/services/CurrentCurrencyServise/CurrentCurrencyService";
-import {
-    CurrentCurrencyAction,
-    CurrentCurrencyActionType,
-    ICurrency,
-} from "@/store/reducers/latestCurrencyReducer";
-import { filterCurrency } from "@/utils/filterCurrency";
+
+import { filterCurrency } from "@/utils/currency/filterCurrency";
+import { CurrentCurrencyActionType } from "@/store/reducers/latestCurrencyReducer";
+import { CurrencyType, CurrentCurrencyAction } from "@/store/types/types";
 
 export function getCurrency() {
     return async (dispatch: Dispatch<CurrentCurrencyActionType>) => {
@@ -16,7 +14,7 @@ export function getCurrency() {
 
             const filteredCurrency = filterCurrency(response);
 
-            const filteredData: ICurrency = {
+            const filteredData: CurrencyType = {
                 meta: response.meta,
                 data: filteredCurrency,
             };

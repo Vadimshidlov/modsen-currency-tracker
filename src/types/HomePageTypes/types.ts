@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { CurrencyDataType } from "@/store/reducers/latestCurrencyReducer";
+import { CurrencyDataType } from "@/store/types/types";
 
 export type CurrencyCardPropsType = {
     currencyCode: string;
@@ -35,3 +35,8 @@ export type TextPropsType = {
 export type TextInputType = {
     className: string;
 } & React.ComponentPropsWithRef<"input">;
+
+export type FooterLinkPropsType = {
+    title: string;
+    links: string[];
+};

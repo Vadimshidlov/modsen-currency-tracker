@@ -67,12 +67,18 @@ class MapController extends Component<MapControllerPropsType, MapControllerState
 
     render() {
         const { searchCurrency, selectedCurrency } = this.state;
-        const { mapData, userLocationData } = this.props;
+        const { mapData, userLocationData, theme } = this.props;
         const { userLgt, userLtt } = userLocationData;
 
         return (
             <>
-                <div className="currency-form__container">
+                <div
+                    className={
+                        theme === "Light"
+                            ? "currency-form__container light"
+                            : "currency-form__container"
+                    }
+                >
                     <Text className="currency-input__title">Search currency in the bank</Text>
                     <div className="currency-input__container">
                         <SearchCurrency
@@ -112,6 +118,7 @@ class MapController extends Component<MapControllerPropsType, MapControllerState
 const mapStateToProps = (state: RootStateType) => ({
     mapData: state.mapData.mapData,
     userLocationData: state.userLocation,
+    theme: state.theme.theme,
 });
 
 export default connect(mapStateToProps, { successAuthUserLocation, errorAuthUserLocation })(

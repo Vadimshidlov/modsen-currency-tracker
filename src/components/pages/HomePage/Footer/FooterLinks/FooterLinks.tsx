@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Text from "@/components/pages/HomePage/Text/Text";
 import FooterSvgIcon from "@/assets/svg/footer/Vector.svg";
-
-export type FooterLinkPropsType = {
-    title: string;
-    links: string[];
-};
+import { FooterLinkPropsType } from "@/types/HomePageTypes/types";
 
 function FooterLinks({ title, links }: FooterLinkPropsType) {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +20,11 @@ function FooterLinks({ title, links }: FooterLinkPropsType) {
                 </button>
                 <div className="footer-links____links">
                     {links.map((link) => (
-                        <NavLink to="#" className="footer-links____item" key={link}>
+                        <NavLink
+                            to={`/${link.toLowerCase()}`}
+                            className="footer-links____item"
+                            key={link}
+                        >
                             {link}
                         </NavLink>
                     ))}

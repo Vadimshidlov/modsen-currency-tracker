@@ -3,7 +3,7 @@ import Text from "@/components/pages/HomePage/Text/Text";
 import "@/components/pages/HomePage/CurrencyCard/CurrencyCard.scss";
 import { useActions } from "@/store/hooks/useActions";
 import { useTypedSelectorHook } from "@/store/hooks/useTypedSelector";
-import { getCurrencyIcon } from "@/utils/getCurrencyIcon";
+import { getCurrencyIcon } from "@/utils/currency/getCurrencyIcon";
 import { CurrencyCardPropsType } from "@/types/HomePageTypes/types";
 
 export default function CurrencyCard({ currencyCode, value }: CurrencyCardPropsType) {

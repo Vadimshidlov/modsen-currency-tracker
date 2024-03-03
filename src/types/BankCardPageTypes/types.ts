@@ -1,13 +1,14 @@
 import { ChangeEvent } from "react";
-import { BanksDataType } from "@/services/BankApiService/BankApiService";
-import { IcurrentCurrencyState } from "@/store/reducers/latestCurrencyReducer";
 import {
+    CurrentCurrencyStateType,
     GetMapDataActionType,
     LocationAuthActionType,
     LocationStateType,
 } from "@/store/types/types";
+import { BanksDataType } from "@/types/types";
 
 export type MapControllerPropsType = {
+    theme: string;
     mapData: BanksDataType[];
     userLocationData: LocationStateType;
     errorAuthUserLocation: () => (dispatch: React.Dispatch<LocationAuthActionType>) => void;
@@ -44,9 +45,13 @@ export type MainBankComponentPropsType = {
 
 export type SearchCurrencyPropsType = {
     handleSelectCurrency: (value: string) => void;
-    currencyData: IcurrentCurrencyState;
+    currencyData: CurrentCurrencyStateType;
     searchCurrencyValue: string;
     onSearchCurrencyValue: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type SearchCurrencyStateType = object;
+
+export type BankCardPagePropsType = {
+    theme: string;
+};

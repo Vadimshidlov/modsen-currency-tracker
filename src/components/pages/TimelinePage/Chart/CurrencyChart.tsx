@@ -8,7 +8,7 @@ import Chart from "chart.js/auto";
 import "chartjs-adapter-luxon";
 import React, { Component } from "react";
 import Loader from "@/components/pages/TimelinePage/Loader/Loader";
-import { getDataForChart } from "@/utils/getDataForChart";
+import { getDataForChart } from "@/utils/chart/getDataForChart";
 import ChartObservable from "@/Observable/ChartObservable";
 import { CurrencyChartStateType, CurrencyChartPropsType } from "@/types/TimeLinePageTypes/types";
 import "@/components/pages/TimelinePage/Chart/CurrencyChart.scss";

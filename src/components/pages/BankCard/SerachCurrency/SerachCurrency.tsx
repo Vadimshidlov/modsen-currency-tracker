@@ -17,7 +17,6 @@ class SearchCurrency extends Component<SearchCurrencyPropsType, SearchCurrencySt
             <div className="currency-input__container">
                 <TextInput
                     id="currency-input"
-                    type="text"
                     className="currency-input__input"
                     placeholder="Сurrency search..."
                     value={searchCurrencyValue}

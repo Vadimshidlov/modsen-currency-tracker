@@ -1,6 +1,6 @@
-import { ICurrency } from "@/store/reducers/latestCurrencyReducer";
+import { CurrencyType } from "@/store/types/types";
 
-export const getCurrencyValueWithCode = (currencyData: ICurrency, currencyCode: string) => {
+export const getCurrencyValueWithCode = (currencyData: CurrencyType, currencyCode: string) => {
     let currencyValue = 0;
 
     for (const key in currencyData.data) {

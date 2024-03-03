@@ -1,7 +1,4 @@
-export type MockStockDataType = {
-    stockCode: string;
-    stockValue: number;
-};
+import { MockStockDataType } from "@/types/types";
 
 export const mockStockData: MockStockDataType[] = [
     {
