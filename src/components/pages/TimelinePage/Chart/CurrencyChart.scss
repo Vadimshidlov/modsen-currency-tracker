@@ -2,7 +2,7 @@
 @use "@/constants/styles/colors" as colors;
 
 .currency-chart__container {
-    //position: relative;
+    position: relative;
     display: flex;
     //flex-direction: column-reverse;
     flex-direction: column;
@@ -22,34 +22,39 @@
         margin: 0 auto 75px;
     }
 
-    .currency-chart__random-button {
-        padding: 15px;
-        background: transparent;
-        color: colors.$color_white;
-        @include fonts.PoppinsLight;
-        font-size: fonts.$font-size_15;
-        border: 1px solid colors.$color_white;
-        transition: all 1s;
-        max-width: 200px;
-        align-self: center;
+    .currency-chart__controller {
+        display: flex;
+        column-gap: 10px;
 
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            padding: 7px;
+        .currency-chart__random-button {
+            padding: 15px;
+            background: transparent;
+            color: colors.$color_white;
+            @include fonts.PoppinsLight;
             font-size: fonts.$font-size_15;
-        }
+            border: 1px solid colors.$color_white;
+            transition: all 1s;
+            max-width: 200px;
+            align-self: center;
 
-        @media (max-width: 600px) {
-            font-size: fonts.$font-size_12;
-        }
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+            }
 
-        @media (max-width: 500px) {
-            padding: 3px;
-            font-size: fonts.$font-size_10;
+            @media (max-width: 768px) {
+                padding: 7px;
+                font-size: fonts.$font-size_15;
+            }
+
+            @media (max-width: 600px) {
+                font-size: fonts.$font-size_12;
+            }
+
+            @media (max-width: 500px) {
+                padding: 3px;
+                font-size: fonts.$font-size_10;
+            }
         }
     }
 }

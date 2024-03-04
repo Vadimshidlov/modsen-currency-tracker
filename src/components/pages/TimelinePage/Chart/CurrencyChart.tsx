@@ -12,6 +12,7 @@ import { getDataForChart } from "@/utils/chart/getDataForChart";
 import ChartObservable from "@/Observable/ChartObservable";
 import { CurrencyChartStateType, CurrencyChartPropsType } from "@/types/TimeLinePageTypes/types";
 import "@/components/pages/TimelinePage/Chart/CurrencyChart.scss";
+import ChartDataForm from "@/components/pages/TimelinePage/ChartDataForm/ChartDataForm";
 
 Chart.register(OhlcElement, OhlcController, CandlestickElement, CandlestickController);
 
@@ -25,10 +26,20 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
 
         this.state = {
             isChartBuilding: false,
+            isOpenModal: false,
+            updateData: {
+                high: 0,
+                close: 0,
+                open: 0,
+                low: 0,
+            },
         };
 
         this.chartRef = React.createRef<HTMLCanvasElement | null>();
         this.updateCurrencyChartHandler = this.updateCurrencyChartHandler.bind(this);
+        this.openModalHandler = this.openModalHandler.bind(this);
+        this.updateChartDataHandler = this.updateChartDataHandler.bind(this);
+        this.closeModalHandler = this.closeModalHandler.bind(this);
     }
 
     componentDidMount() {
@@ -37,7 +48,7 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
         }
     }
 
-    componentDidUpdate(prevProps: CurrencyChartPropsType) {
+    componentDidUpdate(prevProps: CurrencyChartPropsType, prevState: CurrencyChartStateType) {
         const { chartCurrencyValue, chartDate } = this.props;
 
         if (
@@ -47,6 +58,11 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
             if (this.chartRef.current) {
                 this.updateCurrencyChartHandler();
             }
+        }
+
+        // eslint-disable-next-line react/destructuring-assignment
+        if (prevState.updateData !== this.state.updateData) {
+            this.updateCurrencyChartHandler();
         }
     }
 
@@ -62,12 +78,31 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
     }
 
     updateCurrencyChartHandler() {
+        const { updateData } = this.state;
+        const { high, close, open, low } = updateData;
         const { chartDate, chartCurrencyValue } = this.props;
 
-        if (this.chart) {
+        // eslint-disable-next-line react/destructuring-assignment
+        console.log(this.state.updateData, `this.state.updateData`);
+
+        if (this.chart && low !== 0 && open !== 0 && close !== 0 && high !== 0) {
+            const chartOptions = getDataForChart(open, new Date(chartDate));
+
+            this.chart.data.datasets[0].data[0].open = open;
+            this.chart.data.datasets[0].data[0].low = low;
+            this.chart.data.datasets[0].data[0].close = close;
+            this.chart.data.datasets[0].data[0].high = high;
+
+            this.chart.data.datasets = chartOptions.data.datasets;
+            this.chart.options.animations = chartOptions.options.animations;
+            this.chart.update();
+
+            ChartObservable.notify("Building");
+        } else {
             const chartOptions = getDataForChart(chartCurrencyValue, new Date(chartDate));
 
             this.chart.data.datasets = chartOptions.data.datasets;
+
             this.chart.options.animations = chartOptions.options.animations;
             this.chart.update();
 
@@ -75,8 +110,31 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
         }
     }
 
+    updateChartDataHandler(high: number, close: number, open: number, low: number) {
+        this.setState({
+            updateData: {
+                high,
+                close,
+                open,
+                low,
+            },
+        });
+    }
+
+    openModalHandler() {
+        this.setState({
+            isOpenModal: true,
+        });
+    }
+
+    closeModalHandler() {
+        this.setState({
+            isOpenModal: false,
+        });
+    }
+
     render() {
-        const { isChartBuilding } = this.state;
+        const { isChartBuilding, isOpenModal } = this.state;
 
         return (
             <div className="currency-chart__container">
@@ -84,12 +142,27 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
                     TimelinePage
                 </canvas>
                 {isChartBuilding && <Loader />}
-                <button
-                    className="currency-chart__random-button"
-                    onClick={this.updateCurrencyChartHandler}
-                >
-                    RANDOMIZE
-                </button>
+                <div className="currency-chart__controller">
+                    <button
+                        className="currency-chart__random-button"
+                        onClick={this.updateCurrencyChartHandler}
+                    >
+                        RANDOMIZE
+                    </button>
+                    <button
+                        className="currency-chart__random-button"
+                        onClick={this.openModalHandler}
+                    >
+                        UPDATE
+                    </button>
+                </div>
+
+                {isOpenModal && (
+                    <ChartDataForm
+                        onFormSubmit={this.updateChartDataHandler}
+                        onClose={this.closeModalHandler}
+                    />
+                )}
             </div>
         );
     }
