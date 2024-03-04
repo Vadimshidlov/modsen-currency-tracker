@@ -15,7 +15,7 @@ export default function ToggleTheme() {
     };
 
     return (
-        <label htmlFor="toggle-switch" className="toggle-switch">
+        <label htmlFor="toggle-switch" className="toggle-switch" data-testid="toggle-switch">
             {null}
             <input
                 id="toggle-switch"

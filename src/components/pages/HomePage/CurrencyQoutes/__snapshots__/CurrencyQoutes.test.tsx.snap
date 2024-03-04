@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyQoutes component tests should match snapshot 1`] = `
+<div
+  className="quotes__container"
+>
+  <p
+    className="quotes__title title"
+  >
+    Quotes
+  </p>
+  <div
+    className="title__border"
+  />
+  <div
+    className="quotes__items"
+  />
+</div>
+`;
+
+exports[`CurrencyQoutes component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="quotes__container"
+  >
+    <p
+      class="quotes__title title"
+    >
+      Quotes
+    </p>
+    <div
+      class="title__border"
+    />
+    <div
+      class="quotes__items"
+    />
+  </div>
+</DocumentFragment>
+`;

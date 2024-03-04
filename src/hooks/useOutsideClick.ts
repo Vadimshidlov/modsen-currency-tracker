@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect } from "react";
-// import { UseCloseModalType } from "@/types/types";
 
 const MOUSE_UP = "mouseup";
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "@/components/pages/TimelinePage/CurrencyCards/CurrencySelect.scss";
-import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyWithCode";
+import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyTitleWithCode";
 import SelectIcon from "@/assets/svg/select-vector.svg";
 import CurrencyCard from "@/components/pages/TimelinePage/CurrencyCard/CurrencyCard";
 import { CurrencyCardsPropsType, CurrencyCardsStateType } from "@/types/TimeLinePageTypes/types";

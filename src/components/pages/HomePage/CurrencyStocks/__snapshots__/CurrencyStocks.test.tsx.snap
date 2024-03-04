@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyStocks component tests should match snapshot 1`] = `
+<div
+  className="stocks__container"
+>
+  <p
+    className="stocks__title title"
+  >
+    Stocks
+  </p>
+  <div
+    className="title__border"
+  />
+  <div
+    className="stocks__items"
+  >
+    <button
+      className="currency-card__container"
+      disabled={true}
+    >
+      <svg
+        className="currency-card__icon"
+      />
+      <div
+        className="currency-card__info"
+      >
+        <p
+          className="currency-card__titile"
+        >
+          Bovespa Index
+        </p>
+        <p
+          className="currency-card__percent"
+        >
+          0.15%
+        </p>
+      </div>
+    </button>
+    <button
+      className="currency-card__container"
+      disabled={true}
+    >
+      <svg
+        className="currency-card__icon"
+      />
+      <div
+        className="currency-card__info"
+      >
+        <p
+          className="currency-card__titile"
+        >
+          IFIX
+        </p>
+        <p
+          className="currency-card__percent"
+        >
+          0.15%
+        </p>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`CurrencyStocks component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="stocks__container"
+  >
+    <p
+      class="stocks__title title"
+    >
+      Stocks
+    </p>
+    <div
+      class="title__border"
+    />
+    <div
+      class="stocks__items"
+    >
+      <button
+        class="currency-card__container"
+        disabled=""
+      >
+        <svg
+          class="currency-card__icon"
+        />
+        <div
+          class="currency-card__info"
+        >
+          <p
+            class="currency-card__titile"
+          >
+            Bovespa Index
+          </p>
+          <p
+            class="currency-card__percent"
+          >
+            0.15%
+          </p>
+        </div>
+      </button>
+      <button
+        class="currency-card__container"
+        disabled=""
+      >
+        <svg
+          class="currency-card__icon"
+        />
+        <div
+          class="currency-card__info"
+        >
+          <p
+            class="currency-card__titile"
+          >
+            IFIX
+          </p>
+          <p
+            class="currency-card__percent"
+          >
+            0.15%
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
