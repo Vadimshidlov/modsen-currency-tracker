@@ -7,6 +7,13 @@ export type CurrencyChartPropsType = {
 };
 export type CurrencyChartStateType = {
     isChartBuilding: boolean;
+    isOpenModal: boolean;
+    updateData: {
+        high: number;
+        close: number;
+        open: number;
+        low: number;
+    };
 };
 
 export type ChartDateStateType = {
@@ -97,4 +104,17 @@ export type HeaderPropsType = {
 
 export type LastUpdatePropsType = {
     theme: string;
+};
+
+export type ChartDataFormPropsType = {
+    onFormSubmit: (high: number, close: number, open: number, low: number) => void;
+    onClose: () => void;
+};
+
+export type ChartDataFormStateType = {
+    highInputValue: string;
+    closeInputValue: string;
+    openInputValue: string;
+    lowInputValue: string;
+    submitError: string;
 };
