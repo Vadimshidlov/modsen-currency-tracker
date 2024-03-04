@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component tests should match snapshot 1`] = `
+<div
+  className="header__container container"
+>
+  <svg
+    className="header__logo"
+    height={41}
+    width={40}
+  />
+  <nav
+    className="header__navigation navigation"
+  >
+    <a
+      className="navigation-list__item"
+      href="/home"
+      onClick={[Function]}
+    >
+      Home
+    </a>
+    <a
+      className="navigation-list__item"
+      href="/timeline"
+      onClick={[Function]}
+    >
+      Timeline
+    </a>
+    <a
+      className="navigation-list__item"
+      href="/bank-card"
+      onClick={[Function]}
+    >
+      Bank Card
+    </a>
+    <a
+      className="navigation-list__item"
+      href="/contacts"
+      onClick={[Function]}
+    >
+      Contato
+    </a>
+  </nav>
+  <label
+    className="toggle-switch"
+    data-testid="toggle-switch"
+    htmlFor="toggle-switch"
+  >
+    <input
+      checked={false}
+      id="toggle-switch"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <div
+      className="slider"
+    />
+  </label>
+</div>
+`;

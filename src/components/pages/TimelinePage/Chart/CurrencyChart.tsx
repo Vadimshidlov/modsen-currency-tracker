@@ -50,6 +50,7 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
 
     componentDidUpdate(prevProps: CurrencyChartPropsType, prevState: CurrencyChartStateType) {
         const { chartCurrencyValue, chartDate } = this.props;
+        const { updateData } = this.state;
 
         if (
             prevProps.chartCurrencyValue !== chartCurrencyValue ||
@@ -60,8 +61,7 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
             }
         }
 
-        // eslint-disable-next-line react/destructuring-assignment
-        if (prevState.updateData !== this.state.updateData) {
+        if (prevState.updateData !== updateData) {
             this.updateCurrencyChartHandler();
         }
     }
@@ -81,9 +81,6 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
         const { updateData } = this.state;
         const { high, close, open, low } = updateData;
         const { chartDate, chartCurrencyValue } = this.props;
-
-        // eslint-disable-next-line react/destructuring-assignment
-        console.log(this.state.updateData, `this.state.updateData`);
 
         if (this.chart && low !== 0 && open !== 0 && close !== 0 && high !== 0) {
             const chartOptions = getDataForChart(open, new Date(chartDate));

@@ -3,3 +3,4 @@ jest.config.js
 src/libs
 global.d.ts
 chart.d.ts
+src/__mocks__

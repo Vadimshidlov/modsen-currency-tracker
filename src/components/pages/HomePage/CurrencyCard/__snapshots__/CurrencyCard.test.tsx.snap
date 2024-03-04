@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyCard component tests should match snapshot 1`] = `
+<button
+  className="currency-card__container"
+  onClick={[Function]}
+>
+  <svg
+    className="currency-card__icon"
+  />
+  <div
+    className="currency-card__info"
+  >
+    <p
+      className="currency-card__titile"
+    >
+      Commercial Dollar
+    </p>
+    <p
+      className="currency-card__percent"
+    >
+      R$ 1.25
+    </p>
+  </div>
+</button>
+`;
+
+exports[`CurrencyCard component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <button
+    class="currency-card__container"
+  >
+    <svg
+      class="currency-card__icon"
+    />
+    <div
+      class="currency-card__info"
+    >
+      <p
+        class="currency-card__titile"
+      >
+        Commercial Dollar
+      </p>
+      <p
+        class="currency-card__percent"
+      >
+        R$ 1.25
+      </p>
+    </div>
+  </button>
+</DocumentFragment>
+`;
