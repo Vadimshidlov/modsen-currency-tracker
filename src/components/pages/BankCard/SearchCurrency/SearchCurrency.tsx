@@ -22,6 +22,7 @@ class SearchCurrency extends Component<SearchCurrencyPropsType, SearchCurrencySt
                     value={searchCurrencyValue}
                     onChange={onSearchCurrencyValue}
                     autoComplete="off"
+                    data-testid="map-search-input"
                 />
                 <div className="currency-input__result">
                     {searchCurrencyValue &&

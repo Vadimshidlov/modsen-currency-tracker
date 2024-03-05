@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LastUpdate component tests should match snapshot 1`] = `
+<div
+  className="last-update"
+>
+  <div
+    className="pulsating-circle"
+  />
+  <p
+    className="last-update__text"
+  >
+    Last updated 
+  </p>
+</div>
+`;

@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyCards component tests should match snapshot 1`] = `
+[
+  <div
+    className="currency-chart__select-container"
+  >
+    <select
+      className="currency-chart__select"
+      name="currency-chart-select"
+      onChange={[MockFunction]}
+      value="USD"
+    >
+      <option
+        className="currency-chart-select__option"
+        value="USD"
+      >
+        Commercial Dollar
+      </option>
+      <option
+        className="currency-chart-select__option"
+        value="EUR"
+      >
+        Euro
+      </option>
+      <option
+        className="currency-chart-select__option"
+        value="BTC"
+      >
+        Bitcoin
+      </option>
+      <option
+        className="currency-chart-select__option"
+        value="JPY"
+      >
+        Yen
+      </option>
+    </select>
+    <div
+      className="currency-chart__icon-container"
+    >
+      <svg
+        className="currency-chart__icon"
+      />
+    </div>
+  </div>,
+  <div
+    className="chart-card__container"
+  >
+    <svg
+      className="chart-card__icon"
+    />
+    <div
+      className="chart-card__info"
+    >
+      <p
+        className="chart-card__titile"
+      >
+        Commercial Dollar
+      </p>
+      <p
+        className="chart-card__percent"
+      >
+        USD
+      </p>
+    </div>
+  </div>,
+]
+`;
+
+exports[`CurrencyCards component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="currency-chart__select-container"
+  >
+    <select
+      class="currency-chart__select"
+      name="currency-chart-select"
+    >
+      <option
+        class="currency-chart-select__option"
+        value="USD"
+      >
+        Commercial Dollar
+      </option>
+      <option
+        class="currency-chart-select__option"
+        value="EUR"
+      >
+        Euro
+      </option>
+      <option
+        class="currency-chart-select__option"
+        value="BTC"
+      >
+        Bitcoin
+      </option>
+      <option
+        class="currency-chart-select__option"
+        value="JPY"
+      >
+        Yen
+      </option>
+    </select>
+    <div
+      class="currency-chart__icon-container"
+    >
+      <svg
+        class="currency-chart__icon"
+      />
+    </div>
+  </div>
+  <div
+    class="chart-card__container"
+  >
+    <svg
+      class="chart-card__icon"
+    />
+    <div
+      class="chart-card__info"
+    >
+      <p
+        class="chart-card__titile"
+      >
+        Commercial Dollar
+      </p>
+      <p
+        class="chart-card__percent"
+      >
+        USD
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,6 +1,6 @@
 import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyTitleWithCode";
 
-describe("getCurrencyTitleWithCode function", () => {
+describe("getCurrencyTitleWithCode function tests", () => {
     it("should return correct title for passed code", () => {
         const currencyTitleValueUSD = getCurrencyTitleWithCode("USD");
         const currencyTitleValueEUR = getCurrencyTitleWithCode("EUR");

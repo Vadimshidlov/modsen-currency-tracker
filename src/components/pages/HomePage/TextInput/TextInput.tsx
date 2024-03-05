@@ -5,7 +5,7 @@ import { TextInputType } from "@/types/HomePageTypes/types";
 export function TextInput({ className, ...rest }: TextInputType) {
     return (
         <div>
-            <input className={className} {...rest} />
+            <input className={className} {...rest} data-testid="text-input" />
         </div>
     );
 }

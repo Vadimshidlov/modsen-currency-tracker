@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectCurrency component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <select
+    class="select__currency"
+    data-testid="select-currency"
+  >
+    <option
+      class="select__item"
+      value="EUR"
+    >
+      Euro
+    </option>
+    <option
+      class="select__item"
+      value="BTC"
+    >
+      Bitcoin
+    </option>
+    <option
+      class="select__item"
+      value="JPY"
+    >
+      Yen
+    </option>
+  </select>
+</DocumentFragment>
+`;

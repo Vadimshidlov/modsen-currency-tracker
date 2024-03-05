@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component tests should match snapshot 1`] = `
+<div
+  className="currency-input__container"
+>
+  <input
+    autoComplete="off"
+    className="currency-input__input"
+    data-testid="map-search-input"
+    id="currency-input"
+    onChange={[MockFunction]}
+    placeholder="Сurrency search..."
+    type="text"
+    value=""
+  />
+  <div
+    className="currency-input__result"
+  />
+</div>
+`;

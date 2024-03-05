@@ -66,6 +66,7 @@ class ChartDataForm extends Component<ChartDataFormPropsType, ChartDataFormState
                             <Text className="field_title">High:</Text>
                             <TextInput
                                 className="currency__input"
+                                data-testid="chart-input-high"
                                 value={highInputValue}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                     const { value } = e.target;
@@ -81,6 +82,7 @@ class ChartDataForm extends Component<ChartDataFormPropsType, ChartDataFormState
                             <Text className="field_title">Close:</Text>
                             <TextInput
                                 className="currency__input"
+                                data-testid="chart-input-close"
                                 value={closeInputValue}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                     const { value } = e.target;
@@ -96,6 +98,7 @@ class ChartDataForm extends Component<ChartDataFormPropsType, ChartDataFormState
                             <Text className="field_title">Open:</Text>
                             <TextInput
                                 className="currency__input"
+                                data-testid="chart-input-open"
                                 value={openInputValue}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                     const { value } = e.target;
@@ -111,6 +114,7 @@ class ChartDataForm extends Component<ChartDataFormPropsType, ChartDataFormState
                             <Text className="field_title">Low:</Text>
                             <TextInput
                                 className="currency__input"
+                                data-testid="chart-input-low"
                                 value={lowInputValue}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                     const { value } = e.target;
@@ -123,7 +127,9 @@ class ChartDataForm extends Component<ChartDataFormPropsType, ChartDataFormState
                             />
                         </div>
                         {submitError && <Text className="chart-form__error">{submitError}</Text>}
-                        <button className="chart-form__submit">Update</button>
+                        <button className="chart-form__submit" data-testid="chart-submit">
+                            Update
+                        </button>
                     </form>
 
                     <CloseModalIcon

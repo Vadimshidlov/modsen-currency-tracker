@@ -29,7 +29,7 @@ const currencyData: CurrencyType = {
     },
 };
 
-describe("getSecondCurrency function", () => {
+describe("getSecondCurrency function tests", () => {
     it("should return correct code for passed value", () => {
         const { secondCurrencyCode: currencyCodeValueUSD } = getSecondCurrency(currencyData, "USD");
         const { secondCurrencyCode: currencyCodeValueEUR } = getSecondCurrency(currencyData, "EUR");

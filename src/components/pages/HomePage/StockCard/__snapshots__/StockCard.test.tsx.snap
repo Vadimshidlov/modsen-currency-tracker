@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyStocks component tests should match snapshot 1`] = `
+<button
+  className="currency-card__container"
+  disabled={true}
+>
+  <svg
+    className="currency-card__icon"
+  />
+  <div
+    className="currency-card__info"
+  >
+    <p
+      className="currency-card__titile"
+    >
+      Bovespa Index
+    </p>
+    <p
+      className="currency-card__percent"
+    >
+      0.15%
+    </p>
+  </div>
+</button>
+`;
+
+exports[`CurrencyStocks component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <button
+    class="currency-card__container"
+    disabled=""
+  >
+    <svg
+      class="currency-card__icon"
+    />
+    <div
+      class="currency-card__info"
+    >
+      <p
+        class="currency-card__titile"
+      >
+        Bovespa Index
+      </p>
+      <p
+        class="currency-card__percent"
+      >
+        0.15%
+      </p>
+    </div>
+  </button>
+</DocumentFragment>
+`;
