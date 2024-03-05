@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import mapboxgl from "mapbox-gl";
 import { MapPropsType, MapStateType } from "@/types/BankCardPageTypes/types";
 import Loader from "@/components/pages/TimelinePage/Loader/Loader";
-import BankApiService from "@/services/BankApiService/BankApiService";
 import { addMapMarker } from "@/utils/map/addMapMarker";
 import { isInRadius } from "@/utils/map/isInRadius";
 import { throttle } from "@/utils/map/throttleMapEvents";
 import { BanksDataType } from "@/types/types";
+import { mockBanksApiData } from "@/store/currency-data/mockBanksApiData";
 
 const THROTTLE_DELAY = 2000;
 const MAPBOXGL_STYLES_LINK = "mapbox://styles/mapbox/streets-v12";
@@ -21,8 +21,6 @@ class Map extends Component<MapPropsType, MapStateType> {
     private markers: mapboxgl.Marker[];
 
     private secondMarkers: BanksDataType[];
-
-    private BankApiService: BankApiService = new BankApiService();
 
     private INITIAL_MAP_ZOOM: number = 12.5;
 
@@ -43,7 +41,7 @@ class Map extends Component<MapPropsType, MapStateType> {
         };
 
         this.markers = [];
-        this.secondMarkers = [];
+        this.secondMarkers = mockBanksApiData;
         this.removeMarkers = this.removeMarkers.bind(this);
         this.updateCurrentMarkers = this.updateCurrentMarkers.bind(this);
         this.handleGoHome = this.handleGoHome.bind(this);
@@ -69,17 +67,7 @@ class Map extends Component<MapPropsType, MapStateType> {
     componentDidMount() {
         mapboxgl.accessToken = process.env.REACT_APP_MAP_KEY;
 
-        this.BankApiService.getAllBanks()
-            .then((res) => {
-                this.secondMarkers = res;
-
-                this.buildMap();
-            })
-            .catch(() => {
-                this.secondMarkers = [];
-
-                this.buildMap();
-            });
+        this.buildMap();
     }
 
     componentDidUpdate(prevProps: MapPropsType) {

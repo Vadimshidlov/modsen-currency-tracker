@@ -4,3 +4,4 @@ src/libs
 global.d.ts
 chart.d.ts
 src/__mocks__
+src/store/currency-data/mockBanksApiData.ts
