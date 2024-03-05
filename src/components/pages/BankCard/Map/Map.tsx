@@ -22,8 +22,6 @@ class Map extends Component<MapPropsType, MapStateType> {
 
     private secondMarkers: BanksDataType[];
 
-    // private BankApiService: BankApiService = new BankApiService();
-
     private INITIAL_MAP_ZOOM: number = 12.5;
 
     private MARKERS_MAP_RADIUS: number = 0.09;
