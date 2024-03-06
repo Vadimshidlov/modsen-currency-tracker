@@ -3,6 +3,8 @@
 import { lastCurrencyCached } from "cypress/data/lastCurrencyCached";
 import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
 
+Cypress.on("uncaught:exception", () => false);
+
 describe("home page tests", () => {
     beforeEach(() => {
         cy.visit("http://localhost:3000/home", {

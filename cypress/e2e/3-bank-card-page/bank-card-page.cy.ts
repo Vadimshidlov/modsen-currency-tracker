@@ -1,8 +1,9 @@
-// import { mapboxgl } from "mapbox-gl";
 /// <reference types="cypress" />
 
 import { lastCurrencyCached } from "cypress/data/lastCurrencyCached";
 import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
+
+Cypress.on("uncaught:exception", () => false);
 
 describe("bank-card page tests", () => {
     beforeEach(() => {

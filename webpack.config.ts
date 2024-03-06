@@ -59,7 +59,10 @@ export default (env: EnvVariable) => {
             clean: true,
         },
         plugins: [
-            new HtmlWebpackPlugin({ template: options.paths.html }),
+            new HtmlWebpackPlugin({
+                template: options.paths.html,
+                favicon: "public/favicon.ico",
+            }),
             isDev && new webpack.ProgressPlugin(),
             new webpack.DefinePlugin(envKeys),
             isDev && new Dotenv(),

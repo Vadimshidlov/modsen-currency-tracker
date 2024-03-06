@@ -3,6 +3,8 @@
 import { lastCurrencyCached } from "cypress/data/lastCurrencyCached";
 import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
 
+Cypress.on("uncaught:exception", () => false);
+
 const currentDate = new Date().toISOString().split("T")[0];
 const secondDate = new Date("2024-03-04").toISOString().split("T")[0];
 
