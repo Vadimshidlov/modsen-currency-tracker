@@ -12,14 +12,14 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
-        },
+        }
     },
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
     },
-    "exclude": [
-        "./src/__mocks__"
-    ]
+    "include": ["src", "cypress", "webpack.config.ts"],
+    "exclude": ["./src/__mocks__", "./cypress.config.ts"]
+    // "exclude": ["./src/__mocks__", "**/*.spec.ts"]
 }
