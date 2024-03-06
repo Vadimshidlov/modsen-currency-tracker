@@ -30,7 +30,11 @@ class ToggleTheme extends Component<ToggleThemePropsType, ToggleThemeStateType> 
         const { theme } = this.props;
 
         return (
-            <label htmlFor="toggle-switch" className="toggle-switch">
+            <label
+                htmlFor="toggle-switch"
+                className="toggle-switch"
+                data-testid="chart-toggle-switch"
+            >
                 {null}
                 <input
                     id="toggle-switch"

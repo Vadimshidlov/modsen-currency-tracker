@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyStocks component tests should match snapshot 1`] = `
+<div
+  className="modal__title"
+>
+  <div
+    className="modal__selected-currency selected-currency"
+  >
+    <div
+      className="selected-currency__title"
+    >
+      <svg />
+      <p
+        className=""
+      >
+        Commercial Dollar
+      </p>
+    </div>
+    <div
+      className="selected-currency__value"
+    >
+      <p
+        className=""
+      >
+        Value for USD:
+      </p>
+      <p
+        className=""
+      >
+        1.5
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CurrencyStocks component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <div
+    class="modal__title"
+  >
+    <div
+      class="modal__selected-currency selected-currency"
+    >
+      <div
+        class="selected-currency__title"
+      >
+        <svg />
+        <p
+          class=""
+        >
+          Commercial Dollar
+        </p>
+      </div>
+      <div
+        class="selected-currency__value"
+      >
+        <p
+          class=""
+        >
+          Value for USD:
+        </p>
+        <p
+          class=""
+        >
+          1.5
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

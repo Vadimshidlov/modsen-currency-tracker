@@ -1,7 +1,7 @@
 import { CurrencyType } from "@/store/types/types";
 import { getCurrencyValueWithCode } from "@/utils/currency/getCurrencyValueWithCode";
 
-describe("getCurrencyValueWithCode function", () => {
+describe("getCurrencyValueWithCode function tests", () => {
     it("should return correct value for passed currency", () => {
         const currencyData: CurrencyType = {
             meta: {

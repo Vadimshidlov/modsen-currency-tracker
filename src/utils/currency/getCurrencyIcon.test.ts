@@ -1,6 +1,6 @@
 import { getCurrencyIcon } from "@/utils/currency/getCurrencyIcon";
 
-describe("getCurrencyIcon function", () => {
+describe("getCurrencyIcon function tests", () => {
     it("should return correct title for passed currcency", () => {
         const { currencyTitle: usdTitle } = getCurrencyIcon("USD");
         const { currencyTitle: eurTitle } = getCurrencyIcon("EUR");

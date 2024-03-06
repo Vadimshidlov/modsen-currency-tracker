@@ -5,6 +5,18 @@ import { renderWithProviders, screen } from "@/utils/rtl-utils";
 import CurrencyQoutes from "@/components/pages/HomePage/CurrencyQoutes/CurrencyQoutes";
 import { store } from "@/store";
 
+const mockResponse = {
+    meta: {
+        last_updated_at: "2024-03-04T23:59:59Z",
+    },
+    data: {
+        USD: { code: "USD", value: 1 },
+        EUR: { code: "EUR", value: 1 },
+        BTC: { code: "BTC", value: 1 },
+        JPY: { code: "JPY", value: 1 },
+    },
+};
+
 describe("CurrencyQoutes component tests", () => {
     it("should correct render component", async () => {
         renderWithProviders(<CurrencyQoutes />);
@@ -27,5 +39,22 @@ describe("CurrencyQoutes component tests", () => {
             .toJSON();
 
         expect(tree).toMatchSnapshot();
+    });
+
+    it("should correct render component with correct preloaded state", async () => {
+        renderWithProviders(<CurrencyQoutes />, {
+            preloadedState: {
+                currency: {
+                    currency: mockResponse,
+                    isLoading: false,
+                    error: null,
+                },
+            },
+        });
+
+        expect(screen.getByText("Commercial Dollar")).toBeInTheDocument();
+        expect(screen.getByText("Euro")).toBeInTheDocument();
+        expect(screen.getByText("Bitcoin")).toBeInTheDocument();
+        expect(screen.getByText("Yen")).toBeInTheDocument();
     });
 });

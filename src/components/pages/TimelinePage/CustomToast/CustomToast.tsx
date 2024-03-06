@@ -57,7 +57,7 @@ class CustomToast extends Component<CustomToastPropsType, CustomToastStateType> 
         const { visible } = this.state;
 
         return createPortal(
-            <div className={`toast ${visible ? "show" : "hide"}`}>
+            <div className={`toast ${visible ? "show" : "hide"}`} data-testid="custom-toast">
                 <Text className="toast-content">{message}</Text>
             </div>,
             document.getElementById("portal"),

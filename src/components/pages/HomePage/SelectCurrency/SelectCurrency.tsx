@@ -16,6 +16,7 @@ export default function SelectCurrency({
             onChange={setSecondCurrency}
             value={secondCurrencyCode}
             {...rest}
+            data-testid="select-currency"
         >
             {Object.keys(data).map((element) =>
                 element !== currentCurrencyCode ? (

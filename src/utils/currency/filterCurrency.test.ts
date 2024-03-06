@@ -1,7 +1,7 @@
 import { CurrencyType } from "@/store/types/types";
 import { filterCurrency } from "@/utils/currency/filterCurrency";
 
-describe("filterCurrency function", () => {
+describe("filterCurrency function tests", () => {
     it("should filter the currency data based on a valid currency list", () => {
         const currencyData: CurrencyType = {
             meta: {

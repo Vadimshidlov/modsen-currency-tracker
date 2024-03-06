@@ -1,6 +1,6 @@
 import { getConvertResult } from "@/utils/currency/getConvertResult";
 
-describe("filterCurrency function", () => {
+describe("filterCurrency function tests", () => {
     it("should return correct result for given values", () => {
         const euroCoeff = 0.92;
         const dollarCoeff = 1;

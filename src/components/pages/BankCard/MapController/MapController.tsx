@@ -11,8 +11,8 @@ import {
 } from "@/store/action-creators/authUserLocation";
 import Map from "@/components/pages/BankCard/Map/Map";
 import { MapControllerPropsType, MapControllerStateType } from "@/types/BankCardPageTypes/types";
-import SearchCurrency from "@/components/pages/BankCard/SerachCurrency/SerachCurrency";
 import { handleUserAuthLocation } from "@/utils/map/handleUserAuthLocation";
+import SearchCurrency from "@/components/pages/BankCard/SearchCurrency/SearchCurrency";
 
 class MapController extends Component<MapControllerPropsType, MapControllerStateType> {
     constructor(props: MapControllerPropsType) {

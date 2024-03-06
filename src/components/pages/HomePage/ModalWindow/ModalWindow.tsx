@@ -79,8 +79,8 @@ function ModalWindow({ isOpen }: ModalWindowPropsType) {
     if (!isOpen) return null;
 
     return createPortal(
-        <div className="modal__container">
-            <div className="modal__content" ref={modalRef}>
+        <div className="modal__container" data-testid="modal-window">
+            <div className="modal__content" ref={modalRef} data-testid="modal-window-content">
                 <ConverterTitle
                     currentCurrencyCode={currentCurrencyCode}
                     currentCurrencyValue={currentCurrencyValue}

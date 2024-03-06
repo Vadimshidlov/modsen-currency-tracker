@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component tests should match snapshot 1`] = `
+<div
+  className="loader__container"
+  data-testid="app-loader"
+>
+  <div
+    className="loader__items"
+  >
+    <div
+      className="loader-item-1"
+    />
+    <div
+      className="loader-item-2"
+    />
+    <div
+      className="loader-item-3"
+    />
+  </div>
+</div>
+`;

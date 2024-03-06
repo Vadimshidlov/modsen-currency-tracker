@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainComponent component snapshot tests should match snapshot 1`] = `
+<main
+  className="main-block main-block__container"
+>
+  <div
+    className="last-update"
+  >
+    <div
+      className="pulsating-circle"
+    />
+    <p
+      className="last-update__text"
+    >
+      Last updated 
+    </p>
+  </div>
+  <div
+    className="stocks__container"
+  >
+    <p
+      className="stocks__title title"
+    >
+      Stocks
+    </p>
+    <div
+      className="title__border"
+    />
+    <div
+      className="stocks__items"
+    >
+      <button
+        className="currency-card__container"
+        disabled={true}
+      >
+        <svg
+          className="currency-card__icon"
+        />
+        <div
+          className="currency-card__info"
+        >
+          <p
+            className="currency-card__titile"
+          >
+            Bovespa Index
+          </p>
+          <p
+            className="currency-card__percent"
+          >
+            0.15%
+          </p>
+        </div>
+      </button>
+      <button
+        className="currency-card__container"
+        disabled={true}
+      >
+        <svg
+          className="currency-card__icon"
+        />
+        <div
+          className="currency-card__info"
+        >
+          <p
+            className="currency-card__titile"
+          >
+            IFIX
+          </p>
+          <p
+            className="currency-card__percent"
+          >
+            0.15%
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    className="quotes__container"
+  >
+    <p
+      className="quotes__title title"
+    >
+      Quotes
+    </p>
+    <div
+      className="title__border"
+    />
+    <div
+      className="quotes__items"
+    />
+  </div>
+</main>
+`;
