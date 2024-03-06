@@ -7,13 +7,12 @@
     column-gap: 30px;
     align-items: center;
     width: 520px;
-    //background-color: colors.$currency_card_background;
     padding: 36px 32px;
     border-radius: 8px;
     background: transparent;
-    //border: 1px solid colors.$currency_card_border;
     transition: all 1s;
     outline: none;
+    margin-bottom: 20px;
 
     @media (max-width: 1120px) {
         width: 100%;
@@ -23,6 +22,7 @@
     @media (max-width: 450px) {
         column-gap: 12px;
         padding: 8px 12px;
+        margin-bottom: 10px;
     }
 
     &:hover {
@@ -54,7 +54,6 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        //row-gap: 10px;
 
         .chart-card__titile {
             @include fonts.PoppinsRegularFont;

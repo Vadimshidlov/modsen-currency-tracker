@@ -21,5 +21,4 @@
     },
     "include": ["src", "cypress", "webpack.config.ts"],
     "exclude": ["./src/__mocks__", "./cypress.config.ts"]
-    // "exclude": ["./src/__mocks__", "**/*.spec.ts"]
 }
