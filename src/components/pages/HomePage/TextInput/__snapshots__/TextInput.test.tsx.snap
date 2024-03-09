@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyStocks component tests should match snapshot 1`] = `
+<div>
+  <input
+    className="text-input"
+    data-testid="text-input"
+    placeholder="Hello!"
+  />
+</div>
+`;
+
+exports[`CurrencyStocks component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      class="text-input"
+      data-testid="text-input"
+      placeholder="Hello!"
+    />
+  </div>
+</DocumentFragment>
+`;

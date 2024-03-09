@@ -1,0 +1,9 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.main-block {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+}

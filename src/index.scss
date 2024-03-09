@@ -1,0 +1,104 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+
+    &.modal-open {
+        overflow: hidden;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding-left: 52px;
+    padding-right: 52px;
+    max-width: 1440px;
+
+    @media (max-width: 490px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.app-title__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1440px;
+    width: 100%;
+
+    @media (max-width: 490px) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.main-block__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1224px;
+    width: 100%;
+
+    @media (max-width: 490px) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+.footer__container {
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 1224px;
+    width: 100%;
+
+    @media (max-width: 490px) {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+a {
+    transition: all 0.1s ease-in;
+}
+
+.custom-toast-container {
+    background-color: #333;
+}

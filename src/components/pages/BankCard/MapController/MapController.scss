@@ -1,0 +1,296 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.map__container {
+    position: relative;
+
+    .map {
+        height: 460px;
+        width: 100%;
+        margin-bottom: 700px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 300px;
+        }
+
+        @media (max-width: 768px) {
+            height: 300px;
+        }
+
+        @media (max-width: 500px) {
+            height: 250px;
+            margin-bottom: 150px;
+        }
+
+        .marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-marker svg {
+            width: 25px;
+            height: 32px;
+
+            @media (max-width: 768px) {
+                width: 23px;
+                height: 30px;
+            }
+
+            @media (max-width: 450px) {
+                width: 20px;
+                height: 27px;
+            }
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            display: flex;
+            text-align: center;
+            @include fonts.PoppinsSemiBoldFont;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                font-size: fonts.$font-size_15;
+                color: colors.$black_background;
+            }
+        }
+    }
+
+    .map__button {
+        width: 50px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 2;
+        font-size: fonts.$font-size_10;
+        background-color: colors.$color_blue;
+        color: colors.$color_white;
+        cursor: pointer;
+        transition: all 0.4s ease-in;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.currency-form__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .currency-input__title {
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_38;
+        color: colors.$color_white;
+        margin-bottom: 24px;
+
+        @media (max-width: 768px) {
+            font-size: fonts.$font-size_30;
+        }
+
+        @media (max-width: 600px) {
+            font-size: fonts.$font-size_25;
+        }
+
+        @media (max-width: 500px) {
+            font-size: fonts.$font-size_18;
+        }
+    }
+
+    .currency-input__container {
+        position: relative;
+
+        .currency-input__input {
+            @include fonts.PoppinsLight;
+            font-size: fonts.$font-size_28;
+            color: colors.$color_white;
+            padding: 20px;
+            width: 450px;
+            height: 66px;
+            background: colors.$color_grey__input-background;
+            outline: none;
+            border-radius: 8px;
+
+            &::placeholder {
+                @include fonts.PoppinsLight;
+                font-size: fonts.$font-size_18;
+                color: colors.$color_grey__input-placeholder;
+            }
+
+            @media (max-width: 700px) {
+                width: 300px;
+                height: 50px;
+                font-size: fonts.$font-size_20;
+            }
+
+            @media (max-width: 500px) {
+                width: 250px;
+                height: 40px;
+                font-size: fonts.$font-size_15;
+
+                &::placeholder {
+                    font-size: fonts.$font-size_15;
+                }
+            }
+        }
+
+        .currency-input__result {
+            display: flex;
+            flex-direction: column;
+            top: 115%;
+            background: colors.$color_grey__input-background;
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            border-radius: 8px;
+
+            .currency-input__result-item {
+                padding: 20px 5px 10px 10px;
+                background: colors.$color_grey__input-background;
+                text-align: start;
+                @include fonts.PoppinsLight;
+                font-size: fonts.$font-size_28;
+                color: colors.$color_white;
+                border-bottom: 1px solid;
+                cursor: pointer;
+                transition: all 1s ease-in;
+
+                &:hover {
+                    background: colors.$color_grey__input-hover;
+                }
+
+                @media (max-width: 700px) {
+                    padding: 15px 5px 10px 10px;
+                    width: 300px;
+                    font-size: fonts.$font-size_20;
+                }
+
+                @media (max-width: 500px) {
+                    padding: 10px 5px 10px 10px;
+                    width: 250px;
+                    font-size: fonts.$font-size_15;
+                }
+            }
+        }
+    }
+
+    .currency-input__icon {
+        position: absolute;
+        top: 33%;
+        right: 5%;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+
+        @media (max-width: 700px) {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 500px) {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .currency-form__selected-currency {
+        align-self: end;
+        display: flex;
+        align-items: end;
+        padding-right: 20px;
+        height: 80px;
+
+        @media (max-width: 500px) {
+            padding: 0 10px 0 10px;
+            width: 100%;
+        }
+
+        .selected-currency__container {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+
+            @media (max-width: 500px) {
+                column-gap: 0px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .selected-currency-title {
+                @include fonts.PoppinsLight;
+                font-size: fonts.$font-size_20;
+                color: colors.$color_white;
+
+                @media (max-width: 768px) {
+                    font-size: fonts.$font-size_18;
+                }
+
+                @media (max-width: 500px) {
+                    font-size: fonts.$font-size_16;
+                }
+
+                @media (max-width: 400px) {
+                    font-size: fonts.$font-size_13;
+                }
+            }
+
+            .selected-currency__reset-button {
+                padding: 5px;
+                background: transparent;
+                color: colors.$color_white;
+                @include fonts.PoppinsLight;
+                font-size: fonts.$font-size_15;
+                border: 1px solid colors.$color_white;
+                transition: all 1s;
+                max-width: 200px;
+                margin-bottom: 1px;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.05);
+                }
+
+                @media (max-width: 768px) {
+                    font-size: fonts.$font-size_12;
+                }
+            }
+        }
+    }
+
+    &.light {
+        .currency-input__title {
+            color: colors.$black_background;
+        }
+
+        .currency-input__container {
+            .currency-input__input {
+                color: colors.$black_background;
+                background: colors.$currency-input__light-background;
+
+                &::placeholder {
+                    color: colors.$black_background;
+                }
+            }
+
+            .currency-input__result {
+                background: colors.$currency-input__light-background;
+
+                .currency-input__result-item {
+                    color: colors.$black_background;
+                    background: colors.$currency-input__light-background;
+                }
+            }
+        }
+    }
+}

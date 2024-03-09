@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyStocks component tests should match snapshot 1`] = `
+<p
+  className="text-class"
+>
+  Hello!
+</p>
+`;
+
+exports[`CurrencyStocks component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <p
+    class="text-class"
+  >
+    Hello!
+  </p>
+</DocumentFragment>
+`;

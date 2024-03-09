@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppTitle component tests should match snapshot 1`] = `
+<section
+  className="app-title__container"
+>
+  <div
+    className="app-title"
+  >
+    <div
+      className="app-title__about about"
+    >
+      <div
+        className="about__titles"
+      >
+        <h2
+          className="about__sub-title"
+        >
+          Modsen Currency
+        </h2>
+        <h1
+          className="about__title"
+        >
+          Tracker
+        </h1>
+      </div>
+      <p
+        className="about__text"
+      >
+        Quotes for the dollar and other international currencies.
+      </p>
+    </div>
+    <svg
+      className="app-title__image"
+    />
+  </div>
+</section>
+`;
+
+exports[`AppTitle component tests snapshot matches 1`] = `
+<DocumentFragment>
+  <section
+    class="app-title__container"
+  >
+    <div
+      class="app-title"
+    >
+      <div
+        class="app-title__about about"
+      >
+        <div
+          class="about__titles"
+        >
+          <h2
+            class="about__sub-title"
+          >
+            Modsen Currency
+          </h2>
+          <h1
+            class="about__title"
+          >
+            Tracker
+          </h1>
+        </div>
+        <p
+          class="about__text"
+        >
+          Quotes for the dollar and other international currencies.
+        </p>
+      </div>
+      <svg
+        class="app-title__image"
+      />
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -1,0 +1,11 @@
+.eslintrc.js
+jest.config.js
+src/libs
+global.d.ts
+chart.d.ts
+src/__mocks__
+src/__mocks__/svgrMock.ts
+src/store/currency-data/mockBanksApiData.ts
+cypress.config.ts
+babel.config.js
+

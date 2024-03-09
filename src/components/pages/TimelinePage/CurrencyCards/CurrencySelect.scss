@@ -1,0 +1,103 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.currency-chart__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .currency-chart__select-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        row-gap: 20px;
+        width: 30%;
+        height: 50px;
+
+        @media (max-width: 1200px) {
+            width: 260px;
+        }
+
+        .currency-chart__select {
+            width: 100%;
+            border: none;
+            outline: none;
+            appearance: none;
+            padding: 0 30px 0 15px;
+            color: colors.$color_white;
+            background-color: colors.$black_background;
+            @include fonts.PoppinsLight;
+            font-size: fonts.$font-size_30;
+
+            @media (max-width: 1200px) {
+                font-size: fonts.$font-size_25;
+            }
+
+            @media (max-width: 1200px) {
+                font-size: fonts.$font-size_20;
+            }
+
+            @media (max-width: 500px) {
+                font-size: fonts.$font-size_15;
+            }
+        }
+
+        .currency-chart__icon-container {
+            display: flex;
+            align-items: center;
+            width: 20px;
+            height: 100%;
+
+            .currency-chart__icon {
+                width: 20px;
+                height: 15px;
+                position: absolute;
+                right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media (max-width: 1200px) {
+                    width: 15px;
+                    height: 15px;
+                    font-size: fonts.$font-size_20;
+                }
+            }
+        }
+    }
+
+    .currency-chart__date-picker-title {
+        align-self: start;
+        @include fonts.PoppinsLight;
+        color: colors.$color_white;
+        font-size: fonts.$font-size_15;
+        margin-left: 20px;
+        margin-bottom: 10px;
+
+        @media (max-width: 500px) {
+            margin-bottom: 0px;
+            font-size: fonts.$font-size_12;
+        }
+
+        &.light {
+            color: colors.$black_background;
+        }
+    }
+
+    &.light {
+        .currency-chart__select-container {
+            .currency-chart__select {
+                color: colors.$black_background;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: colors.$color_white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}

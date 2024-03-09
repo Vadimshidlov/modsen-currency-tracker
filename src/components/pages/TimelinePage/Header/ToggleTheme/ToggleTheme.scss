@@ -1,0 +1,83 @@
+@use "../../../../../constants/styles/fonts" as fonts;
+@use "../../../../../constants/styles/colors" as colors;
+@import "../../../../../index";
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border: 2px solid colors.$color_white;
+    background-color: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 1s;
+
+    @media (max-width: 712px) {
+        width: 30px;
+        height: 20px;
+    }
+
+    @media (max-width: 520px) {
+        width: 29px;
+        height: 18px;
+        border-radius: 10px;
+    }
+
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"] + .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    input[type="checkbox"]:checked + .slider {
+        transform: translateX(2px);
+    }
+
+    .slider:before {
+        content: "";
+        position: absolute;
+        width: 27px;
+        height: 27px;
+        background-color: transparent;
+        border: 2px solid colors.$color_white;
+        border-radius: 50%;
+        left: 0px;
+        bottom: 0px;
+        transition: all 0.5s ease;
+
+        @media (max-width: 712px) {
+            width: 15px;
+            height: 17px;
+        }
+
+        @media (max-width: 520px) {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    input[type="checkbox"]:checked + .slider:before {
+        transform: translateX(18px);
+
+        @media (max-width: 712px) {
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 520px) {
+            transform: translateX(9px);
+        }
+    }
+}
