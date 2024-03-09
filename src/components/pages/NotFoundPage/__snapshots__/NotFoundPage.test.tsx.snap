@@ -38,19 +38,26 @@ exports[`CurrencyStocks component tests snapshot matches 1`] = `
         Contato
       </a>
     </nav>
-    <label
-      class="toggle-switch"
-      data-testid="toggle-switch"
-      for="toggle-switch"
+    <div
+      class="header__buttons"
     >
-      <input
-        id="toggle-switch"
-        type="checkbox"
+      <label
+        class="toggle-switch"
+        data-testid="toggle-switch"
+        for="toggle-switch"
+      >
+        <input
+          id="toggle-switch"
+          type="checkbox"
+        />
+        <div
+          class="slider"
+        />
+      </label>
+      <svg
+        class="header__burger-button"
       />
-      <div
-        class="slider"
-      />
-    </label>
+    </div>
   </div>
   <div>
     <div

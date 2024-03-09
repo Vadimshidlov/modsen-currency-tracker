@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Header from "@/components/pages/TimelinePage/Header/Header";
 import AppTitle from "@/components/pages/TimelinePage/AppTitle/AppTitle";
 import Footer from "@/components/pages/TimelinePage/Footer/Footer";
-import "react-toastify/dist/ReactToastify.css";
 import MainBankComponent from "@/components/pages/BankCard/MainComponent/MainBankComponent";
 import { RootStateType } from "@/store/reducers";
 import { BankCardPagePropsType } from "@/types/BankCardPageTypes/types";

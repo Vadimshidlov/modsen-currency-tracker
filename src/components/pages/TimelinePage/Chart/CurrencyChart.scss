@@ -9,51 +9,92 @@
     padding-right: 16px;
     max-width: 1205px;
     width: 100%;
-    margin: 0 auto 604px;
+    margin: 0 auto 30px;
 
     @media (max-width: 1200px) {
-        margin: 0 auto 150px;
+        margin: 0 auto 30px;
+    }
+
+    @media (max-width: 500px) {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin: 0 auto 30px;
+        height: 350px;
+    }
+
+    .currency-chart__chart {
+        @media (max-width: 500px) {
+            height: 200px;
+            width: 600px;
+        }
+    }
+}
+
+.currency-chart__controller {
+    display: flex;
+    column-gap: 10px;
+    align-self: start;
+    margin-bottom: 604px;
+
+    @media (max-width: 1200px) {
+        margin-bottom: 75px;
     }
 
     @media (max-width: 490px) {
-        padding-left: 16px;
-        padding-right: 16px;
-        margin: 0 auto 75px;
+        margin-bottom: 75px;
     }
 
-    .currency-chart__controller {
-        display: flex;
-        column-gap: 10px;
+    .currency-chart__random-button {
+        padding: 15px;
+        background: transparent;
+        color: colors.$color_white;
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_15;
+        border: 1px solid colors.$color_white;
+        transition: all 1s;
+        max-width: 200px;
+        align-self: center;
 
-        .currency-chart__random-button {
-            padding: 15px;
-            background: transparent;
-            color: colors.$color_white;
-            @include fonts.PoppinsLight;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            padding: 7px;
             font-size: fonts.$font-size_15;
-            border: 1px solid colors.$color_white;
-            transition: all 1s;
-            max-width: 200px;
-            align-self: center;
+        }
 
-            &:hover {
-                cursor: pointer;
-                transform: scale(1.05);
-            }
+        @media (max-width: 600px) {
+            font-size: fonts.$font-size_12;
+        }
 
-            @media (max-width: 768px) {
-                padding: 7px;
-                font-size: fonts.$font-size_15;
-            }
-
-            @media (max-width: 600px) {
-                font-size: fonts.$font-size_12;
-            }
-
-            @media (max-width: 500px) {
-                padding: 3px;
-                font-size: fonts.$font-size_10;
-            }
+        @media (max-width: 500px) {
+            padding: 3px;
+            font-size: fonts.$font-size_10;
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    background: #888;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    background: #555;
+    border-radius: 15px;
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

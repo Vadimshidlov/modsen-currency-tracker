@@ -29,8 +29,6 @@ describe("CurrencyCards component tests", () => {
             />,
         );
 
-        screen.debug();
-
         expect(screen.getAllByText("Commercial Dollar")).toHaveLength(2);
         expect(screen.getByText("Euro")).toBeInTheDocument();
         expect(screen.getByText("Bitcoin")).toBeInTheDocument();

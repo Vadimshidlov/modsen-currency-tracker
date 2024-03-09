@@ -122,23 +122,37 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
         this.setState({
             isOpenModal: true,
         });
+        document.body.classList.add("modal-open");
     }
 
     closeModalHandler() {
         this.setState({
             isOpenModal: false,
         });
+        document.body.classList.remove("modal-open");
     }
 
     render() {
         const { isChartBuilding, isOpenModal } = this.state;
 
         return (
-            <div className="currency-chart__container">
-                <canvas ref={this.chartRef} id="currency-chart">
-                    TimelinePage
-                </canvas>
-                {isChartBuilding && <Loader />}
+            <>
+                <div className="currency-chart__container">
+                    <div className="currency-chart__chart">
+                        <canvas ref={this.chartRef} id="currency-chart">
+                            TimelinePage
+                        </canvas>
+                    </div>
+
+                    {isChartBuilding && <Loader />}
+
+                    {isOpenModal && (
+                        <ChartDataForm
+                            onFormSubmit={this.updateChartDataHandler}
+                            onClose={this.closeModalHandler}
+                        />
+                    )}
+                </div>
                 <div className="currency-chart__controller">
                     <button
                         className="currency-chart__random-button"
@@ -153,14 +167,7 @@ class CurrencyChart extends Component<CurrencyChartPropsType, CurrencyChartState
                         UPDATE
                     </button>
                 </div>
-
-                {isOpenModal && (
-                    <ChartDataForm
-                        onFormSubmit={this.updateChartDataHandler}
-                        onClose={this.closeModalHandler}
-                    />
-                )}
-            </div>
+            </>
         );
     }
 }

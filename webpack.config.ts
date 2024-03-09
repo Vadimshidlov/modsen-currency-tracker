@@ -4,6 +4,7 @@ import Dotenv from "dotenv-webpack";
 import path from "path";
 import webpack from "webpack";
 import dotenv from "dotenv";
+import autoprefixer from "autoprefixer";
 
 export interface BuildPaths {
     entry: string;
@@ -84,7 +85,18 @@ export default (env: EnvVariable) => {
                 },
                 {
                     test: /\.css$/,
-                    use: ["style-loader", "css-loader"],
+                    use: [
+                        "style-loader",
+                        "css-loader",
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                postcssOptions: {
+                                    plugins: [autoprefixer()],
+                                },
+                            },
+                        },
+                    ],
                 },
                 {
                     test: /\.s[ac]ss$/i,

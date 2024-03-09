@@ -30,10 +30,8 @@ describe("getDataForChart function tests", () => {
                 datasets: [
                     {
                         data: mockRandomOhlcvData.datasets[0].data,
-                        barPercentage: 0.5,
-                        barThickness: 6,
-                        maxBarThickness: 8,
-                        minBarLength: 2,
+                        barPercentage: 1,
+                        categoryPercentage: 0.3,
                         backgroundColor: "#012032",
                         color: {
                             up: "#16C782",
@@ -93,13 +91,6 @@ describe("getDataForChart function tests", () => {
                     },
                     xAxis: {
                         type: "time",
-                        time: {
-                            unit: "day",
-                            tooltipFormat: "YYYY-MM-DD",
-                            displayFormats: {
-                                day: "DD",
-                            },
-                        },
                         title: {
                             display: true,
                             text: "Day",
