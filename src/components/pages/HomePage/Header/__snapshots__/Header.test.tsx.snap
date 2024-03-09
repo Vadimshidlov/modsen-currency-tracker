@@ -41,20 +41,28 @@ exports[`Footer component tests should match snapshot 1`] = `
       Contato
     </a>
   </nav>
-  <label
-    className="toggle-switch"
-    data-testid="toggle-switch"
-    htmlFor="toggle-switch"
+  <div
+    className="header__buttons"
   >
-    <input
-      checked={false}
-      id="toggle-switch"
-      onChange={[Function]}
-      type="checkbox"
+    <label
+      className="toggle-switch"
+      data-testid="toggle-switch"
+      htmlFor="toggle-switch"
+    >
+      <input
+        checked={false}
+        id="toggle-switch"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <div
+        className="slider"
+      />
+    </label>
+    <svg
+      className="header__burger-button"
+      onClick={[Function]}
     />
-    <div
-      className="slider"
-    />
-  </label>
+  </div>
 </div>
 `;

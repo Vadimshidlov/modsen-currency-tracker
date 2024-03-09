@@ -17,10 +17,8 @@ export const buildCurrencyChart = (
                         data: [
                             ...getRandomOhlcv(currencyValue, new Date(chartDate)).datasets[0].data,
                         ],
-                        barPercentage: 0.5,
-                        barThickness: 6,
-                        maxBarThickness: 8,
-                        minBarLength: 2,
+                        barPercentage: 0.1,
+                        categoryPercentage: 0.3,
                     },
                 ],
             };
@@ -46,7 +44,6 @@ export const buildCurrencyChart = (
                                     loop: false,
                                 },
                             },
-                            responsive: true,
                             tooltips: {
                                 mode: "index",
                             },
@@ -74,25 +71,17 @@ export const buildCurrencyChart = (
                                         text: "Value",
                                         position: "bottom",
                                     },
+                                    barPercentage: 0.1,
+                                    barThickness: "flex",
                                     tooltip: {},
                                     position: "right",
                                 },
                                 xAxis: {
-                                    type: "time",
-                                    time: {
-                                        unit: "day",
-                                        tooltipFormat: "YYYY-MM-DD",
-                                        displayFormats: {
-                                            day: "DD",
-                                        },
-                                    },
                                     title: {
                                         display: true,
                                         text: "Day",
                                         position: "bottom",
                                     },
-                                    barPercentage: 0.5,
-                                    barThickness: 1,
                                     grid: {
                                         display: true,
                                         drawOnChartArea: true,
