@@ -1,4 +1,4 @@
-import { getConvertResult } from "@/utils/currency/getConvertResult";
+import { getConvertResult } from "@/utils/currency/index";
 
 describe("filterCurrency function tests", () => {
     it("should return correct result for given values", () => {

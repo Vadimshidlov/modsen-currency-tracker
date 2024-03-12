@@ -1,4 +1,4 @@
-import { isInRadius } from "@/utils/map/isInRadius";
+import { isInRadius } from "@/utils/map/index";
 
 describe("isInRadius function tests", () => {
     test("returns true if the given coordinates are within the specified radius from the center", () => {

@@ -1,4 +1,4 @@
-import { CurrencyDataType, CurrencyType } from "@/store/types/types";
+import { CurrencyDataType, CurrencyType } from "@/store/types";
 
 export const filterCurrency = (currency: CurrencyType) => {
     const validCurrencyList = ["AUD", "BTC", "JPY", "CNY", "ARS", "EUR", "AUD", "CAD", "USD"];

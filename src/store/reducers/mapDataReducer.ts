@@ -1,5 +1,5 @@
-import { mockMapData } from "@/store/currency-data/mockMapData";
-import { GetMapDataType, MapDataActionType, MapDataStateType } from "@/store/types/types";
+import { mockMapData } from "@/store/currency-data/index";
+import { GetMapDataType, MapDataActionType, MapDataStateType } from "@/store/types";
 
 export const GET_MAP_DATA: GetMapDataType = "GET_MAP_DATA";
 

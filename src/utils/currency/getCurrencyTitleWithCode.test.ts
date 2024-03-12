@@ -1,4 +1,4 @@
-import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyTitleWithCode";
+import { getCurrencyTitleWithCode } from "@/utils/currency/index";
 
 describe("getCurrencyTitleWithCode function tests", () => {
     it("should return correct title for passed code", () => {

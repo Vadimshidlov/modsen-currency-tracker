@@ -1,4 +1,4 @@
-import { MockStockDataType } from "@/types/types";
+import { MockStockDataType } from "@/types";
 
 export const mockStockData: MockStockDataType[] = [
     {

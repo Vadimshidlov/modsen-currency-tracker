@@ -1,5 +1,5 @@
-import { CurrencyType } from "@/store/types/types";
-import { getSecondCurrency } from "@/utils/currency/getSecondCurrency";
+import { CurrencyType } from "@/store/types";
+import { getSecondCurrency } from "@/utils/currency/index";
 
 const currencyData: CurrencyType = {
     meta: {

@@ -1,4 +1,4 @@
-import { throttle } from "@/utils/map/throttleMapEvents";
+import { throttle } from "@/utils/map/index";
 
 describe("throttle function tests", () => {
     jest.useFakeTimers();

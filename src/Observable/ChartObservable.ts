@@ -1,4 +1,4 @@
-import { ObserverFunctionType } from "@/types/types";
+import { ObserverFunctionType } from "@/types";
 
 class ChartObservable {
     private observers: ObserverFunctionType[];

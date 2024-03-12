@@ -1,5 +1,5 @@
-import { CurrencyType } from "@/store/types/types";
-import { filterCurrency } from "@/utils/currency/filterCurrency";
+import { CurrencyType } from "@/store/types";
+import { filterCurrency } from "@/utils/currency/index";
 
 describe("filterCurrency function tests", () => {
     it("should filter the currency data based on a valid currency list", () => {

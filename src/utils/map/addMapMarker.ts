@@ -1,5 +1,5 @@
 import mapboxgl from "mapbox-gl";
-import { BanksDataType } from "@/types/types";
+import { BanksDataType } from "@/types";
 
 export const addMapMarker = (
     markerItem: BanksDataType,

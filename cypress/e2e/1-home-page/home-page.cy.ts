@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import { lastCurrencyCached } from "cypress/data/lastCurrencyCached";
-import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
+import { getLastUpdateTime } from "@/utils/date/index";
 
 Cypress.on("uncaught:exception", () => false);
 

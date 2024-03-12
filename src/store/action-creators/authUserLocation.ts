@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 import { SUCCES_LOCATION_AUTH, ERROR_LOCATION_AUTH } from "@/store/reducers/locationAuthReducer";
-import { LocationAuthActionType } from "@/store/types/types";
+import { LocationAuthActionType } from "@/store/types";
 
 export const successAuthUserLocation =
     (userLtt: number, userLgt: number) => (dispatch: Dispatch<LocationAuthActionType>) =>

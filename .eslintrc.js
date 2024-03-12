@@ -59,5 +59,6 @@ module.exports = {
         "react/prefer-stateless-function": "off",
         "@typescript-eslint/default-param-last": "off",
         "@typescript-eslint/naming-convention": "off",
+        "no-restricted-exports": "off",
     },
 };

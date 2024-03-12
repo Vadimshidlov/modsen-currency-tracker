@@ -1,5 +1,5 @@
 import { ChartData } from "chart.js";
-import { getRandomOhlcv } from "@/utils/chart/getRandomOhlcv";
+import { getRandomOhlcv } from "@/utils/chart/index";
 
 interface FinancialDataPoint {
     x: number;
