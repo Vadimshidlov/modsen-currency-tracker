@@ -1,0 +1,13 @@
+@use "../constants/styles/fonts" as fonts;
+@import "../constants/styles/colors";
+@import "../index";
+
+.app {
+    display: flex;
+    flex-direction: column;
+    background-color: $black_background;
+
+    &.light-theme {
+        background-color: $white_background;
+    }
+}

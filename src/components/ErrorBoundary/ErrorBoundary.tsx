@@ -1,7 +1,7 @@
 import React, { Component, ErrorInfo } from "react";
 import "@/components/ErrorBoundary/ErrorBoundary.scss";
-import Text from "@/components/pages/TimelinePage/Text/Text";
-import { ErrorBoundaryPropsType, ErrorBoundaryStateType } from "@/types/types";
+import Text from "@/components/Text/index";
+import { ErrorBoundaryPropsType, ErrorBoundaryStateType } from "@/types";
 
 export default class ErrorBoundary extends Component<
     ErrorBoundaryPropsType,

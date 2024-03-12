@@ -1,0 +1,133 @@
+@use "@/constants/styles/fonts" as fonts;
+@use "@/constants/styles/colors" as colors;
+
+.chart-form__container {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  transition: all 1s;
+
+  .chart-form__content {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: colors.$modal_background;
+    margin: 10vh auto;
+    max-width: 350px;
+    border-radius: 10px;
+    z-index: 1000;
+
+    @media (max-width: 768px) {
+      width: 270px;
+    }
+
+    @media (max-width: 420px) {
+      width: 260px;
+    }
+
+    .chart-form__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+
+      .chart-form__title {
+        color: colors.$black_background;
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_25;
+        margin-bottom: 10px;
+
+        @media (max-width: 900px) {
+          font-size: fonts.$font-size_20;
+        }
+      }
+
+      .chart-form__field {
+        .field_title {
+          @include fonts.PoppinsLight;
+          font-size: fonts.$font-size_20;
+
+          @media (max-width: 900px) {
+            font-size: fonts.$font-size_15;
+          }
+        }
+      }
+
+
+      .chart-form__submit {
+        padding: 15px;
+        background: transparent;
+        color: colors.$color_white;
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_15;
+        border: 2px solid colors.$color_grey__input-background;
+        transition: all 1s;
+        max-width: 200px;
+        align-self: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+          padding: 7px;
+          font-size: fonts.$font-size_15;
+        }
+
+        @media (max-width: 600px) {
+          font-size: fonts.$font-size_12;
+        }
+
+        @media (max-width: 500px) {
+          padding: 5px;
+          font-size: fonts.$font-size_13;
+        }
+      }
+
+      .chart-form__error {
+        width: 60%;
+        @include fonts.PoppinsLight;
+        font-size: fonts.$font-size_15;
+        text-align: center;
+        color: colors.$chart-input__error-message;
+
+
+        @media (max-width: 768px) {
+          font-size: fonts.$font-size_13;
+        }
+
+        @media (max-width: 420px) {
+          font-size: fonts.$font-size_12;
+        }
+      }
+    }
+  }
+
+  .chart-form__close-button {
+    background-color: colors.$modal_background;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transition: all 1s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.3);
+    }
+  }
+}
+
+
+
+

@@ -1,4 +1,4 @@
-import { BanksDataType } from "@/types/types";
+import { BanksDataType } from "@/types";
 
 export const mockMapData: BanksDataType[] = [
     {

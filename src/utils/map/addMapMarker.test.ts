@@ -1,6 +1,6 @@
 import mapboxgl, { Map } from "mapbox-gl";
-import { addMapMarker } from "@/utils/map/addMapMarker";
-import { BanksDataType } from "@/types/types";
+import { addMapMarker } from "@/utils/map/index";
+import { BanksDataType } from "@/types";
 
 jest.mock("mapbox-gl", () => ({
     Map: jest.fn(() => ({

@@ -1,4 +1,4 @@
-import { validateChartFormSubmit } from "@/utils/chart/validateChartFormSubmit";
+import { validateChartFormSubmit } from "@/utils/chart/index";
 
 describe("validateChartFormSubmit function tests", () => {
     test("returns true if input values are valid", () => {

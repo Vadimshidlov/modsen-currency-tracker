@@ -1,5 +1,5 @@
-import { CurrencyType } from "@/store/types/types";
-import { getCurrencyTitleWithCode } from "@/utils/currency/getCurrencyTitleWithCode";
+import { CurrencyType } from "@/store/types";
+import { getCurrencyTitleWithCode } from "@/utils/currency/index";
 
 export const getSecondCurrency = (currencyData: CurrencyType, currentCurrency: string) => {
     const secondCurrency = {

@@ -1,4 +1,4 @@
-import { getCurrencyIcon } from "@/utils/currency/getCurrencyIcon";
+import { getCurrencyIcon } from "@/utils/currency";
 
 describe("getCurrencyIcon function tests", () => {
     it("should return correct title for passed currcency", () => {

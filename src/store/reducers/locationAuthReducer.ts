@@ -1,4 +1,4 @@
-import { LocationAuthActionType, LocationStateType } from "@/store/types/types";
+import { LocationAuthActionType, LocationStateType } from "@/store/types";
 
 export const SUCCES_LOCATION_AUTH = "SUCCES_LOCATION_AUTH";
 export const ERROR_LOCATION_AUTH = "ERROR_LOCATION_AUTH";

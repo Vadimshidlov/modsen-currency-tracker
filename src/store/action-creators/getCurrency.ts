@@ -1,9 +1,9 @@
 import { Dispatch } from "redux";
-import AxiosCurrentCurrencyService from "@/services/CurrentCurrencyServise/CurrentCurrencyService";
+import AxiosCurrentCurrencyService from "@/services/CurrentCurrencyServise/index";
 
-import { filterCurrency } from "@/utils/currency/filterCurrency";
+import { filterCurrency } from "@/utils/currency/index";
 import { CurrentCurrencyActionType } from "@/store/reducers/latestCurrencyReducer";
-import { CurrencyType, CurrentCurrencyAction } from "@/store/types/types";
+import { CurrencyType, CurrentCurrencyAction } from "@/store/types";
 
 export function getCurrency() {
     return async (dispatch: Dispatch<CurrentCurrencyActionType>) => {

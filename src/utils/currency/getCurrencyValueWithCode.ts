@@ -1,4 +1,4 @@
-import { CurrencyType } from "@/store/types/types";
+import { CurrencyType } from "@/store/types";
 
 export const getCurrencyValueWithCode = (currencyData: CurrencyType, currencyCode: string) => {
     let currencyValue = 0;

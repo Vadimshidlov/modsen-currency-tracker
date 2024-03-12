@@ -1,5 +1,5 @@
-import AxiosBankApiService from "@/services/AxiosBankApiService/AxiosBankApiService";
-import { BanksDataType } from "@/types/types";
+import AxiosBankApiService from "@/services/AxiosBankApiService/index";
+import { BanksDataType } from "@/types";
 
 export default class BankApiService {
     private AXIOS_API = AxiosBankApiService;

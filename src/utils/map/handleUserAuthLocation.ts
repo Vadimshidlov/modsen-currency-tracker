@@ -1,4 +1,4 @@
-import { UserAuthLocationPropsType } from "@/types/types";
+import { UserAuthLocationPropsType } from "@/types";
 
 export const handleUserAuthLocation = ({ onSuccess, onError }: UserAuthLocationPropsType) => {
     if ("geolocation" in navigator) {

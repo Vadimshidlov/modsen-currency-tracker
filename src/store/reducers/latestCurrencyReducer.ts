@@ -4,7 +4,7 @@ import {
     GetCurrCurrencyErrorType,
     GetCurrCurrencySuccesType,
     GetCurrCurrencyType,
-} from "@/store/types/types";
+} from "@/store/types";
 
 const initialState: CurrentCurrencyStateType = {
     currency: {
@@ -26,7 +26,7 @@ const latestCurrencyReducer = (
     state: CurrentCurrencyStateType = initialState,
     action: CurrentCurrencyActionType,
 ): CurrentCurrencyStateType => {
-    const intialCurrency = {
+    const initialCurrency = {
         meta: {
             last_updated_at: "",
         },
@@ -38,14 +38,14 @@ const latestCurrencyReducer = (
             return {
                 isLoading: true,
                 error: null,
-                currency: intialCurrency,
+                currency: initialCurrency,
             };
 
         case CurrentCurrencyAction.GET_CURR_CURRENCY_SUCCES:
             return { isLoading: false, error: null, currency: action.payload };
 
         case CurrentCurrencyAction.GET_CURR_CURRENCY_ERROR:
-            return { isLoading: true, error: action.payload, currency: intialCurrency };
+            return { isLoading: true, error: action.payload, currency: initialCurrency };
 
         default:
             return state;

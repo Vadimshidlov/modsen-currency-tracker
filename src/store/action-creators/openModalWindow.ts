@@ -4,7 +4,7 @@ import {
     ModalWindowActionType,
     OpenWindowActionType,
     SelectSecondCurrencyActionType,
-} from "@/store/types/types";
+} from "@/store/types";
 import {
     CLOSE_MODAL_WINDOW,
     OPEN_MODAL_WINDOW,

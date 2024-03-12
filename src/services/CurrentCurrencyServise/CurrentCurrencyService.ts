@@ -1,6 +1,6 @@
-import AxiosCurrencyService from "@/services/AxiosCurrencyService/AxiosCurrencyService";
-import { CurrencyType } from "@/store/types/types";
-import { getLastUpdateTime } from "@/utils/date/getLastUpdateTime";
+import AxiosCurrencyService from "@/services/AxiosCurrencyService/index";
+import { CurrencyType } from "@/store/types";
+import { getLastUpdateTime } from "@/utils/date/index";
 
 class CurrentCurrencyService {
     private readonly CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;

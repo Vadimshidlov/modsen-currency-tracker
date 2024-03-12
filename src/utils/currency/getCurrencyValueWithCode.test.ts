@@ -1,5 +1,5 @@
-import { CurrencyType } from "@/store/types/types";
-import { getCurrencyValueWithCode } from "@/utils/currency/getCurrencyValueWithCode";
+import { CurrencyType } from "@/store/types";
+import { getCurrencyValueWithCode } from "@/utils/currency/index";
 
 describe("getCurrencyValueWithCode function tests", () => {
     it("should return correct value for passed currency", () => {

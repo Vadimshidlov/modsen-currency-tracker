@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import { SWITCH_DARK, SWITCH_LIGHT } from "@/store/reducers/themeReducer";
-import { ThemeActionType } from "@/store/types/types";
+import { ThemeActionType } from "@/store/types";
 
 export const switchLightTheme = () => (dispatch: Dispatch<ThemeActionType>) => {
     localStorage.setItem("userTheme", "Light");

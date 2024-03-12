@@ -1,4 +1,4 @@
-import { handleUserAuthLocation } from "@/utils/map/handleUserAuthLocation";
+import { handleUserAuthLocation } from "@/utils/map/index";
 
 describe("handleUserAuthLocation function tests", () => {
     test("calls onSuccess callback with latitude and longitude if geolocation is available", () => {
